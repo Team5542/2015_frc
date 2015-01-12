@@ -7,7 +7,6 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
 import org.usfirst.frc.team5542.robot.commands.CommandBase;
-import org.usfirst.frc.team5542.robot.subsystems.Drivetrain;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -30,7 +29,7 @@ public class Robot extends IterativeRobot {
 		oi = new OI();
 		CommandBase.init();
         // instantiate the command used for the autonomous period
-        autonomousCommand = new ExampleCommand();
+        
     }
 	
 	public void disabledPeriodic() {
