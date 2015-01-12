@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
  */
 public class OI {
     
-	Joystick controller = new Joystick(1);
+	Joystick controller = new Joystick(0);
 	Button aButton = new JoystickButton(controller, 1);
 	Button bButton = new JoystickButton(controller, 2);
 	Button xButton = new JoystickButton(controller, 3);
