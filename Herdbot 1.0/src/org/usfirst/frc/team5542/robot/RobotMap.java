@@ -6,11 +6,11 @@ package org.usfirst.frc.team5542.robot;
  * floating around.
  */
 public class RobotMap {
-    public static final int flMotor = 1;//front left motor
-    public static final int frMotor = 2;//etc.
-    public static final int blMotor = 3;
-    public static final int brMotor = 4;
-    public static final int cMotor = 5;//Center motor for strafing.
+    public static final int flMotor = 0;//front left motor
+    public static final int frMotor = 3;//etc.
+    public static final int blMotor = 1;
+    public static final int brMotor = 2;
+    public static final int cMotor = 4;//Center motor for strafing.
     
     // If you are using multiple modules, make sure to define both the port
     // number and the module. For example you with a rangefinder:
