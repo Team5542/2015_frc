@@ -22,8 +22,8 @@ public class OI {
 	Button lStick = new JoystickButton(controller, 9);
 	Button rStick = new JoystickButton(controller, 10);
 	
-	public static final int lxAxis = 1;
-	public static final int lyAxis = 2;
+	public static final int lxAxis = 0;
+	public static final int lyAxis = 1;
 	public static final int rxAxis = 4;
 	public static final int ryAxis = 5;
 	public static final int triggers = 3;
