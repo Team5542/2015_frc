@@ -4,7 +4,7 @@ import org.usfirst.frc.team5542.robot.RobotMap;
 import org.usfirst.frc.team5542.robot.commands.UserDrive;
 
 import edu.wpi.first.wpilibj.RobotDrive;
-import edu.wpi.first.wpilibj.Victor;
+import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
@@ -13,14 +13,14 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class Drivetrain extends Subsystem {
     
 	private RobotDrive myDrive;
-	private Victor flMotor, frMotor, blMotor, brMotor, cMotor;
+	private Talon flMotor, frMotor, blMotor, brMotor, cMotor;
 	
 	private Drivetrain(){
-		flMotor = new Victor(RobotMap.flMotor);
-		blMotor = new Victor(RobotMap.blMotor);
-		frMotor = new Victor(RobotMap.frMotor);
-		brMotor = new Victor(RobotMap.brMotor);
-		cMotor = new Victor(RobotMap.cMotor);
+		flMotor = new Talon(RobotMap.flMotor);
+		blMotor = new Talon(RobotMap.blMotor);
+		frMotor = new Talon(RobotMap.frMotor);
+		brMotor = new Talon(RobotMap.brMotor);
+		cMotor = new Talon(RobotMap.cMotor);
 		myDrive = new RobotDrive(flMotor, blMotor, frMotor, brMotor);
 	}
 	
