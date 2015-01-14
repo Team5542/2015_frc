@@ -45,7 +45,7 @@ public class UserDrive extends CommandBase {
     	if (strafe > -.05 && strafe < .05)
     		strafe = 0.0;
     	drivetrain.tankDrive(left, right);
-    	drivetrain.Strafe(strafe);
+    	drivetrain.strafe(strafe);
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -61,6 +61,6 @@ public class UserDrive extends CommandBase {
     // subsystems is scheduled to run
     protected void interrupted() {
     	drivetrain.tankDrive(0, 0);
-    	drivetrain.Strafe(0);
+    	drivetrain.strafe(0);
     }
 }

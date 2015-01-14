@@ -36,7 +36,7 @@ public class Drivetrain extends Subsystem {
     	myDrive.tankDrive(left, right);
     }
 	
-	public void Strafe(double input){
+	public void strafe(double input){
     	if (input > 1.0 || input < -1.0)
     		throw new IllegalArgumentException();
     	cMotor.set(input);
