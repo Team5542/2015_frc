@@ -25,7 +25,7 @@ public class UserDrive extends CommandBase {
     	Joystick controller = Robot.oi.getController();
     	double left = controller.getRawAxis(OI.lyAxis);
     	double right = controller.getRawAxis(OI.ryAxis);
-    	double strafe = controller.getRawAxis(OI.triggers);
+    	double strafe = controller.getRawAxis(OI.rTrigger) - controller.getRawAxis(OI.lTrigger);
     	if (left >= 0)
     		left = Math.pow(left, sensitivity);
     	else

@@ -26,7 +26,8 @@ public class OI {
 	public static final int lyAxis = 5;
 	public static final int rxAxis = 4;
 	public static final int ryAxis = 1;
-	public static final int triggers = 3;
+	public static final int rTrigger = 2;
+	public static final int lTrigger = 3;
 	public static final int dPad = 6;
 	
 	public Joystick getController(){
