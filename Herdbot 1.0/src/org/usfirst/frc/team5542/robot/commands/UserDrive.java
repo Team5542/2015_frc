@@ -14,7 +14,7 @@ public class UserDrive extends CommandBase {
         requires(drivetrain);
     }
 
-    public static final double sensitivity = 2.0;
+    public static final double sensitivity = 1.0;
     
     // Called just before this Command runs the first time
     protected void initialize() {
