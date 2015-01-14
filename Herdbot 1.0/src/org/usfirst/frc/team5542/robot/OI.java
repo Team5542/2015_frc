@@ -9,7 +9,9 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
  * interface to the commands and command groups that allow control of the robot.
  */
 public class OI {
-    
+    /**
+     * Getting buttons of controller
+     */
 	Joystick controller = new Joystick(0);
 	Button aButton = new JoystickButton(controller, 1);
 	Button bButton = new JoystickButton(controller, 2);
@@ -21,7 +23,9 @@ public class OI {
 	Button start = new JoystickButton(controller, 8);
 	Button lStick = new JoystickButton(controller, 9);
 	Button rStick = new JoystickButton(controller, 10);
-	
+	/**
+	 * defining the axis
+	 */
 	public static final int lxAxis = 0;
 	public static final int lyAxis = 5;
 	public static final int rxAxis = 4;
@@ -29,7 +33,9 @@ public class OI {
 	public static final int rTrigger = 2;
 	public static final int lTrigger = 3;
 	public static final int dPad = 6;
-	
+	/**
+	 * Sting Joystick set
+	 */
 	public Joystick getController(){
 		return controller;
 	}
