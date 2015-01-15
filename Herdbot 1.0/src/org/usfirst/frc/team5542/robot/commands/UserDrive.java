@@ -13,11 +13,8 @@ public class UserDrive extends CommandBase {
     public UserDrive() {
         requires(drivetrain);
     }
-/**
- * Sensitivity of controls
- */
-    
-    public static final double sensitivity = 1.0;
+    //Sensitivity curve (trust me, we probably don't want 1.0...)
+    public static final double sensitivity = 1.5;
     
     // Called just before this Command runs the first time
     protected void initialize() {
