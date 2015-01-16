@@ -35,6 +35,11 @@ public class Drivetrain extends Subsystem {
     public void tankDrive(double left, double right){
     	myDrive.tankDrive(left, right);
     }
+    
+    public void fprDrive(double move, double strafe, double turn){
+    	myDrive.arcadeDrive(move, turn);
+    	strafe(strafe);
+    }
 	
 	public void strafe(double input){
     	if (input > 1.0 || input < -1.0)

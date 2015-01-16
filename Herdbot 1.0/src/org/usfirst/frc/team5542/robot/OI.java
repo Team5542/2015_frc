@@ -1,5 +1,7 @@
 package org.usfirst.frc.team5542.robot;
 
+import org.usfirst.frc.team5542.robot.commands.FprDrive;
+
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
@@ -31,9 +33,17 @@ public class OI {
 	public static final int lTrigger = 3;
 	public static final int dPad = 6;
 	
+	//stick sensitivity curve
+	public static final double sensitivity = 1.5;
+	
 	//accessor for controller
 	public Joystick getController(){
 		return controller;
+	}
+	
+	//constructor
+	public OI(){
+		start.toggleWhenPressed(new FprDrive());
 	}
 	
 	//// CREATING BUTTONS

@@ -6,15 +6,13 @@ import org.usfirst.frc.team5542.robot.Robot;
 import edu.wpi.first.wpilibj.Joystick;
 
 /**
- *
+ *Default tank-style drive control
  */
 public class UserDrive extends CommandBase {
 
     public UserDrive() {
         requires(drivetrain);
     }
-    //Sensitivity curve (trust me, we probably don't want 1.0...)
-    public static final double sensitivity = 1.5;
     
     // Called just before this Command runs the first time
     protected void initialize() {
@@ -27,17 +25,17 @@ public class UserDrive extends CommandBase {
     	double right = controller.getRawAxis(OI.ryAxis);
     	double strafe = controller.getRawAxis(OI.rTrigger) - controller.getRawAxis(OI.lTrigger);
     	if (left >= 0)
-    		left = Math.pow(left, sensitivity);
+    		left = Math.pow(left, OI.sensitivity);
     	else
-    		left = -(Math.pow(-left, sensitivity));
+    		left = -(Math.pow(-left, OI.sensitivity));
     	if (right >= 0)
-    		right = Math.pow(right, sensitivity);
+    		right = Math.pow(right, OI.sensitivity);
     	else
-    		right = -(Math.pow(-right, sensitivity));
+    		right = -(Math.pow(-right, OI.sensitivity));
     	if (strafe >= 0)
-    		strafe = Math.pow(strafe, sensitivity);
+    		strafe = Math.pow(strafe, OI.sensitivity);
     	else
-    		strafe = -(Math.pow(-strafe, sensitivity));
+    		strafe = -(Math.pow(-strafe, OI.sensitivity));
     	if (left > -.05 && left < .05)
     		left = 0.0;
     	if (right > -.05 && right < .05)
