@@ -33,7 +33,7 @@ public class OI {
 	public static final int lTrigger = 3;
 	public static final int dPad = 6;
 	
-	//stick sensitivity curve
+	//stick sensitivity curve (creates a graph with y=x^(sensitivity) where x = controller input y = motor output)
 	public static final double sensitivity = 1.5;
 	
 	//accessor for controller
