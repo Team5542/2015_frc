@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
- *Drivetrain subsystem. Inlcludes all motors used for driving.
+ *Drivetrain subsystem. Includes all motors used for driving.
  */
 public class Drivetrain extends Subsystem {
     
@@ -51,5 +51,10 @@ public class Drivetrain extends Subsystem {
 	public void initDefaultCommand() {
         setDefaultCommand(new UserDrive());
     }
+
+	public void arm(double input) {
+		aMotor.set(input);
+		
+	}
 }
 

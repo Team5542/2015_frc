@@ -44,7 +44,7 @@ public class UserDrive extends CommandBase {
     	if (strafe > -.05 && strafe < .05)
     		strafe = 0.0;
     	if (arm >= 0.0)
-    		arm = Math.pow(arm, OI.sensitivity);
+    		arm = (Math.pow(arm, OI.sensitivity));
     	else
     		arm = -(Math.pow(-arm, OI.sensitivity));
     	drivetrain.arm(arm);
@@ -66,5 +66,6 @@ public class UserDrive extends CommandBase {
     protected void interrupted() {
     	drivetrain.tankDrive(0, 0);
     	drivetrain.strafe(0);
+    	drivetrain.arm(0);
     }
 }
