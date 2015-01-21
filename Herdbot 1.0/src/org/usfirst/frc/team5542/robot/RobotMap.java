@@ -11,6 +11,7 @@ public class RobotMap {
     public static final int blMotor = 1;
     public static final int brMotor = 2;
     public static final int cMotor = 4;//Center motor for strafing.
+    public static final int aMotor = 6;//Motor for arm
     
     // If you are using multiple modules, make sure to define both the port
     // number and the module. For example you with a rangefinder:
