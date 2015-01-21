@@ -1,5 +1,6 @@
 package org.usfirst.frc.team5542.robot.commands;
 
+import org.usfirst.frc.team5542.robot.subsystems.ArmManipulator;
 import org.usfirst.frc.team5542.robot.subsystems.Drivetrain;
 
 import edu.wpi.first.wpilibj.command.Command;
@@ -11,6 +12,7 @@ import edu.wpi.first.wpilibj.command.Command;
 public abstract class CommandBase extends Command {
 
 	protected static Drivetrain drivetrain;
+	protected static ArmManipulator ArmManipulator;
 	
 	
 	
