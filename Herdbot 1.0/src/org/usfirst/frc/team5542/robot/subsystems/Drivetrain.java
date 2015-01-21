@@ -13,7 +13,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class Drivetrain extends Subsystem {
     
 	private RobotDrive myDrive;
-	private Talon flMotor, frMotor, blMotor, brMotor, cMotor, aMotor;
+	private Talon flMotor, frMotor, blMotor, brMotor, cMotor;
 	
 	private Drivetrain(){
 		flMotor = new Talon(RobotMap.flMotor);
@@ -21,7 +21,6 @@ public class Drivetrain extends Subsystem {
 		frMotor = new Talon(RobotMap.frMotor);
 		brMotor = new Talon(RobotMap.brMotor);
 		cMotor = new Talon(RobotMap.cMotor);
-		aMotor = new Talon(RobotMap.aMotor);
 		myDrive = new RobotDrive(flMotor, blMotor, frMotor, brMotor);
 	}
 	
@@ -51,10 +50,5 @@ public class Drivetrain extends Subsystem {
 	public void initDefaultCommand() {
         setDefaultCommand(new UserDrive());
     }
-
-	public void arm(double input) {
-		aMotor.set(input);
-		
-	}
 }
 
