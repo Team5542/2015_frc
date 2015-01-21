@@ -3,8 +3,8 @@ package org.usfirst.frc.team5542.robot.subsystems;
 
 import org.usfirst.frc.team5542.robot.RobotMap;
 
-
 import edu.wpi.first.wpilibj.Talon;
+import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
@@ -12,10 +12,10 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  */
 public class ArmManipulator extends Subsystem {
 	
-	private Talon aMotor;
+	private Victor aMotor;
 	
     private ArmManipulator(){
-    	aMotor = new Talon(RobotMap.aMotor);
+    	aMotor = new Victor(RobotMap.aMotor);
     }
 
     	public void arm(double input){
