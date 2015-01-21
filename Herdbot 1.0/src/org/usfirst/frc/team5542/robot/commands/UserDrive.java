@@ -23,7 +23,6 @@ public class UserDrive extends CommandBase {
     	Joystick controller = Robot.oi.getController();
     	double left = controller.getRawAxis(OI.lyAxis);
     	double right = controller.getRawAxis(OI.ryAxis);
-    	double arm = controller.getRawAxis(OI.dPad);
     	double strafe = controller.getRawAxis(OI.rTrigger) - controller.getRawAxis(OI.lTrigger);
     	if (left >= 0)
     		left = Math.pow(left, OI.sensitivity);
@@ -43,11 +42,6 @@ public class UserDrive extends CommandBase {
     		right = 0.0;
     	if (strafe > -.05 && strafe < .05)
     		strafe = 0.0;
-    	if (arm >= 0.0)
-    		arm = (Math.pow(arm, OI.sensitivity));
-    	else
-    		arm = -(Math.pow(-arm, OI.sensitivity));
-    	drivetrain.arm(arm);
     	drivetrain.tankDrive(left, right);
     	drivetrain.strafe(strafe);
     }
@@ -66,6 +60,5 @@ public class UserDrive extends CommandBase {
     protected void interrupted() {
     	drivetrain.tankDrive(0, 0);
     	drivetrain.strafe(0);
-    	drivetrain.arm(0);
     }
 }

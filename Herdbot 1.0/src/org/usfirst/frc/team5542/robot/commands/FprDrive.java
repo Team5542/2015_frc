@@ -26,7 +26,6 @@ public class FprDrive extends CommandBase {
     	double move = controller.getRawAxis(OI.lyAxis);
     	double strafe = controller.getRawAxis(OI.lxAxis);
     	double turn = controller.getRawAxis(OI.rxAxis);
-    	double arm = controller.getRawAxis(OI.dPad);
     	if (move >= 0)
     		move = Math.pow(move, OI.sensitivity);
     	else
@@ -45,12 +44,7 @@ public class FprDrive extends CommandBase {
     		strafe = 0.0;
     	if (turn > -.05 && turn < .05)
     		turn = 0.0;
-    	if (arm >= 0.0)
-    		arm = (Math.pow(arm, OI.sensitivity));
-    	else
-    		arm = -(Math.pow(-arm, OI.sensitivity));
     	drivetrain.fprDrive(move, strafe, turn);
-    	drivetrain.arm(arm);
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -61,7 +55,6 @@ public class FprDrive extends CommandBase {
     // Called once after isFinished returns true
     protected void end() {
     	drivetrain.fprDrive(0, 0, 0);
-    	drivetrain.arm(0.0);
     }
 
     // Called when another command which requires one or more of the same
