@@ -12,10 +12,10 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  */
 public class ArmManipulator extends Subsystem {
 	
-	private Victor aMotor;
+	private Talon aMotor;
 	
     private ArmManipulator(){
-    	aMotor = new Victor(RobotMap.aMotor);
+    	aMotor = new Talon(RobotMap.aMotor);
     }
 
     	public void arm(double input){
