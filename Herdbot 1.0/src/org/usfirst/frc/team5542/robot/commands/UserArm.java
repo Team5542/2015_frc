@@ -13,7 +13,7 @@ import edu.wpi.first.wpilibj.Joystick;
 public class UserArm extends CommandBase {
 	
     public UserArm() {
-        requires(ArmManipulator);
+        requires(Arm);
     }
 
 
@@ -29,7 +29,7 @@ public class UserArm extends CommandBase {
     		arm = -1.0;
     	else
     		arm = 1.0;
-    	ArmManipulator.arm(arm);
+    	Arm.move(arm);
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -44,6 +44,6 @@ public class UserArm extends CommandBase {
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	ArmManipulator.arm(0);
+    	Arm.move(0);
     }
 }
