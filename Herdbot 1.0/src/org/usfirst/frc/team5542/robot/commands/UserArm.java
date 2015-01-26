@@ -25,10 +25,6 @@ public class UserArm extends CommandBase {
     protected void execute() {
     	Joystick controller = Robot.oi.getController();
     	double arm = controller.getRawAxis(OI.rTrigger) - controller.getRawAxis(OI.lTrigger);
-    	if (arm >= 1.0)
-    		arm = 1.0;
-    	else
-    		arm = -1.0;
     	Arm.move(arm);
     }
 
