@@ -1,6 +1,7 @@
 package org.usfirst.frc.team5542.robot.commands;
 
 import org.usfirst.frc.team5542.robot.subsystems.Arm;
+import org.usfirst.frc.team5542.robot.subsystems.Camera;
 import org.usfirst.frc.team5542.robot.subsystems.Drivetrain;
 
 import edu.wpi.first.wpilibj.command.Command;
@@ -13,6 +14,7 @@ public abstract class CommandBase extends Command {
 
 	protected static Drivetrain drivetrain;
 	protected static Arm arm;
+	protected static Camera camera;
 	
 	
 	
