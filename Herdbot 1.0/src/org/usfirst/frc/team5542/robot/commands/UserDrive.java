@@ -23,7 +23,6 @@ public class UserDrive extends CommandBase {
     	Joystick controller = Robot.oi.getController();
     	double left = controller.getRawAxis(OI.lyAxis);
     	double right = controller.getRawAxis(OI.ryAxis);
-    	double strafe = controller.getRawAxis(OI.rTrigger) - controller.getRawAxis(OI.lTrigger);
     	if (left >= 0)
     		left = Math.pow(left, OI.sensitivity);
     	else
@@ -32,18 +31,11 @@ public class UserDrive extends CommandBase {
     		right = Math.pow(right, OI.sensitivity);
     	else
     		right = -(Math.pow(-right, OI.sensitivity));
-    	if (strafe >= 0)
-    		strafe = Math.pow(strafe, OI.sensitivity);
-    	else
-    		strafe = -(Math.pow(-strafe, OI.sensitivity));
     	if (left > -.05 && left < .05)
     		left = 0.0;
     	if (right > -.05 && right < .05)
     		right = 0.0;
-    	if (strafe > -.05 && strafe < .05)
-    		strafe = 0.0;
     	drivetrain.tankDrive(left, right);
-    	drivetrain.strafe(strafe);
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -59,6 +51,5 @@ public class UserDrive extends CommandBase {
     // subsystems is scheduled to run
     protected void interrupted() {
     	drivetrain.tankDrive(0, 0);
-    	drivetrain.strafe(0);
     }
 }

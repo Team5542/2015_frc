@@ -24,27 +24,22 @@ public class FprDrive extends CommandBase {
     protected void execute() {
     	Joystick controller = Robot.oi.getController();
     	double move = controller.getRawAxis(OI.lyAxis);
-    	double strafe = controller.getRawAxis(OI.lxAxis);
     	double turn = controller.getRawAxis(OI.rxAxis);
     	if (move >= 0)
     		move = Math.pow(move, OI.sensitivity);
     	else
     		move = -(Math.pow(-move, OI.sensitivity));
-    	if (strafe >= 0)
-    		strafe = Math.pow(strafe, OI.sensitivity);
-    	else
-    		strafe = -(Math.pow(-strafe, OI.sensitivity));
+
     	if (turn >= 0)
     		turn = Math.pow(turn, OI.sensitivity);
     	else
     		turn = -(Math.pow(-turn, OI.sensitivity));
     	if (move > -.05 && move < .05)
     		move = 0.0;
-    	if (strafe > -.05 && strafe < .05)
-    		strafe = 0.0;
+
     	if (turn > -.05 && turn < .05)
     		turn = 0.0;
-    	drivetrain.fprDrive(move, strafe, turn);
+    	drivetrain.fprDrive(move, turn);
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -54,7 +49,7 @@ public class FprDrive extends CommandBase {
 
     // Called once after isFinished returns true
     protected void end() {
-    	drivetrain.fprDrive(0, 0, 0);
+    	drivetrain.fprDrive(0, 0);
     }
 
     // Called when another command which requires one or more of the same
