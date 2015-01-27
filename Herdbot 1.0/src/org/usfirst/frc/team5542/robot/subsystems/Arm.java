@@ -4,7 +4,7 @@ package org.usfirst.frc.team5542.robot.subsystems;
 import org.usfirst.frc.team5542.robot.RobotMap;
 import org.usfirst.frc.team5542.robot.commands.UserArm;
 
-import edu.wpi.first.wpilibj.Talon;
+import edu.wpi.first.wpilibj.TalonSRX;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
@@ -12,10 +12,10 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  */
 public class Arm extends Subsystem {
 	
-	private Talon aMotor;
+	private TalonSRX aMotor;
 	
     private Arm(){
-    	aMotor = new Talon(RobotMap.aMotor);
+    	aMotor = new TalonSRX(RobotMap.aMotor);
     }
 
     	public void move(double input){
