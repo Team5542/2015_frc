@@ -13,7 +13,7 @@ import edu.wpi.first.wpilibj.Joystick;
 public class UserArm extends CommandBase {
 	
     public UserArm() {
-        requires(Arm);
+        requires(arm);
     }
 
 
@@ -24,8 +24,8 @@ public class UserArm extends CommandBase {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	Joystick controller = Robot.oi.getController();
-    	double arm = controller.getRawAxis(OI.rTrigger) - controller.getRawAxis(OI.lTrigger);
-    	Arm.move(arm);
+    	double move = controller.getRawAxis(OI.rTrigger) - controller.getRawAxis(OI.lTrigger);
+    	arm.move(move);
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -40,6 +40,6 @@ public class UserArm extends CommandBase {
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	Arm.move(0);
+    	arm.move(0);
     }
 }

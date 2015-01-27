@@ -12,7 +12,7 @@ import edu.wpi.first.wpilibj.command.Command;
 public abstract class CommandBase extends Command {
 
 	protected static Drivetrain drivetrain;
-	protected static Arm Arm;
+	protected static Arm arm;
 	
 	
 	
@@ -20,5 +20,6 @@ public abstract class CommandBase extends Command {
 	
 	public static void init(){
 		drivetrain = Drivetrain.getInstance();
+		arm = Arm.getInstance();
 	}
 }
