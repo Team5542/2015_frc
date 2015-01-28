@@ -26,8 +26,7 @@ public class UserCamera extends CommandBase {
     	Joystick controller = Robot.oi.getController();
     	int pan = controller.getPOV(OI.dPad);
     	int tilt = controller.getPOV(OI.dPad);
-    	if (pan == 0)
-    		
+
     			
     	
     	
