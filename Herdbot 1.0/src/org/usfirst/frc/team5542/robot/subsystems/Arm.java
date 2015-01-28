@@ -4,24 +4,24 @@ package org.usfirst.frc.team5542.robot.subsystems;
 import org.usfirst.frc.team5542.robot.RobotMap;
 import org.usfirst.frc.team5542.robot.commands.UserArm;
 
-import edu.wpi.first.wpilibj.TalonSRX;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.hal.CanTalonSRX;
 
 /**
  *base for the arm
  */
 public class Arm extends Subsystem {
 	
-	private TalonSRX aMotor;
+	private CanTalonSRX aMotor;
 	
     private Arm(){
-    	aMotor = new TalonSRX(RobotMap.aMotor);
+    	aMotor = new CanTalonSRX(RobotMap.aMotor);
     }
 
     	public void move(double input){
         	if (input > 1.0 || input < -1.0)
         		throw new IllegalArgumentException();
-        	aMotor.set(input);
+        	aMotor.Set(input);
     }
     	public static Arm instance;
     	
