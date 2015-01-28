@@ -28,6 +28,7 @@ public class UserCamera extends CommandBase {
     	double updown = controller.getRawAxis(OI.dPad);
     	if (updown <= 0)
     		updown = Servo.getAngle(RobotMap.cudMotor);
+    	if
     		
     			
     	
