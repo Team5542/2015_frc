@@ -2,11 +2,8 @@ package org.usfirst.frc.team5542.robot.commands;
 
 import org.usfirst.frc.team5542.robot.OI;
 import org.usfirst.frc.team5542.robot.Robot;
-import org.usfirst.frc.team5542.robot.RobotMap;
-import org.usfirst.frc.team5542.robot.subsystems.Camera;
 
 import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.Servo;
 
 /**
  *
@@ -24,8 +21,7 @@ public class UserCamera extends CommandBase {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	Joystick controller = Robot.oi.getController();
-    	int pan = controller.getPOV(OI.dPad);
-    	int tilt = controller.getPOV(OI.dPad);
+    	int cam = controller.getPOV(OI.dPad);
 
     			
     	

@@ -23,5 +23,6 @@ public abstract class CommandBase extends Command {
 	public static void init(){
 		drivetrain = Drivetrain.getInstance();
 		arm = Arm.getInstance();
+		camera = Camera.getInstance();
 	}
 }
