@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj.Joystick;
 
 
 /**
- *
+ *arm control fron user
  */
 public class UserArm extends CommandBase {
 	

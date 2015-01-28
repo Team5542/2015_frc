@@ -3,7 +3,7 @@ package org.usfirst.frc.team5542.robot.subsystems;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
- *
+ *light system
  */
 public class LedLights extends Subsystem {
     

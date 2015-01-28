@@ -6,7 +6,7 @@ import org.usfirst.frc.team5542.robot.Robot;
 import edu.wpi.first.wpilibj.Joystick;
 
 /**
- *
+ *Getting dPad stuff
  */
 public class UserCamera extends CommandBase {
 	

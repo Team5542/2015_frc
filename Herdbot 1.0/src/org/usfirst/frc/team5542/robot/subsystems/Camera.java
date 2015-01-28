@@ -7,7 +7,7 @@ import edu.wpi.first.wpilibj.Servo;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
- *
+ *camera setting the motors
  */
 public class Camera extends Subsystem {
 

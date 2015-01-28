@@ -10,7 +10,7 @@ public class RobotMap {
     public static final int frMotor = 3;//etc.
     public static final int blMotor = 1;
     public static final int brMotor = 2;
-    public static final int aMotor = 4;
+    public static final int aMotor = 4;//arm motor
     public static final int tiltMotor = 5;//camera up down motor
     public static final int panMotor = 6;//camera left right motor
     
