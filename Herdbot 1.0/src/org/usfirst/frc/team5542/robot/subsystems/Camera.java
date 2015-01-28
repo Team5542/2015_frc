@@ -28,7 +28,7 @@ public class Camera extends Subsystem {
     			tilt = tilt - rate;
     			if (tilt <= 0)
     				tilt = 0;
-    		}	
+    		}
     		tiltMotor.set(tilt);
 	}
     	public void pan(boolean input){
@@ -42,7 +42,8 @@ public class Camera extends Subsystem {
     			pan = pan - rate;
     			if (pan <= 0)
     				pan = 0;
-    		}	
+    		}
+    		panMotor.set(pan);
     	}
     	
     	
