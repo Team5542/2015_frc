@@ -10,24 +10,24 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  */
 public class Camera extends Subsystem {
 
-	private Servo cudMotor;
-	private Servo clrMotor;
+	private Servo tiltMotor;
+	private Servo panMotor;
 	
 	private Camera(){
-		cudMotor = new Servo(RobotMap.cudMotor);
-		clrMotor = new Servo(RobotMap.clrMotor);
+		tiltMotor = new Servo(RobotMap.tiltMotor);
+		panMotor = new Servo(RobotMap.panMotor);
 	}
-    	public void updown(double input){
+    	public void tilt(double input){
         	if (input > 1.0 || input < 0)
         		throw new IllegalArgumentException();
-        	cudMotor.set(input);
+        	tiltMotor.set(input);
 	}
-    	public void leftright(double input){
+    	public void pan(double input){
         	if (input > 1.0 || input < 0)
         		throw new IllegalArgumentException();
-        	clrMotor.set(input);
+        	panMotor.set(input);
     	}
-    	public static Camera instance;
+    	private static Camera instance;
     	
     	public static Camera getInstance(){
     		if (instance == null)
