@@ -24,10 +24,9 @@ public class UserCamera extends CommandBase {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	Joystick controller = Robot.oi.getController();
-    	double leftright = controller.getRawAxis(OI.dPad);
-    	double updown = controller.getRawAxis(OI.dPad);
-    	if (updown <= 0)
-    		updown = Servo.getAngle(RobotMap.cudMotor);
+    	int pan = controller.getPOV(OI.dPad);
+    	int tilt = controller.getPOV(OI.dPad);
+    	if (pan == 0)
     		
     			
     	

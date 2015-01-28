@@ -27,6 +27,16 @@ public class Camera extends Subsystem {
         		throw new IllegalArgumentException();
         	panMotor.set(input);
     	}
+    	
+    	public double getTilt(){
+    		return tiltMotor.getAngle();
+    	}
+    	public double getPan(){
+    		return panMotor.getAngle();
+    	}
+    	
+    	
+    	
     	private static Camera instance;
     	
     	public static Camera getInstance(){
