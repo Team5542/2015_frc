@@ -22,11 +22,14 @@ public class UserCamera extends CommandBase {
     protected void execute() {
     	Joystick controller = Robot.oi.getController();
     	int cam = controller.getPOV(OI.dPad);
-
-    			
-    	
-    	
-    	
+    	if (cam == 0 || cam == 1 || cam == 7)
+    		camera.tilt(true);
+    	if (cam == 3 || cam == 4 || cam == 5)
+    		camera.tilt(false);
+    	if (cam == 1 || cam == 2 || cam == 3)
+    		camera.pan(true);
+    	if (cam == 5 || cam == 6 || cam == 7)
+    		camera.pan(false);
     }
 
     // Make this return true when this Command no longer needs to run execute()
