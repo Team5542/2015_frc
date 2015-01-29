@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.CANTalon;
 
 /**
- *base for the arm
+ *Motors for arm.
  */
 public class Arm extends Subsystem {
 	

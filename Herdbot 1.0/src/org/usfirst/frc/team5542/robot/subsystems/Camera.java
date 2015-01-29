@@ -7,7 +7,7 @@ import edu.wpi.first.wpilibj.Servo;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
- *camera setting the motors
+ *Motors for camera motion.
  */
 public class Camera extends Subsystem {
 
@@ -18,6 +18,9 @@ public class Camera extends Subsystem {
 		tiltMotor = new Servo(RobotMap.tiltMotor);
 		panMotor = new Servo(RobotMap.panMotor);
 	}
+	
+	
+	
     	public void tilt(boolean input){
     		double tilt = tiltMotor.get();
     		if (input == true){
@@ -32,6 +35,8 @@ public class Camera extends Subsystem {
     		}
     		tiltMotor.set(tilt);
 	}
+    
+    
     	public void pan(boolean input){
     		double pan = panMotor.get();
     		if (input == true){
