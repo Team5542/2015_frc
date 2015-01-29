@@ -26,11 +26,11 @@ public class OI {
 
 	//axis map
 	public static final int lxAxis = 0;
-	public static final int lyAxis = 5;
+	public static final int lyAxis = 1;
 	public static final int rxAxis = 4;
-	public static final int ryAxis = 1;
-	public static final int rTrigger = 2;
-	public static final int lTrigger = 3;
+	public static final int ryAxis = 5;
+	public static final int rTrigger = 3;
+	public static final int lTrigger = 2;
 	public static final int dPad = 6;
 	
 	//stick sensitivity curve (creates a graph with y=x^(sensitivity) where x = controller input y = motor output)
