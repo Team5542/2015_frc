@@ -5,23 +5,23 @@ import org.usfirst.frc.team5542.robot.RobotMap;
 import org.usfirst.frc.team5542.robot.commands.UserArm;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
-import edu.wpi.first.wpilibj.hal.CanTalonSRX;
+import edu.wpi.first.wpilibj.CANTalon;
 
 /**
  *base for the arm
  */
 public class Arm extends Subsystem {
 	
-	private CanTalonSRX aMotor;
+	private CANTalon aMotor;
 	
     private Arm(){
-    	aMotor = new CanTalonSRX(RobotMap.aMotor);
+    	aMotor = new CANTalon(RobotMap.aMotor);
     }
 
     	public void move(double input){
         	if (input > 1.0 || input < -1.0)
         		throw new IllegalArgumentException();
-        	aMotor.Set(input);
+        	aMotor.set(input);
     }
     	public static Arm instance;
     	
