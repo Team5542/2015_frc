@@ -52,6 +52,13 @@ public class Camera extends Subsystem {
     		panMotor.set(pan);
     	}
     	
+    	public void setTilt(double input){
+    		tiltMotor.set(input);
+    	}
+    	
+    	public void setPan(double input){
+    		panMotor.set(input);
+    	}
     	
     	
     	

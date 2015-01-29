@@ -44,5 +44,7 @@ public class UserCamera extends CommandBase {
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+    	camera.setTilt(0);
+    	camera.setPan(0);
     }
 }
