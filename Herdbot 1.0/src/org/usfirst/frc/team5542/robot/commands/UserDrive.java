@@ -23,6 +23,10 @@ public class UserDrive extends CommandBase {
     	Joystick controller = Robot.oi.getController();
     	double left = controller.getRawAxis(OI.lyAxis);
     	double right = controller.getRawAxis(OI.ryAxis);
+    	if (left - right < .2 && left - right > -.2){
+    		left = (left + right)/2;
+    		right = left;
+    	}
     	if (left >= 0)
     		left = Math.pow(left, OI.sensitivity);
     	else
