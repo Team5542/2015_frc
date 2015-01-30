@@ -45,11 +45,12 @@ public class UserDrive extends CommandBase {
 
     // Called once after isFinished returns true
     protected void end() {
+    	drivetrain.tankDrive(0, 0);
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	drivetrain.tankDrive(0, 0);
+    	end();
     }
 }

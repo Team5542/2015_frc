@@ -1,6 +1,6 @@
 package org.usfirst.frc.team5542.robot;
 
-import org.usfirst.frc.team5542.robot.commands.FprDrive;
+import org.usfirst.frc.team5542.robot.commands.ToggleDrive;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
@@ -43,7 +43,7 @@ public class OI {
 	
 	//constructor
 	public OI(){
-		start.toggleWhenPressed(new FprDrive());
+		start.whenPressed(new ToggleDrive());
 	}
 	
 	//// CREATING BUTTONS
@@ -73,4 +73,3 @@ public class OI {
     // until it is finished as determined by it's isFinished method.
     // button.whenReleased(new ExampleCommand());
 }
-
