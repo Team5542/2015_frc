@@ -6,30 +6,37 @@ import org.usfirst.frc.team5542.robot.commands.UserArm;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.CANTalon;
+import edu.wpi.first.wpilibj.DigitalInput;
 
 /**
  *Motors for arm.
  */
 public class Arm extends Subsystem {
 	
-	private CANTalon aMotor;
+	private CANTalon armMotor;
+	private DigitalInput armMicro;
 	
     private Arm(){
-    	aMotor = new CANTalon(RobotMap.aMotor);
+    	armMotor = new CANTalon(RobotMap.aMotor);
+    	armMicro = new DigitalInput(RobotMap.armMicro);
     }
 
-    	public void move(double input){
+    public void move(double input){
         	if (input > 1.0 || input < -1.0)
         		throw new IllegalArgumentException();
-        	aMotor.set(input);
+        	armMotor.set(input);
     }
-    	public static Arm instance;
+    public static Arm instance;
     	
-    	public static Arm getInstance(){
-    		if (instance == null)
-    			instance = new Arm();
-    		return instance;
-    	}
+    public static Arm getInstance(){
+    	if (instance == null)
+    		instance = new Arm();
+    	return instance;
+    }
+    
+    public boolean isTouching(){
+    	return armMicro.get();
+    }
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 
