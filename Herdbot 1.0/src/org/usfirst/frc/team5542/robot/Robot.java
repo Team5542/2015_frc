@@ -6,6 +6,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
+import org.usfirst.frc.team5542.robot.commands.AutoCameraTest;
 import org.usfirst.frc.team5542.robot.commands.CommandBase;
 
 /**
@@ -28,6 +29,7 @@ public class Robot extends IterativeRobot {
     public void robotInit() {
 		oi = new OI();
 		CommandBase.init();
+		autonomousCommand = new AutoCameraTest();
         // instantiate the command used for the autonomous period
         
     }
