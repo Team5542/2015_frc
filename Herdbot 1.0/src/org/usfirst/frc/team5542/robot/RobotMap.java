@@ -10,7 +10,7 @@ public class RobotMap {
     public static final int blMotor = 3;//etc.
     public static final int frMotor = 0;//
     public static final int brMotor = 1;//
-    public static final int aMotor = 4;//CAN id for arm motor
+    public static final int armMotor = 4;//CAN id for arm motor
     public static final int tiltMotor = 6;//PWM camera up down motor
     public static final int panMotor = 5;//PWM camera left right motor
     public static final int armMicro1 = 0;//DIO port for microswitch

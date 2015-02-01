@@ -18,7 +18,7 @@ public class Arm extends Subsystem {
 	private DigitalInput armMicro2;
 	
     private Arm(){
-    	armMotor = new CANTalon(RobotMap.aMotor);
+    	armMotor = new CANTalon(RobotMap.armMotor);
     	armMicro1 = new DigitalInput(RobotMap.armMicro1);
     	armMicro2 = new DigitalInput(RobotMap.armMicro2);
     }
