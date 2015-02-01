@@ -3,6 +3,7 @@ package org.usfirst.frc.team5542.robot.subsystems;
 import org.usfirst.frc.team5542.robot.RobotMap;
 import org.usfirst.frc.team5542.robot.commands.UserCamera;
 
+import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.Servo;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
@@ -14,9 +15,11 @@ public class Camera extends Subsystem {
 	private Servo tiltMotor;
 	private Servo panMotor;
 	private final double rate = .025;
+	private CameraServer video;
 	private Camera(){
 		tiltMotor = new Servo(RobotMap.tiltMotor);
 		panMotor = new Servo(RobotMap.panMotor);
+		video = CameraServer.getInstance();
 	}
 	
 	
@@ -76,6 +79,10 @@ public class Camera extends Subsystem {
     		if (instance == null)
     			instance = new Camera();
     		return instance;
+    	}
+    	
+    	public void startVideoFeed(){
+    		video.startAutomaticCapture();
     	}
 
     public void initDefaultCommand() {
