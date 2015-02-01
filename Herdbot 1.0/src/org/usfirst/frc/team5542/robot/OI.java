@@ -37,6 +37,26 @@ public class OI {
 	
 	//Joystick layout
 	Joystick stick = new Joystick(1);
+	Button trigger = new JoystickButton(stick, 1);
+	Button thumb = new JoystickButton(stick, 2);
+	Button b3 = new JoystickButton(stick, 3);
+	Button b4 = new JoystickButton(stick, 4);
+	Button b5 = new JoystickButton(stick, 5);
+	Button b6 = new JoystickButton(stick, 6);
+	Button b7 = new JoystickButton(stick, 7);
+	Button b8 = new JoystickButton(stick, 8);
+	Button b9 = new JoystickButton(stick, 9);
+	Button b10 = new JoystickButton(stick, 10);
+	Button b11 = new JoystickButton(stick, 11);
+	Button b12 = new JoystickButton(stick, 12);
+	
+	
+	//axis map
+	public static final int stickX = 0;
+	public static final int stickY = 1;
+	public static final int stickZ = 2;
+	public static final int slider = 3;
+	public static final int pov = 0;
 	
 	
 	//stick sensitivity curve (creates a graph with y=x^(sensitivity) where x = controller input y = motor output)
