@@ -21,8 +21,8 @@ public class UserDrive extends CommandBase {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	Joystick controller = Robot.oi.getController();
-    	double left = controller.getRawAxis(OI.lyAxis);
-    	double right = controller.getRawAxis(OI.ryAxis);
+    	double left = -controller.getRawAxis(OI.lyAxis);
+    	double right = -controller.getRawAxis(OI.ryAxis);
     	if (left - right < 1.0/3 && left - right > -1.0/3){
     		left = (left + right)/2;
     		right = left;
