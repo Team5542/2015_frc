@@ -6,10 +6,10 @@ package org.usfirst.frc.team5542.robot;
  * floating around.
  */
 public class RobotMap {
-    public static final int flMotor = 3;//PWM front left motor
-    public static final int frMotor = 1;//etc.
-    public static final int blMotor = 2;//
-    public static final int brMotor = 0;//
+    public static final int flMotor = 2;//PWM front left motor
+    public static final int frMotor = 0;//etc.
+    public static final int blMotor = 3;//
+    public static final int brMotor = 1;//
     public static final int aMotor = 4;//CAN id for arm motor
     public static final int tiltMotor = 5;//PWM camera up down motor
     public static final int panMotor = 6;//PWM camera left right motor
