@@ -14,11 +14,13 @@ import edu.wpi.first.wpilibj.DigitalInput;
 public class Arm extends Subsystem {
 	
 	private CANTalon armMotor;
-	private DigitalInput armMicro;
+	private DigitalInput armMicro1;
+	private DigitalInput armMicro2;
 	
     private Arm(){
     	armMotor = new CANTalon(RobotMap.aMotor);
-    	armMicro = new DigitalInput(RobotMap.armMicro);
+    	armMicro1 = new DigitalInput(RobotMap.armMicro1);
+    	armMicro2 = new DigitalInput(RobotMap.armMicro2);
     }
 
     public void move(double input){
@@ -35,7 +37,7 @@ public class Arm extends Subsystem {
     }
     
     public boolean isTouching(){
-    	return armMicro.get();
+    	return (armMicro1.get() && armMicro2.get());
     }
     // Put methods for controlling this subsystem
     // here. Call these from Commands.

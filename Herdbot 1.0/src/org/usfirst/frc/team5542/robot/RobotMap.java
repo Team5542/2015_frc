@@ -13,7 +13,8 @@ public class RobotMap {
     public static final int aMotor = 4;//CAN id for arm motor
     public static final int tiltMotor = 6;//PWM camera up down motor
     public static final int panMotor = 5;//PWM camera left right motor
-    public static final int armMicro = 0;//DIO port for microswitch
+    public static final int armMicro1 = 0;//DIO port for microswitch
+    public static final int armMicro2 = 1;
     
     // If you are using multiple modules, make sure to define both the port
     // number and the module. For example you with a rangefinder:
