@@ -11,8 +11,8 @@ public class RobotMap {
     public static final int blMotor = 3;//
     public static final int brMotor = 1;//
     public static final int aMotor = 4;//CAN id for arm motor
-    public static final int tiltMotor = 5;//PWM camera up down motor
-    public static final int panMotor = 6;//PWM camera left right motor
+    public static final int tiltMotor = 6;//PWM camera up down motor
+    public static final int panMotor = 5;//PWM camera left right motor
     public static final int armMicro = 0;//DIO port for microswitch
     
     // If you are using multiple modules, make sure to define both the port

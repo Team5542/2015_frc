@@ -22,13 +22,13 @@ public class UserCamera extends CommandBase {
     protected void execute() {
     	Joystick controller = Robot.oi.getController();
     	int cam = controller.getPOV(OI.dPad);
-    	if (cam == 0 || cam == 1 || cam == 7)
+    	if (cam == 0 || cam == 45 || cam == 315)
     		camera.tilt(true);
-    	if (cam == 3 || cam == 4 || cam == 5)
+    	if (cam == 135 || cam == 180 || cam == 225)
     		camera.tilt(false);
-    	if (cam == 1 || cam == 2 || cam == 3)
+    	if (cam == 45 || cam == 90 || cam == 135)
     		camera.pan(true);
-    	if (cam == 5 || cam == 6 || cam == 7)
+    	if (cam == 225 || cam == 270 || cam == 315)
     		camera.pan(false);
     }
 
@@ -44,7 +44,5 @@ public class UserCamera extends CommandBase {
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	camera.setTilt(.5);
-    	camera.setPan(.5);
     }
 }
