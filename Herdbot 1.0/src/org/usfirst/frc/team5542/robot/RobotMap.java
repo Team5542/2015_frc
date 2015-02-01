@@ -7,8 +7,8 @@ package org.usfirst.frc.team5542.robot;
  */
 public class RobotMap {
     public static final int flMotor = 2;//PWM front left motor
-    public static final int frMotor = 0;//etc.
-    public static final int blMotor = 3;//
+    public static final int blMotor = 3;//etc.
+    public static final int frMotor = 0;//
     public static final int brMotor = 1;//
     public static final int aMotor = 4;//CAN id for arm motor
     public static final int tiltMotor = 6;//PWM camera up down motor
