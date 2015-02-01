@@ -1,5 +1,6 @@
 package org.usfirst.frc.team5542.robot;
 
+import org.usfirst.frc.team5542.robot.commands.CenterCamera;
 import org.usfirst.frc.team5542.robot.commands.ToggleDrive;
 
 import edu.wpi.first.wpilibj.Joystick;
@@ -33,6 +34,11 @@ public class OI {
 	public static final int lTrigger = 2;
 	public static final int dPad = 0;
 	
+	
+	//Joystick layout
+	Joystick stick = new Joystick(1);
+	
+	
 	//stick sensitivity curve (creates a graph with y=x^(sensitivity) where x = controller input y = motor output)
 	public static final double sensitivity = 1.5;
 	
@@ -44,6 +50,7 @@ public class OI {
 	//constructor
 	public OI(){
 		start.whenPressed(new ToggleDrive());
+		aButton.whenPressed(new CenterCamera());
 	}
 	
 	//// CREATING BUTTONS
