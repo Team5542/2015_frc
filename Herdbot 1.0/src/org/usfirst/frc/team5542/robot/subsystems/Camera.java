@@ -13,7 +13,7 @@ public class Camera extends Subsystem {
 
 	private Servo tiltMotor;
 	private Servo panMotor;
-	private final double rate = .05;
+	private final double rate = .025;
 	private Camera(){
 		tiltMotor = new Servo(RobotMap.tiltMotor);
 		panMotor = new Servo(RobotMap.panMotor);
