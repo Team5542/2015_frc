@@ -26,8 +26,9 @@ public class Robot extends IterativeRobot {
      * used for any initialization code.
      */
     public void robotInit() {
-		oi = new OI();
-		CommandBase.init();
+    	CommandBase.init();
+    	oi = new OI();
+	
         // instantiate the command used for the autonomous period
         
     }
