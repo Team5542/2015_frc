@@ -1,6 +1,7 @@
 package org.usfirst.frc.team5542.robot;
 
 import org.usfirst.frc.team5542.robot.commands.CenterCamera;
+import org.usfirst.frc.team5542.robot.commands.SwitchController;
 import org.usfirst.frc.team5542.robot.commands.ToggleDrive;
 
 import edu.wpi.first.wpilibj.Joystick;
@@ -66,10 +67,24 @@ public class OI {
 	public Joystick getController(){
 		return controller;
 	}
+	public Joystick getJoystick(){
+		return stick;
+	}
+	
+	private static boolean xBox;
+	public static void switchController(){
+		xBox = !xBox;
+	}
+	public static boolean getxBox(){
+		return xBox;
+	}
 	
 	//constructor
 	public OI(){
+		xBox = true;
 		start.whenPressed(new ToggleDrive());
+		select.whenPressed(new SwitchController());
+		b12.whenPressed(new SwitchController());
 		aButton.whenPressed(new CenterCamera());
 	}
 	

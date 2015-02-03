@@ -20,8 +20,16 @@ public class UserCamera extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Joystick controller = Robot.oi.getController();
-    	int cam = controller.getPOV(OI.dPad);
+    	Joystick controller;
+    	int cam;
+    	if (OI.getxBox()){
+    		controller = Robot.oi.getController();
+    		cam = controller.getPOV(OI.dPad);
+    	}
+    	else{
+    		controller = Robot.oi.getJoystick();
+    		cam = controller.getPOV(OI.pov);
+    	}
     	if (cam == 0 || cam == 45 || cam == 315)
     		camera.tilt(true);
     	if (cam == 135 || cam == 180 || cam == 225)
