@@ -85,7 +85,7 @@ public class Camera extends Subsystem {
     }
     	
     public void startVideoFeed(){
-    	video.startAutomaticCapture("Camera1");
+    	video.startAutomaticCapture("169.254.101.22");
     }
 
     public void initDefaultCommand() {
