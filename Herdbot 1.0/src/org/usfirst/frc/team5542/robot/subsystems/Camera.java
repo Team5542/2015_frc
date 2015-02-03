@@ -22,7 +22,7 @@ public class Camera extends Subsystem {
 		tiltMotor = new Servo(RobotMap.tiltMotor);
 		panMotor = new Servo(RobotMap.panMotor);
 		video = CameraServer.getInstance();
-		cam = new AxisCamera("169.254.234.169");
+		cam = new AxisCamera("169.254.101.22");
 	}
 	
 	
