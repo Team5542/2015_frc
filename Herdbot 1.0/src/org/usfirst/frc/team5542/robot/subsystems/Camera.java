@@ -6,6 +6,7 @@ import org.usfirst.frc.team5542.robot.commands.UserCamera;
 import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.Servo;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.vision.AxisCamera;
 
 /**
  *Motors for camera motion.
@@ -16,10 +17,12 @@ public class Camera extends Subsystem {
 	private Servo panMotor;
 	private final double rate = .025;
 	private CameraServer video;
+	private AxisCamera cam;
 	private Camera(){
 		tiltMotor = new Servo(RobotMap.tiltMotor);
 		panMotor = new Servo(RobotMap.panMotor);
 		video = CameraServer.getInstance();
+		cam = new AxisCamera("169.254.234.169");
 	}
 	
 	
