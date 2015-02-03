@@ -23,8 +23,16 @@ public class UserArm extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Joystick controller = Robot.oi.getController();
-    	double move = controller.getRawAxis(OI.rTrigger) - controller.getRawAxis(OI.lTrigger);
+    	Joystick controller;
+    	double move;
+    	if (OI.getxBox()){
+    		controller = Robot.oi.getController();
+    		move = controller.getRawAxis(OI.rTrigger) - controller.getRawAxis(OI.lTrigger);
+    	}
+    	else{
+    		controller = Robot.oi.getJoystick();
+    		move = controller.getRawAxis(OI.stickX);
+    	}
     	arm.move(move);
     }
 
