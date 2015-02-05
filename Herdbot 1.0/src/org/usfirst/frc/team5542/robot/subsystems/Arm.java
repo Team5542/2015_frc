@@ -1,28 +1,26 @@
 package org.usfirst.frc.team5542.robot.subsystems;
 
-
-import org.usfirst.frc.team5542.robot.RobotMap;
-import org.usfirst.frc.team5542.robot.commands.UserArm;
-
-import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.DigitalInput;
+import edu.wpi.first.wpilibj.command.PIDSubsystem;
 
 /**
- *Motors for arm.
+ *
  */
-public class Arm extends Subsystem {
-	
-	private CANTalon armMotor;
+public class Arm extends PIDSubsystem {
+
+    // Initialize your subsystem here
+    public Arm() {
+        // Use these to get going:
+        // setSetpoint() -  Sets where the PID controller should move the system
+        //                  to
+        // enable() - Enables the PID controller.
+    }
+    
+    private CANTalon armMotor;
 	private DigitalInput armMicro1;
 	private DigitalInput armMicro2;
 	
-    private Arm(){
-    	armMotor = new CANTalon(RobotMap.armMotor);
-    	armMicro1 = new DigitalInput(RobotMap.armMicro1);
-    	armMicro2 = new DigitalInput(RobotMap.armMicro2);
-    }
-
     public void move(double input){
         	if (input > 1.0 || input < -1.0)
         		throw new IllegalArgumentException();
@@ -39,12 +37,21 @@ public class Arm extends Subsystem {
     public boolean isTouching(){
     	return (armMicro1.get() && armMicro2.get());
     }
-    // Put methods for controlling this subsystem
-    // here. Call these from Commands.
-
+    
     public void initDefaultCommand() {
-        setDefaultCommand(new UserArm());
+        // Set the default command for a subsystem here.
+        //setDefaultCommand(new MySpecialCommand());
     }
-
+    
+    protected double returnPIDInput() {
+        // Return your input value for the PID loop
+        // e.g. a sensor, like a potentiometer:
+        // yourPot.getAverageVoltage() / kYourMaxVoltage;
+    	return 0.0;
+    }
+    
+    protected void usePIDOutput(double output) {
+        // Use output to drive your system, like a motor
+        // e.g. yourMotor.set(output);
+    }
 }
-
