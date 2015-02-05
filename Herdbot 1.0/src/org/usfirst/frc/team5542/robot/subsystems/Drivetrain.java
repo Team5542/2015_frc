@@ -3,6 +3,7 @@ package org.usfirst.frc.team5542.robot.subsystems;
 import org.usfirst.frc.team5542.robot.RobotMap;
 import org.usfirst.frc.team5542.robot.commands.FprDrive;
 
+import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -14,6 +15,7 @@ public class Drivetrain extends Subsystem {
     
 	private RobotDrive myDrive;
 	private Talon flMotor, frMotor, blMotor, brMotor;
+	private AnalogInput sonar;
 	private static final double rate = .02;
 	
 	private Drivetrain(){
@@ -22,6 +24,7 @@ public class Drivetrain extends Subsystem {
 		frMotor = new Talon(RobotMap.frMotor);
 		brMotor = new Talon(RobotMap.brMotor);
 		myDrive = new RobotDrive(flMotor, blMotor, frMotor, brMotor);
+		sonar = new AnalogInput(RobotMap.sonar);
 	}
 	
 	public static Drivetrain instance;
@@ -64,7 +67,11 @@ public class Drivetrain extends Subsystem {
     	prev2 = turn;
     }
 
-	
+	public int getSonarDist(){
+		//take analog voltage call and scale to get distance
+	}
+    
+    
 	public void initDefaultCommand() {
         setDefaultCommand(new FprDrive());
     }
