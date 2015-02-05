@@ -9,17 +9,19 @@ import edu.wpi.first.wpilibj.command.PIDSubsystem;
  */
 public class Arm extends PIDSubsystem {
 
-    // Initialize your subsystem here
+   
+    private CANTalon armMotor;
+	private DigitalInput armMicro1;
+	private DigitalInput armMicro2;
+	
+	// Initialize your subsystem here
     public Arm() {
         // Use these to get going:
         // setSetpoint() -  Sets where the PID controller should move the system
         //                  to
         // enable() - Enables the PID controller.
     }
-    
-    private CANTalon armMotor;
-	private DigitalInput armMicro1;
-	private DigitalInput armMicro2;
+   
 	
     public void move(double input){
         	if (input > 1.0 || input < -1.0)
