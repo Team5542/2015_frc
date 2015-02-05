@@ -25,15 +25,13 @@ public class UserArm extends CommandBase {
     protected void execute() {
     	Joystick controller;
     	double move;
-    	double up;
-    	double down;
     	if (OI.getxBox()){
     		controller = Robot.oi.getController();
     		move = controller.getRawAxis(OI.rTrigger) - controller.getRawAxis(OI.lTrigger);
     	}
     	else{
     		controller = Robot.oi.getJoystick();
-    		
+    		move = controller.getRawAxis(OI.stickX);
     	}
     	arm.move(move);
     }
