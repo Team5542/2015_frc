@@ -4,7 +4,6 @@ import org.usfirst.frc.team5542.robot.OI;
 import org.usfirst.frc.team5542.robot.Robot;
 
 import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.buttons.Trigger;
 
 
 
@@ -34,8 +33,7 @@ public class UserArm extends CommandBase {
     	}
     	else{
     		controller = Robot.oi.getJoystick();
-    		OI.trigger.whenPressed(up = 1);
-    		OI.thumb.whenPressed(down = 1);
+    		
     	}
     	arm.move(move);
     }
