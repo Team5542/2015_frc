@@ -7,7 +7,14 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  */
 public class PDP extends Subsystem {
     
-    // Put methods for controlling this subsystem
+	void addObject() {
+		String pdp0;
+		String pdp1;
+	}
+	    double getCurrent() {
+			return 0;
+		}
+	    // Put methods for controlling this subsystem
     // here. Call these from Commands.
 
     public void initDefaultCommand() {
