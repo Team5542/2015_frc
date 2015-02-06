@@ -67,11 +67,7 @@ public class Drivetrain extends Subsystem {
     	prev2 = turn;
     }
 
-	public int getSonarDist(){
-		//take analog voltage call and scale to get distance
-	}
-    
-    
+
 	public void initDefaultCommand() {
         setDefaultCommand(new FprDrive());
     }
