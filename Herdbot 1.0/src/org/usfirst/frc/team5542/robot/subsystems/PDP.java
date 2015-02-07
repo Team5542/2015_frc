@@ -10,12 +10,12 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  *
  */
 public class PDP extends Subsystem {
-   public int pdp0;
-		//Sendable pdp0;
-		//Sendable pdp1;
-		//PowerDistributionPanel PDP = new PowerDistributionPanel();
-		pdp0 = PowerDistributionPanel.getCurrent(0);
-		
+	Sendable pdp0;
+	public PDP(){
+		PowerDistributionPanel PDP;
+		PDP = new PowerDistributionPanel();
+	}
+		pdp0 = PDP.getCurrent(0);
 	  
 	
 		
