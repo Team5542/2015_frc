@@ -3,7 +3,7 @@ package org.usfirst.frc.team5542.robot.commands;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *
+ *toggles between the two drives
  */
 public class ToggleDrive extends Command {
 

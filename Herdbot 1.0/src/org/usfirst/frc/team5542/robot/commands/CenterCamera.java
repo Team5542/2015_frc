@@ -2,7 +2,7 @@ package org.usfirst.frc.team5542.robot.commands;
 
 
 /**
- *
+ *centers the camera (values will change later)
  */
 public class CenterCamera extends CommandBase {
 
