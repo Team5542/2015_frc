@@ -15,6 +15,7 @@ public class PDP extends Subsystem {
 		PowerDistributionPanel PDP;
 		PDP = new PowerDistributionPanel();
 	}
+	//currently use pdp channels 0 2 3 12 13 15
 	Sendable pdp0;
 		pdp0 = PDP.getCurrent(0);
 	  
