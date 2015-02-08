@@ -6,23 +6,14 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class PDP extends Subsystem {
 
+	PowerDistributionPanel PDP = new PowerDistributionPanel();
+	
 	@Override
 	protected void initDefaultCommand() {
 		// TODO Auto-generated method stub
-		PowerDistributionPanel PDP = new PowerDistributionPanel();
+		SmartDashboard.putNumber("Current", PDP.getCurrent(14));
 	}
 
-
-	
-	SmartDashboard.putNumber("Current", pdp.getCurrent(14));
-	
-	    // Put methods for controlling this subsystem
-    // here. Call these from Commands.
-
-/*    public void initDefaultCommand() {
-        // Set the default command for a subsystem here.
-        //setDefaultCommand(new MySpecialCommand());
-    */
 }
 
 
