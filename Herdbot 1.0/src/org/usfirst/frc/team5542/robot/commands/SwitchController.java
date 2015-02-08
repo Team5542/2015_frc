@@ -5,7 +5,7 @@ import org.usfirst.frc.team5542.robot.OI;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *
+ *switches between xbox and joystick
  */
 public class SwitchController extends Command {
 

@@ -5,7 +5,7 @@ import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
 
 /**
- *
+ *arm motor stuff and arm micro
  */
 public class Arm extends PIDSubsystem {
 
