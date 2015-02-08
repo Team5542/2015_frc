@@ -1,44 +1,29 @@
 package org.usfirst.frc.team5542.robot.commands;
 
 import org.usfirst.frc.team5542.robot.OI;
-import org.usfirst.frc.team5542.robot.Robot;
 
-import edu.wpi.first.wpilibj.Joystick;
-
-
+import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *arm control from user
+ *
  */
-public class UserArm extends CommandBase {
-	
-    public UserArm() {
-        requires(arm);
-    }
+public class SwitchController extends Command {
 
+    public SwitchController() {
+    }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	OI.switchController();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Joystick controller;
-    	double move;
-    	if (OI.getxBox()){
-    		controller = Robot.oi.getController();
-    		move = controller.getRawAxis(OI.rTrigger) - controller.getRawAxis(OI.lTrigger);
-    	}
-    	else{
-    		controller = Robot.oi.getJoystick();
-    		move = controller.getRawAxis(OI.stickX);
-    	}
-    	arm.move(move);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return true;
     }
 
     // Called once after isFinished returns true
@@ -48,6 +33,5 @@ public class UserArm extends CommandBase {
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	arm.move(0);
     }
 }
