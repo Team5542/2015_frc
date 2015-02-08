@@ -14,7 +14,6 @@ public class CenterCamera extends CommandBase {
     protected void initialize() {
     	camera.setPan(.5);
     	camera.setTilt(.5);
-    	camera.startVideoFeed();
     }
 
     // Called repeatedly when this Command is scheduled to run
