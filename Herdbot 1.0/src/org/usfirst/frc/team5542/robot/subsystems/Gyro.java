@@ -33,7 +33,7 @@ public class Gyro extends Subsystem {
 		data = null;
 		double[] rates = new double[3];
 		for(int i = 0; i < 3; i++){
-			rates[i] = stuff[i] / sensitivity;
+			rates[i] = stuff[i] * sensitivity;
 		}
 		return rates;
 	}
