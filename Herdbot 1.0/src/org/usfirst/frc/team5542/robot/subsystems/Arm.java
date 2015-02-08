@@ -11,6 +11,7 @@ public class Arm extends PIDSubsystem {
 
    
     private CANTalon armMotor;
+    private CANTalon armMotor2;
 	private DigitalInput armMicro1;
 	private DigitalInput armMicro2;
 	
@@ -27,6 +28,7 @@ public class Arm extends PIDSubsystem {
         	if (input > 1.0 || input < -1.0)
         		throw new IllegalArgumentException();
         	armMotor.set(input);
+        	armMotor2.set(input);
     }
     public static Arm instance;
     	
