@@ -30,9 +30,10 @@ public class Gyro extends Subsystem {
 		stuff[0] = twoComp(data[0] | (data[1] << 8));
 		stuff[1] = twoComp(data[2] | (data[3] << 8));
 		stuff[2] = twoComp(data[4] | (data[5] << 8));
+		data = null;
 		double[] rates = new double[3];
 		for(int i = 0; i < 3; i++){
-			rates[i] = stuff[i] / sensitivity;
+			rates[i] = stuff[i] * sensitivity;
 		}
 		return rates;
 	}
