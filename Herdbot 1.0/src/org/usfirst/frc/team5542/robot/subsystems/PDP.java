@@ -33,8 +33,13 @@ public class PDP extends Subsystem {
 		SmartDashboard.putNumber("Current14", PDP.getCurrent(14));
 		SmartDashboard.putNumber("Current15", PDP.getCurrent(15));
 	}
+    private static PDP instance;
 	
-
+    public static PDP getInstance(){
+    	if (instance == null)
+    		instance = new PDP();
+    	return instance;
+    }
 }
 
 
