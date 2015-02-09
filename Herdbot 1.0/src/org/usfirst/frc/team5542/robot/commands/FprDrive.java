@@ -44,6 +44,7 @@ public class FprDrive extends CommandBase {
     		turn = Math.pow(turn, OI.sensitivity);
     	else
     		turn = -(Math.pow(-turn, OI.sensitivity));
+    	
     	if (move > -.05 && move < .05)
     		move = 0.0;
 
