@@ -13,6 +13,9 @@ public class PDP extends Subsystem {
 	PowerDistributionPanel PDP = new PowerDistributionPanel();
 	
 	protected void initDefaultCommand() {
+	}
+	
+	public void getReading() {
 		SmartDashboard.putNumber("Current0", PDP.getCurrent(0));
 		SmartDashboard.putNumber("Current1", PDP.getCurrent(1));
 		SmartDashboard.putNumber("Current2", PDP.getCurrent(2));
@@ -30,6 +33,7 @@ public class PDP extends Subsystem {
 		SmartDashboard.putNumber("Current14", PDP.getCurrent(14));
 		SmartDashboard.putNumber("Current15", PDP.getCurrent(15));
 	}
+	
 
 }
 
