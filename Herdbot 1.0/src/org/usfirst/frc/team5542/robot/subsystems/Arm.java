@@ -3,6 +3,7 @@ package org.usfirst.frc.team5542.robot.subsystems;
 import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *arm motor stuff and arm micro
@@ -41,7 +42,7 @@ public class Arm extends PIDSubsystem {
     public boolean isTouching(){
     	return (armMicro1.get() && armMicro2.get());
     }
-    
+
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
