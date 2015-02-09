@@ -14,8 +14,6 @@ public class Sonar extends Subsystem {
 		double distance = volts/2;
 //get the channel and voltage from here
 	protected void initDefaultCommand() { 
-		System.out.println("cm from object:");
-		System.out.println(distance);
 		//calculate the distance and add the unit here
 		// TODO Auto-generated method stub
 		}
