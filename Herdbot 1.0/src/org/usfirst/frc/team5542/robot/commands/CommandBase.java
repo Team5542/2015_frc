@@ -23,9 +23,9 @@ public abstract class CommandBase extends Command {
 	
 	
 	public static void init(){
-		pdp = PDP.getInstance();
 		drivetrain = Drivetrain.getInstance();
 		arm = Arm.getInstance();
 		camera = Camera.getInstance();
+		pdp = PDP.getInstance();
 	}
 }
