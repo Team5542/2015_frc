@@ -1,9 +1,6 @@
 package org.usfirst.frc.team5542.robot.commands;
 
-import org.usfirst.frc.team5542.robot.subsystems.PDP;
-import org.usfirst.frc.team5542.robot.subsystems.Arm;
-import org.usfirst.frc.team5542.robot.subsystems.Camera;
-import org.usfirst.frc.team5542.robot.subsystems.Drivetrain;
+import org.usfirst.frc.team5542.robot.subsystems.*;
 
 import edu.wpi.first.wpilibj.command.Command;
 
@@ -15,6 +12,7 @@ public abstract class CommandBase extends Command {
 
 	protected static Drivetrain drivetrain;
 	protected static Arm arm;
+	protected static Gyro gyro;
 	protected static Camera camera;
 	protected static PDP pdp;
 	
@@ -25,6 +23,7 @@ public abstract class CommandBase extends Command {
 	public static void init(){
 		drivetrain = Drivetrain.getInstance();
 		arm = Arm.getInstance();
+		gyro = Gyro.getInstance();
 		camera = Camera.getInstance();
 		pdp = PDP.getInstance();
 	}
