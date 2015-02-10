@@ -36,24 +36,23 @@ public class Gyro extends Subsystem {
 	}
 	
 	private byte[] data;
-	public double[] getRates(){
+	private double[] rates = new double[3];
+	public void getRates(){
 		gyro.read(0b0101000, 6, data);
 		int[] stuff = new int[3];
 		stuff[0] = twoComp(data[0] | (data[1] << 8));
 		stuff[1] = twoComp(data[2] | (data[3] << 8));
 		stuff[2] = twoComp(data[4] | (data[5] << 8));
 		data = null;
-		double[] rates = new double[3];
 		for(int i = 0; i < 3; i++){
 			rates[i] = stuff[i] * sensitivity;
 		}
-		return rates;
 	}
 
 	private double[] angles = new double[3];
 	private long lastTime;
 	
-	public void updateAngles(double[] rates){
+	public void updateAngles(){
 		long currentTime = System.currentTimeMillis();
 		int difference = (int)(currentTime - lastTime);
 		lastTime = currentTime;
@@ -70,6 +69,15 @@ public class Gyro extends Subsystem {
 	}
 	public double getZangle(){
 		return angles[2];
+	}
+	public double getXrate(){
+		return rates[0];
+	}
+	public double getYrate(){
+		return rates[1];
+	}
+	public double getZrate(){
+		return rates[2];
 	}
 	
     public void initDefaultCommand() {
