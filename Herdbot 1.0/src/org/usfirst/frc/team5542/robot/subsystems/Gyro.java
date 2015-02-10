@@ -13,6 +13,7 @@ public class Gyro extends Subsystem {
 	private I2C gyro;
 	public Gyro(){
 		gyro = new I2C(I2C.Port.kOnboard, address);
+		gyro.write(0b0100000, 0b00001111);
 		gyro.write(0b0100011, 0b00010000);
 	}
 	
