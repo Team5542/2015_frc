@@ -2,6 +2,7 @@ package org.usfirst.frc.team5542.robot.commands;
 
 import org.usfirst.frc.team5542.robot.OI;
 import org.usfirst.frc.team5542.robot.Robot;
+import org.usfirst.frc.team5542.robot.subsystems.Gyro;
 
 import edu.wpi.first.wpilibj.Joystick;
 
@@ -14,13 +15,16 @@ public class FprDrive extends CommandBase {
 
     public FprDrive() {
         requires(drivetrain);
-        requires(gyro);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	heading = gyro.getXangle();
     }
 
+    private double heading;
+    private double prevTurn;
+    
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	Joystick controller;
@@ -51,6 +55,24 @@ public class FprDrive extends CommandBase {
 
     	if (turn > -.05 && turn < .05)
     		turn = 0.0;
+    	
+    	if (turn != 0)
+    		heading = gyro.getXangle();
+    	else{
+    		if (gyro.getXangle() < heading){
+    			prevTurn = prevTurn + .02;
+    			if (prevTurn > 1)
+    				prevTurn = 1;
+    			turn = prevTurn;
+    		}
+    		if (gyro.getXangle() > heading){
+    			prevTurn = prevTurn - .02;
+    			if (prevTurn < 1)
+    				prevTurn = 1;
+    			turn = prevTurn;
+    		}
+    	}
+    	
     	drivetrain.fprDrive(move, turn);
     }
 
