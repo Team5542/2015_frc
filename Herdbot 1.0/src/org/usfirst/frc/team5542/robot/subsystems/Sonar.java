@@ -9,16 +9,17 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 
 
 public class Sonar extends Subsystem {
-		AnalogInput sonar = new AnalogInput(0);
-		
-		public void math(){
-		double volts = sonar.getVoltage();
-		double distance = volts/2;
-		}
-//get the channel and voltage from here
+	AnalogInput sonar = new AnalogInput(0);//analog imput object
+
+	public double getdistance(){
+		double volts = sonar.getVoltage(); //gets the voltage
+		double distance = volts/2; //divides the value given by volts by two
+		return distance; //returns distance in centimeters
+	}
+	
+	//get the channel and voltage from here
 	protected void initDefaultCommand() { 
-		//calculate the distance and add the unit here
 		// TODO Auto-generated method stub
-		}
+	}
 }
 //send the distance to the driver station
