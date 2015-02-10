@@ -2,7 +2,6 @@ package org.usfirst.frc.team5542.robot.commands;
 
 import org.usfirst.frc.team5542.robot.OI;
 import org.usfirst.frc.team5542.robot.Robot;
-import org.usfirst.frc.team5542.robot.subsystems.Gyro;
 
 import edu.wpi.first.wpilibj.Joystick;
 
@@ -56,7 +55,7 @@ public class FprDrive extends CommandBase {
     	if (turn > -.05 && turn < .05)
     		turn = 0.0;
     	
-    	if (turn != 0)
+    	if (turn != 0 || move == 0)
     		heading = gyro.getXangle();
     	else{
     		if (gyro.getXangle() < heading){
