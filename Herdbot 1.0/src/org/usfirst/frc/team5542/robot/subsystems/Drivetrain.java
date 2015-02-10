@@ -6,6 +6,7 @@ import org.usfirst.frc.team5542.robot.commands.FprDrive;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.Encoder;
 
 /**
  *Drivetrain subsystem. Includes all motors used for driving.
@@ -14,7 +15,10 @@ public class Drivetrain extends Subsystem {
     
 	private RobotDrive myDrive;
 	private Talon flMotor, frMotor, blMotor, brMotor;
+	private Encoder encoder1, encoder2;
 	private static final double rate = .02;
+	private double distance1;
+	private double distance2;
 	
 	private Drivetrain(){
 		flMotor = new Talon(RobotMap.flMotor);
@@ -22,6 +26,8 @@ public class Drivetrain extends Subsystem {
 		frMotor = new Talon(RobotMap.frMotor);
 		brMotor = new Talon(RobotMap.brMotor);
 		myDrive = new RobotDrive(flMotor, blMotor, frMotor, brMotor);
+		encoder1 = new Encoder(RobotMap.encoder1p1, RobotMap.encoder1p2);
+		encoder2 = new Encoder(RobotMap.encoder2p1, RobotMap.encoder2p2);
 	}
 	
 	public static Drivetrain instance;
@@ -30,6 +36,14 @@ public class Drivetrain extends Subsystem {
 		if (instance == null)
 			instance = new Drivetrain();
 		return instance;
+	}
+	public double distance1() {
+		distance1 = encoder1.getDistance();
+		return distance1;
+	}
+	public double distance2() {
+		distance2 = encoder2.getDistance();
+		return distance2;
 	}
 	
 	

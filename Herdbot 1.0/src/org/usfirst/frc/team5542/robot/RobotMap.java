@@ -17,6 +17,10 @@ public class RobotMap {
     public static final int armMicro1 = 0;//DIO port for microswitch
     public static final int armMicro2 = 1;
     public static final int sonar = 0;//analog channel for sonar
+    public static final int encoder1p1 = 1;//first encoder first port for the encoder
+    public static final int encoder1p2 = 2;//first encoder second port for the encoder
+    public static final int encoder2p1 = 3;//second encoder first port for the encoder
+    public static final int encoder2p2 = 4;//second encoder second port for the encoder
     
     // If you are using multiple modules, make sure to define both the port
     // number and the module. For example you with a rangefinder:
