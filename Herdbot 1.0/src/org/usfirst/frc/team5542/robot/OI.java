@@ -1,8 +1,6 @@
 package org.usfirst.frc.team5542.robot;
 
-import org.usfirst.frc.team5542.robot.commands.CenterCamera;
-import org.usfirst.frc.team5542.robot.commands.SwitchController;
-import org.usfirst.frc.team5542.robot.commands.ToggleDrive;
+import org.usfirst.frc.team5542.robot.commands.*;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
@@ -86,6 +84,10 @@ public class OI {
 		select.whenPressed(new SwitchController());
 		b12.whenPressed(new SwitchController());
 		aButton.whenPressed(new CenterCamera());
+		rBumper.whenPressed(new ArmUp());
+		lBumper.whenPressed(new ArmDown());
+		trigger.whenPressed(new ArmUp());
+		thumb.whenPressed(new ArmDown());
 	}
 	
 	//// CREATING BUTTONS
