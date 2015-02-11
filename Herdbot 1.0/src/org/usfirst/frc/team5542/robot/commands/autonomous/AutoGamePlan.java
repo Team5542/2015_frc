@@ -9,14 +9,13 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
  */
 public abstract class AutoGamePlan extends CommandGroup {
 	public  AutoGamePlan() {  
-
 	}
 	public void execute(){
 		if (Sonar.distance == 30) {
 			//turn off all motors, activate arms
 		}
-	} 
-}
+	}
+	}
 // Add Commands here:
 // e.g. addSequential(new Command1());
 //      addSequential(new Command2());
