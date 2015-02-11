@@ -21,6 +21,7 @@ public class Arm extends PIDSubsystem {
 	
 	private static final double toteHight = 12.1;//inches
 	private static final double canHight = 29.5;//inches
+    private static double liftComp = 3;//inches
 	private int totes = 1;
 	private static final int maxTotes = 3;
 	private static double kp = 1, ki = 0, kd = 0;
@@ -68,17 +69,24 @@ public class Arm extends PIDSubsystem {
     	if (totes != maxTotes)
     		totes++;
     	if (can)
-    		setSetpoint(totes * toteHight + canHight);
+    		setSetpoint(totes * toteHight + canHight + lift());
     	else
-    		setSetpoint(totes * toteHight);
+    		setSetpoint(totes * toteHight + lift());
     }
     public void down(){
     	if (totes != 1)
     		totes--;
     	if (can)
-    		setSetpoint(totes * toteHight + canHight);
+    		setSetpoint(totes * toteHight + canHight + lift());
     	else
-    		setSetpoint(totes * toteHight);
+    		setSetpoint(totes * toteHight + lift());
+    }
+    
+    public double lift(){
+    	if (isTouching())
+    		return liftComp;
+    	else
+    		return 0;
     }
     
     private boolean can = false;
