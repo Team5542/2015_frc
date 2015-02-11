@@ -20,8 +20,9 @@ public class Arm extends PIDSubsystem {
 	private DigitalInput armMicro1 = new DigitalInput(RobotMap.armMicro1);
 	private DigitalInput armMicro2 = new DigitalInput(RobotMap.armMicro2);
 	
-	private static final double toteHight = 1;
+	private static final double toteHight = 12.1;//inches
 	private int totes = 1;
+	private static final int maxTotes = 3;
 	private static double kp = 1, ki = 0, kd = 0;
 	
 	// Initialize your subsystem here
@@ -68,5 +69,16 @@ public class Arm extends PIDSubsystem {
         // e.g. yourMotor.set(output);
     	armMotor1.set(output);
     	armMotor2.set(output);
+    }
+    
+    public void up(){
+    	if (totes != maxTotes)
+    		totes++;
+    	setSetpoint(totes * toteHight);
+    }
+    public void down(){
+    	if (totes != 1)
+    		totes--;
+    	setSetpoint(totes * toteHight);
     }
 }
