@@ -83,17 +83,17 @@ public class OI {
 		start.whenPressed(new ToggleDrive());
 		select.whenPressed(new SwitchController());
 		b12.whenPressed(new SwitchController());
-		if (xBox){
+		{
 			bButton.whenPressed(new CenterCamera());
-			rBumper.whenPressed(new ArmUp());
-			lBumper.whenPressed(new ArmDown());
-			aButton.whenPressed(new SwitchCan());
+			//rBumper.whenPressed(new ArmUp());
+			//lBumper.whenPressed(new ArmDown());
+			//aButton.whenPressed(new SwitchCan());
 		}
-		else{
+		{
 			b4.whenPressed(new CenterCamera());
-			trigger.whenPressed(new ArmUp());
-			thumb.whenPressed(new ArmDown());
-			b3.whenPressed(new SwitchCan());
+			//trigger.whenPressed(new ArmUp());
+			//thumb.whenPressed(new ArmDown());
+			//b3.whenPressed(new SwitchCan());
 		}
 	}
 	
