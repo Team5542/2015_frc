@@ -17,7 +17,7 @@ public class Drivetrain extends Subsystem {
 	private Talon flMotor, frMotor, blMotor, brMotor;
 	private Encoder encoder1, encoder2;
 	private static final double rate = .02;
-	private static final double dpp = 18.84;//distance per pulse
+	private static final double dpp = 18.84;//distance per pulse (inches)
 	private double distance1;
 	private double distance2;
 	
