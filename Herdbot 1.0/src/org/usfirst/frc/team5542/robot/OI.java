@@ -83,11 +83,16 @@ public class OI {
 		start.whenPressed(new ToggleDrive());
 		select.whenPressed(new SwitchController());
 		b12.whenPressed(new SwitchController());
-		aButton.whenPressed(new CenterCamera());
-		rBumper.whenPressed(new ArmUp());
-		lBumper.whenPressed(new ArmDown());
-		trigger.whenPressed(new ArmUp());
-		thumb.whenPressed(new ArmDown());
+		if (xBox){
+			aButton.whenPressed(new CenterCamera());
+			rBumper.whenPressed(new ArmUp());
+			lBumper.whenPressed(new ArmDown());
+		}
+		else{
+			b3.whenPressed(new CenterCamera());
+			trigger.whenPressed(new ArmUp());
+			thumb.whenPressed(new ArmDown());
+		}
 	}
 	
 	//// CREATING BUTTONS
