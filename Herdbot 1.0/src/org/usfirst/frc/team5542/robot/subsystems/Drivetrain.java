@@ -17,6 +17,7 @@ public class Drivetrain extends Subsystem {
 	private Talon flMotor, frMotor, blMotor, brMotor;
 	private Encoder encoder1, encoder2;
 	private static final double rate = .02;
+	private static final double dpp = 1;//distance per pulse
 	private double distance1;
 	private double distance2;
 	
@@ -28,6 +29,8 @@ public class Drivetrain extends Subsystem {
 		myDrive = new RobotDrive(flMotor, blMotor, frMotor, brMotor);
 		encoder1 = new Encoder(RobotMap.encoder1p1, RobotMap.encoder1p2);
 		encoder2 = new Encoder(RobotMap.encoder2p1, RobotMap.encoder2p2);
+		encoder1.setDistancePerPulse(dpp);
+		encoder2.setDistancePerPulse(dpp);
 	}
 	
 	public static Drivetrain instance;
