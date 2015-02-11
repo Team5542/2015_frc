@@ -20,6 +20,7 @@ public class Arm extends PIDSubsystem {
 	private DigitalInput armMicro2 = new DigitalInput(RobotMap.armMicro2);
 	
 	private static final double toteHight = 12.1;//inches
+	private static final double canHight = 29.5;//inches
 	private int totes = 1;
 	private static final int maxTotes = 3;
 	private static double kp = 1, ki = 0, kd = 0;
@@ -48,11 +49,6 @@ public class Arm extends PIDSubsystem {
     public boolean isTouching(){
     	return (armMicro1.get() && armMicro2.get());
     }
-
-    public void initDefaultCommand() {
-        // Set the default command for a subsystem here.
-        //setDefaultCommand(new MySpecialCommand());
-    }
     
     protected double returnPIDInput() {
         // Return your input value for the PID loop
@@ -64,8 +60,6 @@ public class Arm extends PIDSubsystem {
     }
     
     protected void usePIDOutput(double output) {
-        // Use output to drive your system, like a motor
-        // e.g. yourMotor.set(output);
     	armMotor1.set(output);
     	armMotor2.set(output);
     }
@@ -73,11 +67,31 @@ public class Arm extends PIDSubsystem {
     public void up(){
     	if (totes != maxTotes)
     		totes++;
-    	setSetpoint(totes * toteHight);
+    	if (can)
+    		setSetpoint(totes * toteHight + canHight);
+    	else
+    		setSetpoint(totes * toteHight);
     }
     public void down(){
     	if (totes != 1)
     		totes--;
-    	setSetpoint(totes * toteHight);
+    	if (can)
+    		setSetpoint(totes * toteHight + canHight);
+    	else
+    		setSetpoint(totes * toteHight);
+    }
+    
+    private boolean can = false;
+    public void switchCan(){
+    	can = !can;
+    	if (can)
+    		setSetpoint(totes * toteHight + canHight);
+    	else
+    		setSetpoint(totes * toteHight);
+    }
+    
+    public void initDefaultCommand() {
+        // Set the default command for a subsystem here.
+        //setDefaultCommand(new MySpecialCommand());
     }
 }
