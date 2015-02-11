@@ -15,7 +15,7 @@ public abstract class CommandBase extends Command {
 	protected static Gyro gyro;
 	protected static Camera camera;
 	protected static PDP pdp;
-	
+	protected static Sonar sonar;
 	
 	
 	
@@ -26,5 +26,6 @@ public abstract class CommandBase extends Command {
 		gyro = Gyro.getInstance();
 		camera = Camera.getInstance();
 		pdp = PDP.getInstance();
+		sonar = Sonar.getInstance();
 	}
 }

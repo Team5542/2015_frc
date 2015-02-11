@@ -1,4 +1,6 @@
 package org.usfirst.frc.team5542.robot.commands.autonomous;
+import org.usfirst.frc.team5542.robot.commands.CommandBase;
+import org.usfirst.frc.team5542.robot.subsystems.Sonar;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
@@ -8,6 +10,15 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class AutoGamePlan extends CommandGroup {
     
     public  AutoGamePlan() {
+    	requiers(sonar);
+    }
+    	public void execute() {
+    		if (sonar.distance = 30) {
+    		
+    	}
+    	}
+    	
+    	
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());

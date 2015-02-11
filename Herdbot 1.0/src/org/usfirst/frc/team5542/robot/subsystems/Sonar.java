@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 
 public class Sonar extends Subsystem {
-	AnalogInput sonar = new AnalogInput(0);//analog imput object
+	AnalogInput sonar = new AnalogInput(0);//analog input object
 	double distance;
 
 	public double getdistance(){
@@ -24,6 +24,13 @@ public class Sonar extends Subsystem {
 	//get the channel and voltage from here
 	protected void initDefaultCommand() { 
 		// TODO Auto-generated method stub
+	}
+	private static Sonar instance;
+	
+	public static Sonar getInstance(){
+		if (instance == null)
+			instance = new Sonar();
+		return instance;
 	}
 }
 //send the distance to the driver station
