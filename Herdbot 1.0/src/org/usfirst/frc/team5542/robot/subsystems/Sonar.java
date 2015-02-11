@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class Sonar extends Subsystem {
 	AnalogInput sonar = new AnalogInput(0);//analog input object
-	double distance;
+	public double distance;
 
 	public double getdistance(){
 		double volts = sonar.getVoltage(); //gets the voltage

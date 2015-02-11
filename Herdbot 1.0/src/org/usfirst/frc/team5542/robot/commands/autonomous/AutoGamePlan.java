@@ -7,13 +7,15 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 /**
  *
  */
-public class AutoGamePlan extends CommandGroup {
+public abstract class AutoGamePlan extends CommandBase {
     public  AutoGamePlan() {
     	requires(sonar);
     }
-    		if (sonar.distance = 30) {
+    public void execute() {
+    		if (sonar.distance == 30) {
     		
     	}
+    }
     	
     	
         // Add Commands here:
