@@ -4,10 +4,10 @@ package org.usfirst.frc.team5542.robot.commands;
 /**
  *
  */
-public class PDPStart extends CommandBase {
+public class GyroUpdate extends CommandBase {
 
-    public PDPStart() {
-    	requires(pdp);
+    public GyroUpdate() {
+        requires(gyro);
     }
 
     // Called just before this Command runs the first time
@@ -16,7 +16,8 @@ public class PDPStart extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	pdp.getReading();
+    	gyro.getRates();
+    	gyro.updateAngles();
     }
 
     // Make this return true when this Command no longer needs to run execute()

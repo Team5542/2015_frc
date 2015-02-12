@@ -41,5 +41,3 @@ public class PDP extends Subsystem {
     	return instance;
     }
 }
-
-

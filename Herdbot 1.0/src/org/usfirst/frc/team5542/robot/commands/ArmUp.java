@@ -4,24 +4,24 @@ package org.usfirst.frc.team5542.robot.commands;
 /**
  *
  */
-public class PDPStart extends CommandBase {
+public class ArmUp extends CommandBase {
 
-    public PDPStart() {
-    	requires(pdp);
+    public ArmUp() {
+        requires(arm);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	arm.up();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	pdp.getReading();
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return true;
     }
 
     // Called once after isFinished returns true

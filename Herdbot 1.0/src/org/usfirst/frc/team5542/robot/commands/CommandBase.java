@@ -15,16 +15,17 @@ public abstract class CommandBase extends Command {
 	protected static Gyro gyro;
 	protected static Camera camera;
 	protected static PDP pdp;
-	
+	protected static Sonar sonar;
 	
 	
 	
 	
 	public static void init(){
 		drivetrain = Drivetrain.getInstance();
-		arm = Arm.getInstance();
+		//arm = Arm.getInstance(); //DO NOT initiate until potentiometer is set up and coded
 		gyro = Gyro.getInstance();
 		camera = Camera.getInstance();
 		pdp = PDP.getInstance();
+		sonar = Sonar.getInstance();
 	}
 }

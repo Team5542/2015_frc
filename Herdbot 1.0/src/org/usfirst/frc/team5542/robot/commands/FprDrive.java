@@ -18,8 +18,12 @@ public class FprDrive extends CommandBase {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	heading = gyro.getXangle();
     }
 
+    private double heading;
+    private double prevTurn;
+    
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	Joystick controller;
@@ -44,11 +48,30 @@ public class FprDrive extends CommandBase {
     		turn = Math.pow(turn, OI.sensitivity);
     	else
     		turn = -(Math.pow(-turn, OI.sensitivity));
+    	
     	if (move > -.05 && move < .05)
     		move = 0.0;
 
     	if (turn > -.05 && turn < .05)
     		turn = 0.0;
+    	
+    	if (turn != 0 || move == 0)
+    		heading = gyro.getXangle();
+    	else{
+    		if (gyro.getXangle() < heading){
+    			prevTurn = prevTurn + .02;
+    			if (prevTurn > 1)
+    				prevTurn = 1;
+    			turn = prevTurn;
+    		}
+    		if (gyro.getXangle() > heading){
+    			prevTurn = prevTurn - .02;
+    			if (prevTurn < 1)
+    				prevTurn = 1;
+    			turn = prevTurn;
+    		}
+    	}
+    	
     	drivetrain.fprDrive(move, turn);
     }
 
