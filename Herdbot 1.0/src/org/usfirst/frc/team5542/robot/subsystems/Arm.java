@@ -47,17 +47,17 @@ public class Arm extends PIDSubsystem {
     public static Arm getInstance(){
     	if (instance == null)
     		instance = new Arm();
-    	return instance; //instance for arm class
+    	return instance;
     }
     public void potSD() {
     	SmartDashboard.putNumber("Potentiometer", pot.get()); //sends potentiometer data to the smart dash
     }
     
     public boolean isInRange(){
-    	return infrared.get(); //returns information for the infared sensor
+    	return infrared.get();
     }
     
-    public boolean isTouching(){//checks if the arm is touching a tote/can
+    public boolean isTouching(){
     	return (armMicro1.get() && armMicro2.get());
     }
     
