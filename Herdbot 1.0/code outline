@@ -1,0 +1,59 @@
+code outlines (add to as we go on)
+
+basic setup parts:
+
+classes:
+public class (name) { } 
+sets up a class. classes are the things you place all code in and are used to reference large chunks of code
+
+private command:
+
+
+static command:
+
+
+public command:
+
+
+void command:
+
+
+protected command:
+
+
+objects:
+(class) = new (name)(RobotMap.(class)); object explanation: http://docs.oracle.com/javase/tutorial/java/concepts/object.html
+___________________________________
+
+values:
+
+
+int:
+
+
+double:
+
+
+float:
+
+
+boolean:
+true/false value
+ex: public boolean(value(can use =,== or !=)x(can be changed))
+
+
+____________________________________
+commands:
+
+extend command:
+public class (class) extends (class)
+command allows a class to use the assets of another class. Ex:
+public class ArmUp extends CommandBase (allows ArmUp to use values from  CommandBase)
+
+
+ Requires command:
+ public (Name)() {
+        requires(class);}
+tells the class that it needs another class to function Ex:
+ public ArmDown() {
+        requires(arm);}
