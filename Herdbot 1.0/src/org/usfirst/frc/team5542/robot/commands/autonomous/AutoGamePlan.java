@@ -3,7 +3,7 @@ package org.usfirst.frc.team5542.robot.commands.autonomous;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
- *
+ *Single command to collect, organize, and execute the autonomous code.
  */
 public class AutoGamePlan extends CommandGroup {
 	public  AutoGamePlan() {  
