@@ -1,5 +1,7 @@
 package org.usfirst.frc.team5542.robot.subsystems;
 
+import org.usfirst.frc.team5542.robot.RobotMap;
+
 import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -10,8 +12,12 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 
 public class Sonar extends Subsystem {
-	AnalogInput sonar = new AnalogInput(0);//analog input object
-	public static double distance;
+	AnalogInput sonar;
+	private Sonar(){
+		sonar = new AnalogInput(RobotMap.sonar);//analog input object
+	}
+	
+	public double distance;
 
 	public double getdistance(){
 		double volts = sonar.getVoltage(); //gets the voltage
@@ -23,7 +29,6 @@ public class Sonar extends Subsystem {
 	}
 	//get the channel and voltage from here
 	protected void initDefaultCommand() { 
-		// TODO Auto-generated method stub
 	}
 	private static Sonar instance;
 	
