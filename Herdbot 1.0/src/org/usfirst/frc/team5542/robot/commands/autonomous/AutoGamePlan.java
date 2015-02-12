@@ -1,20 +1,13 @@
 package org.usfirst.frc.team5542.robot.commands.autonomous;
-import org.usfirst.frc.team5542.robot.commands.CommandBase;
-import org.usfirst.frc.team5542.robot.subsystems.Sonar;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
  *
  */
-public abstract class AutoGamePlan extends CommandGroup {
+public class AutoGamePlan extends CommandGroup {
 	public  AutoGamePlan() {  
-	}
-	public void execute(){
-		if (Sonar.distance == 30) {
-			//turn off all motors, activate arms
-		}
-	}
+		
 	}
 // Add Commands here:
 // e.g. addSequential(new Command1());
@@ -32,6 +25,4 @@ public abstract class AutoGamePlan extends CommandGroup {
 // e.g. if Command1 requires chassis, and Command2 requires arm,
 // a CommandGroup containing them would require both the chassis and the
 // arm.
-
-
-
+}
