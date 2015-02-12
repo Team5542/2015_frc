@@ -5,7 +5,7 @@ import org.usfirst.frc.team5542.robot.RobotMap;
 import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-//math: voltage divided by 2 for every 10 mm//
+//math: voltage divided by 2 for every 10 mm
 /**
  * sonar sensing stuff
  */
@@ -17,7 +17,7 @@ public class Sonar extends Subsystem {
 		sonar = new AnalogInput(RobotMap.sonar);//analog input object
 	}
 	
-	public double distance;
+	public double distance;//value distance for the smart dash
 
 	public double getdistance(){
 		double volts = sonar.getVoltage(); //gets the voltage
@@ -25,7 +25,7 @@ public class Sonar extends Subsystem {
 		return distance;
 	}
 	public void distance() {
-		SmartDashboard.putNumber("Distance in cm", distance);
+		SmartDashboard.putNumber("Distance in cm", distance);//sends the distance to the driver station
 	}
 	//get the channel and voltage from here
 	protected void initDefaultCommand() { 
@@ -35,7 +35,6 @@ public class Sonar extends Subsystem {
 	public static Sonar getInstance(){
 		if (instance == null)
 			instance = new Sonar();
-		return instance;
+		return instance;//instance for sonar class
 	}
 }
-//send the distance to the driver station
