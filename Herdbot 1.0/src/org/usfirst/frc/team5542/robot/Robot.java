@@ -7,6 +7,7 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
 import org.usfirst.frc.team5542.robot.commands.CommandBase;
+import org.usfirst.frc.team5542.robot.commands.autonomous.AutoGamePlan;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -28,8 +29,8 @@ public class Robot extends IterativeRobot {
     public void robotInit() {
     	CommandBase.init();
     	oi = new OI();
-	
-        // instantiate the command used for the autonomous period
+    	//autonomousCommand = new AutoGamePlan();
+        //de-comment this when competing or testing auto
         
     }
 	
