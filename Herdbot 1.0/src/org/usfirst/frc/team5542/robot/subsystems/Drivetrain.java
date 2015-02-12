@@ -44,7 +44,13 @@ public class Drivetrain extends Subsystem {
 	public double rightDistance() {
 		return rEncoder.getDistance();
 	}
-	
+	public double getDistance(){
+		return ((leftDistance() + rightDistance()) / 2);
+	}
+	public void reset(){
+		lEncoder.reset();
+		rEncoder.reset();
+	}
 	
 	private static double prev1;
 	private static double prev2;
