@@ -19,8 +19,8 @@ public class Arm extends PIDSubsystem {
 	private DigitalInput armMicro1 = new DigitalInput(RobotMap.armMicro1);
 	private DigitalInput armMicro2 = new DigitalInput(RobotMap.armMicro2);
 	
-	private static final double toteHight = 12.1;//inches
-	private static final double canHight = 29.5;//inches
+	private static final double toteHeight = 12.1;//inches
+	private static final double canHeight = 29.5;//inches
     private static double liftComp = 3;//inches
 	private int totes = 1;
 	private static final int maxTotes = 3;
@@ -33,7 +33,7 @@ public class Arm extends PIDSubsystem {
         // setSetpoint() -  Sets where the PID controller should move the system
         //                  to
         // enable() - Enables the PID controller.
-    	setSetpoint(toteHight);
+    	setSetpoint(toteHeight);
     	enable();
     }
    
@@ -55,7 +55,7 @@ public class Arm extends PIDSubsystem {
         // Return your input value for the PID loop
         // e.g. a sensor, like a potentiometer:
         // yourPot.getAverageVoltage() / kYourMaxVoltage;
-    	double hight = pot.get();
+    	double height = pot.get();
     	
     	return 0.0;
     }
@@ -69,17 +69,17 @@ public class Arm extends PIDSubsystem {
     	if (totes != maxTotes)
     		totes++;
     	if (can)
-    		setSetpoint(totes * toteHight + canHight + lift());
+    		setSetpoint(totes * toteHeight + canHeight + lift());
     	else
-    		setSetpoint(totes * toteHight + lift());
+    		setSetpoint(totes * toteHeight + lift());
     }
     public void down(){
     	if (totes != 1)
     		totes--;
     	if (can)
-    		setSetpoint(totes * toteHight + canHight + lift());
+    		setSetpoint(totes * toteHeight + canHeight + lift());
     	else
-    		setSetpoint(totes * toteHight + lift());
+    		setSetpoint(totes * toteHeight + lift());
     }
     
     public double lift(){
@@ -93,9 +93,9 @@ public class Arm extends PIDSubsystem {
     public void switchCan(){
     	can = !can;
     	if (can)
-    		setSetpoint(totes * toteHight + canHight);
+    		setSetpoint(totes * toteHeight + canHeight);
     	else
-    		setSetpoint(totes * toteHight);
+    		setSetpoint(totes * toteHeight);
     }
     
     public void initDefaultCommand() {
