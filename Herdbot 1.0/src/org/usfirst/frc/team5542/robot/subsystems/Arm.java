@@ -12,7 +12,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  *arm motor stuff and arm micro
  */
 public class Arm extends PIDSubsystem {
-	private static final double minHight = 0, maxHight = 3;//sets the base auto height and max auto height
+	private static final double minHight = 0, maxHight = 36;//sets the base auto height and max auto height
 
     private CANTalon armMotor1 = new CANTalon(RobotMap.armMotor1);
     private CANTalon armMotor2 = new CANTalon(RobotMap.armMotor2);
