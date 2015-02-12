@@ -1,26 +1,45 @@
 code outlines (add to as we go on)
+chunk locations:
+sonar: line 104
+armup: line 146
+toggledrive: line 183
+OI: line 226
+fprdrive: line 354
+drivetrain: line 449
+armdown: line 536
+robot: line 573
+robotmap: line 647
+
+
+
+
+
+
 
 basic setup parts:
 
 classes:
 public class (name) { } 
 sets up a class. classes are the things you place all code in and are used to reference large chunks of code
-
-private command:
-
-
-static command:
+______
+modifiers:
 
 
-public command:
+private:
 
 
-void command:
+static:
 
 
-protected command:
+public:
 
 
+void:
+
+
+protected:
+
+_______
 objects:
 (class) = new (name)(RobotMap.(class)); object explanation: http://docs.oracle.com/javase/tutorial/java/concepts/object.html
 ___________________________________
@@ -57,3 +76,604 @@ public class ArmUp extends CommandBase (allows ArmUp to use values from  Command
 tells the class that it needs another class to function Ex:
  public ArmDown() {
         requires(arm);}
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+_______________________________    
+chunk outlines:
+sonar:
+package org.usfirst.frc.team5542.robot.subsystems;
+
+import org.usfirst.frc.team5542.robot.RobotMap;
+
+import edu.wpi.first.wpilibj.AnalogInput;
+import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+//math: voltage divided by 2 for every 10 mm
+/**
+ * sonar sensing stuff
+ */
+
+
+public class Sonar extends Subsystem {
+	AnalogInput sonar;
+	private Sonar(){
+		sonar = new AnalogInput(RobotMap.sonar);//analog input object
+	}
+	
+	public double distance;//value distance for the smart dash
+
+	public double getdistance(){
+		double volts = sonar.getVoltage(); //gets the voltage
+		distance = volts/2; //divides the value given by volts by two
+		return distance;
+	}
+	public void distance() {
+		SmartDashboard.putNumber("Distance in cm", distance);//sends the distance to the driver station
+	}
+	//get the channel and voltage from here
+	protected void initDefaultCommand() { 
+	}
+	private static Sonar instance;
+	
+	public static Sonar getInstance(){
+		if (instance == null)
+			instance = new Sonar();
+		return instance;//instance for sonar class
+	}
+}
+_________________________
+arm up:
+package org.usfirst.frc.team5542.robot.commands;
+
+
+/**
+ *
+ */
+public class ArmUp extends CommandBase {
+
+    public ArmUp() {
+        requires(arm);
+    }
+
+    // Called just before this Command runs the first time
+    protected void initialize() {
+    	arm.up();
+    }
+
+    // Called repeatedly when this Command is scheduled to run
+    protected void execute() {
+    }
+
+    // Make this return true when this Command no longer needs to run execute()
+    protected boolean isFinished() {
+        return true;
+    }
+
+    // Called once after isFinished returns true
+    protected void end() {
+    }
+
+    // Called when another command which requires one or more of the same
+    // subsystems is scheduled to run
+    protected void interrupted() {
+    }
+}
+________________
+ToggleDrive:
+package org.usfirst.frc.team5542.robot.commands;
+
+import edu.wpi.first.wpilibj.command.Command;
+
+/**
+ *toggles between the two drives
+ */
+public class ToggleDrive extends Command {
+
+    private static boolean tankDrive = false;
+	
+	public ToggleDrive() {
+    }
+
+    // Called just before this Command runs the first time
+    protected void initialize() {
+    	if (tankDrive)
+    		new FprDrive().start();
+    	else
+    		new UserDrive().start();
+    	tankDrive = !tankDrive;
+    }
+
+    // Called repeatedly when this Command is scheduled to run
+    protected void execute() {
+    }
+
+    // Make this return true when this Command no longer needs to run execute()
+    protected boolean isFinished() {
+        return true;
+    }
+
+    // Called once after isFinished returns true
+    protected void end() {
+    }
+
+    // Called when another command which requires one or more of the same
+    // subsystems is scheduled to run
+    protected void interrupted() {
+    }
+}
+_______________
+OI:
+package org.usfirst.frc.team5542.robot;
+
+import org.usfirst.frc.team5542.robot.commands.*;
+
+import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.buttons.Button;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
+
+/**
+ * This class is the glue that binds the controls on the physical operator
+ * interface to the commands and command groups that allow control of the robot.
+ */
+public class OI {
+    //Controller layout
+	Joystick controller = new Joystick(0);
+	Button aButton = new JoystickButton(controller, 1);
+	Button bButton = new JoystickButton(controller, 2);
+	Button xButton = new JoystickButton(controller, 3);
+	Button yButton = new JoystickButton(controller, 4);
+	Button lBumper = new JoystickButton(controller, 5);
+	Button rBumper = new JoystickButton(controller, 6);
+	Button select = new JoystickButton(controller, 7);
+	Button start = new JoystickButton(controller, 8);
+	Button lStick = new JoystickButton(controller, 9);
+	Button rStick = new JoystickButton(controller, 10);
+
+	//axis map
+	public static final int lxAxis = 0;
+	public static final int lyAxis = 1;
+	public static final int rxAxis = 4;
+	public static final int ryAxis = 5;
+	public static final int rTrigger = 3;
+	public static final int lTrigger = 2;
+	public static final int dPad = 0;
+	
+	
+	//Joystick layout
+	Joystick stick = new Joystick(1);
+	Button trigger = new JoystickButton(stick, 1);
+	Button thumb = new JoystickButton(stick, 2);
+	Button b3 = new JoystickButton(stick, 3);
+	Button b4 = new JoystickButton(stick, 4);
+	Button b5 = new JoystickButton(stick, 5);
+	Button b6 = new JoystickButton(stick, 6);
+	Button b7 = new JoystickButton(stick, 7);
+	Button b8 = new JoystickButton(stick, 8);
+	Button b9 = new JoystickButton(stick, 9);
+	Button b10 = new JoystickButton(stick, 10);
+	Button b11 = new JoystickButton(stick, 11);
+	Button b12 = new JoystickButton(stick, 12);
+	
+	
+	//axis map
+	public static final int stickX = 0;
+	public static final int stickY = 1;
+	public static final int stickZ = 2;
+	public static final int slider = 3;
+	public static final int pov = 0;
+	
+	
+	//stick sensitivity curve (creates a graph with y=x^(sensitivity) where x = controller input y = motor output)
+	public static final double sensitivity = 1.5;
+	
+	//accessor for controller
+	public Joystick getController(){
+		return controller;
+	}
+	public Joystick getJoystick(){
+		return stick;
+	}
+	
+	private static boolean xBox;
+	public static void switchController(){
+		xBox = !xBox;
+	}
+	public static boolean getxBox(){
+		return xBox;
+	}
+	
+	//constructor
+	public OI(){
+		xBox = true;
+		start.whenPressed(new ToggleDrive());
+		select.whenPressed(new SwitchController());
+		b12.whenPressed(new SwitchController());
+		{
+			bButton.whenPressed(new CenterCamera());
+			//rBumper.whenPressed(new ArmUp());
+			//lBumper.whenPressed(new ArmDown());
+			//aButton.whenPressed(new SwitchCan());
+		}
+		{
+			b4.whenPressed(new CenterCamera());
+			//trigger.whenPressed(new ArmUp());
+			//thumb.whenPressed(new ArmDown());
+			//b3.whenPressed(new SwitchCan());
+		}
+	}
+	
+	//// CREATING BUTTONS
+    // One type of button is a joystick button which is any button on a joystick.
+    // You create one by telling it which joystick it's on and which button
+    // number it is.
+    // Joystick stick = new Joystick(port);
+    // Button button = new JoystickButton(stick, buttonNumber);
+    
+    // There are a few additional built in buttons you can use. Additionally,
+    // by subclassing Button you can create custom triggers and bind those to
+    // commands the same as any other Button.
+    
+    //// TRIGGERING COMMANDS WITH BUTTONS
+    // Once you have a button, it's trivial to bind it to a button in one of
+    // three ways:
+    
+    // Start the command when the button is pressed and let it run the command
+    // until it is finished as determined by it's isFinished method.
+    // button.whenPressed(new ExampleCommand());
+    
+    // Run the command while the button is being held down and interrupt it once
+    // the button is released.
+    // button.whileHeld(new ExampleCommand());
+    
+    // Start the command when the button is released  and let it run the command
+    // until it is finished as determined by it's isFinished method.
+    // button.whenReleased(new ExampleCommand());
+}
+__________________________
+FprDrive:
+package org.usfirst.frc.team5542.robot.commands;
+
+import org.usfirst.frc.team5542.robot.OI;
+import org.usfirst.frc.team5542.robot.Robot;
+
+import edu.wpi.first.wpilibj.Joystick;
+
+
+
+/**
+ *Alternate control scheme inspired by FPS controls (stands for First Person Robot)
+ */
+public class FprDrive extends CommandBase {
+
+    public FprDrive() {
+        requires(drivetrain);
+    }
+
+    // Called just before this Command runs the first time
+    protected void initialize() {
+    	heading = gyro.getXangle();
+    }
+
+    private double heading;
+    private double prevTurn;
+    
+    // Called repeatedly when this Command is scheduled to run
+    protected void execute() {
+    	Joystick controller;
+    	double move;
+    	double turn;
+    	if (OI.getxBox()){
+    		controller = Robot.oi.getController();
+    		move = -controller.getRawAxis(OI.lyAxis);
+    		turn = controller.getRawAxis(OI.rxAxis);
+    	}
+    	else{
+    		controller = Robot.oi.getJoystick();
+    		move = -controller.getRawAxis(OI.stickY);
+    		turn = controller.getRawAxis(OI.stickZ);
+    	}
+    	if (move >= 0)
+    		move = Math.pow(move, OI.sensitivity);
+    	else
+    		move = -(Math.pow(-move, OI.sensitivity));
+
+    	if (turn >= 0)
+    		turn = Math.pow(turn, OI.sensitivity);
+    	else
+    		turn = -(Math.pow(-turn, OI.sensitivity));
+    	
+    	if (move > -.05 && move < .05)
+    		move = 0.0;
+
+    	if (turn > -.05 && turn < .05)
+    		turn = 0.0;
+    	
+    	if (turn != 0 || move == 0)
+    		heading = gyro.getXangle();
+    	else{
+    		if (gyro.getXangle() < heading){
+    			prevTurn = prevTurn + .02;
+    			if (prevTurn > 1)
+    				prevTurn = 1;
+    			turn = prevTurn;
+    		}
+    		if (gyro.getXangle() > heading){
+    			prevTurn = prevTurn - .02;
+    			if (prevTurn < 1)
+    				prevTurn = 1;
+    			turn = prevTurn;
+    		}
+    	}
+    	
+    	drivetrain.fprDrive(move, turn);
+    }
+
+    // Make this return true when this Command no longer needs to run execute()
+    protected boolean isFinished() {
+        return false;
+    }
+
+    // Called once after isFinished returns true
+    protected void end() {
+    	drivetrain.fprDrive(0, 0);
+    }
+
+    // Called when another command which requires one or more of the same
+    // subsystems is scheduled to run
+    protected void interrupted() {
+    	end();
+    }
+}
+_________________
+Drivetrain:
+package org.usfirst.frc.team5542.robot.subsystems;
+
+import org.usfirst.frc.team5542.robot.RobotMap;
+import org.usfirst.frc.team5542.robot.commands.FprDrive;
+
+import edu.wpi.first.wpilibj.RobotDrive;
+import edu.wpi.first.wpilibj.Talon;
+import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.Encoder;
+
+/**
+ *Drivetrain subsystem. Includes all motors used for driving.
+ */
+public class Drivetrain extends Subsystem {
+    
+	private RobotDrive myDrive;
+	private Talon flMotor, frMotor, blMotor, brMotor;
+	private Encoder lEncoder, rEncoder;
+	private static final double rate = .02;
+	private static final double dpp = 18.84;//distance per pulse (inches)
+	
+	private Drivetrain(){
+		flMotor = new Talon(RobotMap.flMotor);
+		blMotor = new Talon(RobotMap.blMotor);
+		frMotor = new Talon(RobotMap.frMotor);
+		brMotor = new Talon(RobotMap.brMotor);
+		myDrive = new RobotDrive(flMotor, blMotor, frMotor, brMotor);
+		lEncoder = new Encoder(RobotMap.encoder1p1, RobotMap.encoder1p2);
+		rEncoder = new Encoder(RobotMap.encoder2p1, RobotMap.encoder2p2);
+		lEncoder.setDistancePerPulse(dpp);
+		rEncoder.setDistancePerPulse(dpp);
+	}
+	
+	public static Drivetrain instance;
+	
+	public static Drivetrain getInstance(){
+		if (instance == null)
+			instance = new Drivetrain();
+		return instance;
+	}
+	public double leftDistance() {
+		return lEncoder.getDistance();
+	}
+	public double rightDistance() {
+		return rEncoder.getDistance();
+	}
+	
+	
+	private static double prev1;
+	private static double prev2;
+	
+    public void tankDrive(double left, double right){
+    	if (prev1 - rate > left)
+    		left = prev1 - rate;
+    	if (prev1 + rate < left)
+    		left = prev1 + rate;
+    	if (prev2 - rate > right)
+    		right = prev2 - rate;
+    	if (prev2 + rate < right)
+    		right = prev2 + rate;
+    	myDrive.tankDrive(left, right);
+    	prev1 = left;
+    	prev2 = right;
+    }
+    
+    public void fprDrive(double move, double turn){
+    	if (prev1 - rate > move)
+    		move = prev1 - rate;
+    	if (prev1 + rate < move)
+    		move = prev1 + rate;
+    	if (prev2 - rate > turn)
+    		turn = prev2 - rate;
+    	if (prev2 + rate < turn)
+    		turn = prev2 + rate;
+    	myDrive.arcadeDrive(move, turn);
+    	prev1 = move;
+    	prev2 = turn;
+    }
+
+
+	public void initDefaultCommand() {
+        setDefaultCommand(new FprDrive());
+    }
+}
+
+________________
+ArmDown:
+package org.usfirst.frc.team5542.robot.commands;
+
+
+/**
+ *
+ */
+public class ArmDown extends CommandBase {
+
+    public ArmDown() {
+        requires(arm);
+    }
+
+    // Called just before this Command runs the first time
+    protected void initialize() {
+    	arm.down();
+    }
+
+    // Called repeatedly when this Command is scheduled to run
+    protected void execute() {
+    }
+
+    // Make this return true when this Command no longer needs to run execute()
+    protected boolean isFinished() {
+        return true;
+    }
+
+    // Called once after isFinished returns true
+    protected void end() {
+    }
+
+    // Called when another command which requires one or more of the same
+    // subsystems is scheduled to run
+    protected void interrupted() {
+    }
+}
+____________________
+Robot:
+/**
+ * The VM is configured to automatically run this class, and to call the
+ * functions corresponding to each mode, as described in the IterativeRobot
+ * documentation. If you change the name of this class or the package after
+ * creating this project, you must also update the manifest file in the resource
+ * directory.
+ */
+public class Robot extends IterativeRobot {
+
+	public static OI oi;
+
+    Command autonomousCommand;
+
+    /**
+     * This function is run when the robot is first started up and should be
+     * used for any initialization code.
+     */
+    public void robotInit() {
+    	CommandBase.init();
+    	oi = new OI();
+	
+        // instantiate the command used for the autonomous period
+        
+    }
+	
+	public void disabledPeriodic() {
+		Scheduler.getInstance().run();
+	}
+
+    public void autonomousInit() {
+        // schedule the autonomous command (example)
+        if (autonomousCommand != null) autonomousCommand.start();
+    }
+
+    /**
+     * This function is called periodically during autonomous
+     */
+    public void autonomousPeriodic() {
+        Scheduler.getInstance().run();
+    }
+
+    public void teleopInit() {
+		// This makes sure that the autonomous stops running when
+        // teleop starts running. If you want the autonomous to 
+        // continue until interrupted by another command, remove
+        // this line or comment it out.
+        if (autonomousCommand != null) autonomousCommand.cancel();
+    }
+
+    /**
+     * This function is called when the disabled button is hit.
+     * You can use it to reset subsystems before shutting down.
+     */
+    public void disabledInit(){
+
+    }
+
+    /**
+     * This function is called periodically during operator control
+     */
+    public void teleopPeriodic() {
+        Scheduler.getInstance().run();
+        
+    }
+    
+    /**
+     * This function is called periodically during test mode
+     */
+    public void testPeriodic() {
+        LiveWindow.run();
+    }
+}
+_______________
+RobotMap:
+package org.usfirst.frc.team5542.robot;
+/**
+ * The RobotMap is a mapping from the ports sensors and actuators are wired into
+ * to a variable name. This provides flexibility changing wiring, makes checking
+ * the wiring easier and significantly reduces the number of magic numbers
+ * floating around.
+ */
+public class RobotMap {
+    public static final int flMotor = 3;//PWM front left motor
+    public static final int blMotor = 2;//etc.
+    public static final int frMotor = 1;//
+    public static final int brMotor = 0;//
+    public static final int armMotor1 = 4;//CAN id for arm motor
+    public static final int armMotor2 = 5;
+    public static final int potentiometer = 1;//analog for pot
+    public static final int tiltMotor = 6;//PWM camera up down motor
+    public static final int panMotor = 5;//PWM camera left right motor
+    public static final int armMicro1 = 0;//DIO port for microswitch
+    public static final int armMicro2 = 1;
+    public static final int infrared = 2;
+    public static final int sonar = 0;//analog channel for sonar
+    public static final int encoder1p1 = 1;//first encoder first port
+    public static final int encoder1p2 = 2;//first encoder second port
+    public static final int encoder2p1 = 3;//second encoder first port
+    public static final int encoder2p2 = 4;//second encoder second port
+    
+    // If you are using multiple modules, make sure to define both the port
+    // number and the module. For example you with a rangefinder:
+    // public static int rangefinderPort = 1;
+    // public static int rangefinderModule = 1;
+}
+____________________

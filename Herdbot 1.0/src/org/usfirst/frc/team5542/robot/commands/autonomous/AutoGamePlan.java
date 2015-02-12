@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class AutoGamePlan extends CommandGroup {
 	public  AutoGamePlan() {  
 		addSequential(new AutoToteGrab());
+		addSequential(new AutoZone());
 	}
 // Add Commands here:
 // e.g. addSequential(new Command1());
