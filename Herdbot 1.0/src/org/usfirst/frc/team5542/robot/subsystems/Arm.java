@@ -24,7 +24,7 @@ public class Arm extends PIDSubsystem {
     private static double liftComp = 3;//inches
 	private int totes = 1;
 	private static final int maxTotes = 3;
-	private static double kp = 1, ki = 0, kd = 0;
+	private static double kp = 1, ki = .5, kd = 0;
 	
 	// Initialize your subsystem here
     public Arm() {
