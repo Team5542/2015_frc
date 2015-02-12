@@ -13,7 +13,7 @@ public class CenterCamera extends CommandBase {
     // Called just before this Command runs the first time
     protected void initialize() {
     	camera.setPan(.5);
-    	camera.setTilt(.5);
+    	camera.setTilt(.3);
     }
 
     // Called repeatedly when this Command is scheduled to run
