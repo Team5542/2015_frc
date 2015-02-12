@@ -35,7 +35,7 @@ public class Gyro extends Subsystem {
 			return input;
 	}
 	
-	private byte[] data;
+	private byte[] data = new byte[6];
 	private double[] rates = new double[3];
 	public void getRates(){
 		gyro.read(0b0101000, 6, data);
