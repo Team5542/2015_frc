@@ -12,7 +12,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  *arm motor stuff and arm micro
  */
 public class Arm extends PIDSubsystem {
-	private static final double minHight = 0, maxHight = 3;//sets the base auto height and max auto height
+	private static final double minHight = 0, maxHight = 36;//sets the base auto height and max auto height
 
     private CANTalon armMotor1 = new CANTalon(RobotMap.armMotor1);
     private CANTalon armMotor2 = new CANTalon(RobotMap.armMotor2);
@@ -47,17 +47,17 @@ public class Arm extends PIDSubsystem {
     public static Arm getInstance(){
     	if (instance == null)
     		instance = new Arm();
-    	return instance; //instance for arm class
+    	return instance;
     }
     public void potSD() {
     	SmartDashboard.putNumber("Potentiometer", pot.get()); //sends potentiometer data to the smart dash
     }
     
     public boolean isInRange(){
-    	return infrared.get(); //returns information for the infared sensor
+    	return infrared.get();
     }
     
-    public boolean isTouching(){//checks if the arm is touching a tote/can
+    public boolean isTouching(){
     	return (armMicro1.get() && armMicro2.get());
     }
     
