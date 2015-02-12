@@ -18,7 +18,7 @@ public class FprDrive extends CommandBase {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	heading = gyro.getXangle();
+    	heading = gyro.getZangle();
     }
 
     private double heading;
@@ -56,15 +56,15 @@ public class FprDrive extends CommandBase {
     		turn = 0.0;
     	
     	if (turn != 0 || move == 0)
-    		heading = gyro.getXangle();
+    		heading = gyro.getZangle();
     	else{
-    		if (gyro.getXangle() < heading){
+    		if (gyro.getZangle() < heading){
     			prevTurn = prevTurn + .02;
     			if (prevTurn > 1)
     				prevTurn = 1;
     			turn = prevTurn;
     		}
-    		if (gyro.getXangle() > heading){
+    		if (gyro.getZangle() > heading){
     			prevTurn = prevTurn - .02;
     			if (prevTurn < 1)
     				prevTurn = 1;
