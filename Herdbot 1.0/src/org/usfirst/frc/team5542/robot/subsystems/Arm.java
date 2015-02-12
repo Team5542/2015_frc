@@ -47,7 +47,7 @@ public class Arm extends PIDSubsystem {
     		instance = new Arm();
     	return instance;
     }
-    public void PotSM() {
+    public void potSD() {
     	SmartDashboard.putNumber("Potentiometer", pot.get());
     }
     
