@@ -9,8 +9,8 @@ drivetrain: line 449
 armdown: line 536
 robot: line 573
 robotmap: line 647
-
-
+center camera: line 680
+commandbase: line 718
 
 
 
@@ -677,3 +677,73 @@ public class RobotMap {
     // public static int rangefinderModule = 1;
 }
 ____________________
+centercamera:
+package org.usfirst.frc.team5542.robot.commands;
+
+
+/**
+ *centers the camera (values will change later)
+ */
+public class CenterCamera extends CommandBase {
+
+    public CenterCamera() {
+        requires(camera);
+    }
+
+    // Called just before this Command runs the first time
+    protected void initialize() {
+    	camera.setPan(.5);
+    	camera.setTilt(.3);
+    }
+
+    // Called repeatedly when this Command is scheduled to run
+    protected void execute() {
+    }
+
+    // Make this return true when this Command no longer needs to run execute()
+    protected boolean isFinished() {
+        return true;
+    }
+
+    // Called once after isFinished returns true
+    protected void end() {
+    }
+
+    // Called when another command which requires one or more of the same
+    // subsystems is scheduled to run
+    protected void interrupted() {
+    }
+}
+___________
+CommandBase:
+package org.usfirst.frc.team5542.robot.commands;
+
+import org.usfirst.frc.team5542.robot.subsystems.*;
+
+import edu.wpi.first.wpilibj.command.Command;
+
+/**
+ *Base class to allow for direct subsystem reference in Commands and more organization in Robot.
+ *I'm told this is a good idea...
+ */
+public abstract class CommandBase extends Command {
+
+	protected static Drivetrain drivetrain;
+	protected static Arm arm;
+	protected static Gyro gyro;
+	protected static Camera camera;
+	protected static PDP pdp;
+	protected static Sonar sonar;
+	
+	
+	
+	
+	public static void init(){
+		drivetrain = Drivetrain.getInstance();
+		//arm = Arm.getInstance(); //DO NOT initiate until potentiometer is set up and coded
+		gyro = Gyro.getInstance();
+		camera = Camera.getInstance();
+		pdp = PDP.getInstance();
+		sonar = Sonar.getInstance();
+	}
+}
