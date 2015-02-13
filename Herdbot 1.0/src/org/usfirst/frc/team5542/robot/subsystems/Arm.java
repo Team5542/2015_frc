@@ -78,11 +78,12 @@ public class Arm extends PIDSubsystem {
         // Return your input value for the PID loop
         // e.g. a sensor, like a potentiometer:
         // yourPot.getAverageVoltage() / kYourMaxVoltage;
-    	return (leftHall.getDistance() + rightHall.getDistance()) / 2;
+    	//return (leftHall.getDistance() + rightHall.getDistance()) / 2;
+    	return 0;
     }
     
     private double motorComp;
-    protected void usePIDOutput(double output) {
+   /* protected void usePIDOutput(double output) {
     	if (compareHalls() < 0)
     		motorComp += .01;
     	if (compareHalls() > 0);
@@ -98,7 +99,7 @@ public class Arm extends PIDSubsystem {
     	//leftMotor.set(output + motorComp);
     	//rightMotor.set(output - motorComp);
     	
-    }
+    }*/
     
     public void up(){
     	leftMotor.set(1);
