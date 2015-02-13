@@ -81,7 +81,6 @@ public class Arm extends PIDSubsystem {
     }
     
     private double motorComp;
-    private boolean leftDir = true, RightDir = true;
     protected void usePIDOutput(double output) {
     	if (compareHalls() < 0)
     		motorComp += .01;
