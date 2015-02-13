@@ -19,8 +19,8 @@ public class Arm extends PIDSubsystem {
     private CANTalon leftMotor = new CANTalon(RobotMap.armMotor1);
     private CANTalon rightMotor = new CANTalon(RobotMap.armMotor2);
     private AnalogPotentiometer pot = new AnalogPotentiometer(RobotMap.potentiometer, maxHight - minHight, minHight);
-	private DigitalInput armMicro1 = new DigitalInput(RobotMap.armMicro1);
-	private DigitalInput armMicro2 = new DigitalInput(RobotMap.armMicro2);
+	//private DigitalInput armMicro1 = new DigitalInput(RobotMap.armMicro1);
+	//private DigitalInput armMicro2 = new DigitalInput(RobotMap.armMicro2);
 	private DigitalInput infrared = new DigitalInput(RobotMap.infrared);
 	private Counter leftHall = new Counter(RobotMap.leftHall);
 	private Counter rightHall = new Counter(RobotMap.rightHall);
@@ -65,7 +65,8 @@ public class Arm extends PIDSubsystem {
     }
     
     public boolean isTouching(){
-    	return (armMicro1.get() && armMicro2.get());
+    	//return (armMicro1.get() && armMicro2.get());
+    	return false;
     }
     
     public double compareHalls(){
