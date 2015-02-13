@@ -21,7 +21,7 @@ public class Arm extends PIDSubsystem {
     private AnalogPotentiometer pot = new AnalogPotentiometer(RobotMap.potentiometer, maxHight - minHight, minHight);
 	//private DigitalInput armMicro1 = new DigitalInput(RobotMap.armMicro1);
 	//private DigitalInput armMicro2 = new DigitalInput(RobotMap.armMicro2);
-	//private DigitalInput infrared = new DigitalInput(RobotMap.infrared);
+	private DigitalInput infrared = new DigitalInput(RobotMap.infrared);
 	private Counter leftHall = new Counter(RobotMap.leftHall);
 	private Counter rightHall = new Counter(RobotMap.rightHall);
 	//sets up motors and potentiometer
@@ -61,8 +61,7 @@ public class Arm extends PIDSubsystem {
     }
     
     public boolean isInRange(){
-    	//return infrared.get();
-    	return false;
+    	return infrared.get();
     }
     
     public boolean isTouching(){
