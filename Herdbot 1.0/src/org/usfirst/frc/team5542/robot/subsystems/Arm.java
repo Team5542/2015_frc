@@ -61,7 +61,8 @@ public class Arm extends PIDSubsystem {
     }
     
     public boolean isInRange(){
-    	return infrared.get();
+    	//return infrared.get();
+    	return false;
     }
     
     public boolean isTouching(){
