@@ -99,24 +99,28 @@ public class Arm extends PIDSubsystem {
     }
     
     public void up(){
-    	if (totes != maxTotes)
-    		totes++;
-    	if (can)
-    		setSetpoint(totes * toteHeight + canHeight + lift());
-    	else
-    		setSetpoint(totes * toteHeight + lift());
+    	leftMotor.set(1);
+    	rightMotor.set(1);
+    	//if (totes != maxTotes)
+    		//totes++;
+    	//if (can)
+    		//setSetpoint(totes * toteHeight + canHeight + lift());
+    	//else
+    		//setSetpoint(totes * toteHeight + lift());
     }
     public void down(){
-    	if (totes != 1)
-    		totes--;
-    	else if (can)
-    		setSetpoint(canHeight);
-    	else
-    		setSetpoint(toteHeight);
-    	if (can)
-    		setSetpoint(totes * toteHeight + canHeight + lift());
-    	else
-    		setSetpoint(totes * toteHeight + lift());
+    	leftMotor.set(-1);
+    	rightMotor.set(-1);
+    	//if (totes != 1)
+    		//totes--;
+    	//else if (can)
+    		//setSetpoint(canHeight);
+    	//else
+    		//setSetpoint(toteHeight);
+    	//if (can)
+    		//setSetpoint(totes * toteHeight + canHeight + lift());
+    	//else
+    		//setSetpoint(totes * toteHeight + lift());
     }
     
     public double lift(){
