@@ -10,15 +10,23 @@ public class AutoZone extends CommandBase {
     public AutoZone() {
         requires(drivetrain);
         requires(arm);
+        requires(gyro);
     }
-
+    
+    private double heading;
     // Called just before this Command runs the first time
     protected void initialize() {
+    	heading = gyro.getZangle();
     }
 
+    private double turn = 0;
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	drivetrain.fprDrive(-.5, 0);
+    	if (gyro.getZangle() > heading)
+    		turn = turn - .02;
+    	if (gyro.getZangle() < heading)
+    		turn = turn +.02;
+    	drivetrain.fprDrive(-.5, turn);
     }
 
     private static double distance = 84;
