@@ -17,7 +17,7 @@ public class RobotMap {
     public static final int panMotor = 5;//PWM camera left right motor
     public static final int armMicro1 = 0;//DIO port for microswitch
     public static final int armMicro2 = 1;
-    public static final int infrared = 2;
+    public static final int infrared = 6;
     public static final int leftHall = 3;//dio for magnet sensor
     public static final int rightHall = 4;
     public static final int sonar = 0;//analog channel for sonar
