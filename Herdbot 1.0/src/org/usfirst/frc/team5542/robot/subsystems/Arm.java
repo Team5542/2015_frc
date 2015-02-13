@@ -4,6 +4,7 @@ import org.usfirst.frc.team5542.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.AnalogPotentiometer;
 import edu.wpi.first.wpilibj.CANTalon;
+import edu.wpi.first.wpilibj.Counter;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -14,12 +15,14 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class Arm extends PIDSubsystem {
 	private static final double minHight = 0, maxHight = 36;//sets the base auto height and max auto height
 
-    private CANTalon armMotor1 = new CANTalon(RobotMap.armMotor1);
-    private CANTalon armMotor2 = new CANTalon(RobotMap.armMotor2);
+    private CANTalon leftMotor = new CANTalon(RobotMap.armMotor1);
+    private CANTalon rightMotor = new CANTalon(RobotMap.armMotor2);
     private AnalogPotentiometer pot = new AnalogPotentiometer(RobotMap.potentiometer, maxHight - minHight, minHight);
 	private DigitalInput armMicro1 = new DigitalInput(RobotMap.armMicro1);
 	private DigitalInput armMicro2 = new DigitalInput(RobotMap.armMicro2);
 	private DigitalInput infrared = new DigitalInput(RobotMap.infrared);
+	private Counter leftHall = new Counter(RobotMap.leftHall);
+	private Counter rightHall = new Counter(RobotMap.rightHall);
 	//sets up motors and potentiometer
 	
 	private static final double toteHeight = 12.1;//sets the height for totes in inches
@@ -28,10 +31,13 @@ public class Arm extends PIDSubsystem {
 	private int totes = 1;
 	private static final int maxTotes = 3;
 	private static double kp = 1, ki = .5, kd = 0;
+	private static double dpp = 1;
 	
 	// Initialize your subsystem here
     public Arm() {
     	 super(kp, ki, kd);
+    	 leftHall.setDistancePerPulse(dpp);
+    	 rightHall.setDistancePerPulse(dpp);
     	// Use these to get going:
         // setSetpoint() -  Sets where the PID controller should move the system
         //                  to
@@ -61,6 +67,10 @@ public class Arm extends PIDSubsystem {
     	return (armMicro1.get() && armMicro2.get());
     }
     
+    public double compareHalls(){
+    	return leftHall.getDistance() - rightHall.getDistance();
+    }
+    
     protected double returnPIDInput() {
         // Return your input value for the PID loop
         // e.g. a sensor, like a potentiometer:
@@ -70,9 +80,24 @@ public class Arm extends PIDSubsystem {
     	return 0.0;
     }
     
+    private double motorComp;
+    private boolean leftDir = true, RightDir = true;
     protected void usePIDOutput(double output) {
-    	armMotor1.set(output);
-    	armMotor2.set(output);
+    	if (compareHalls() < 0)
+    		motorComp += .01;
+    	if (compareHalls() > 0);
+    		motorComp -= .01;
+    	if (output + motorComp < 0)
+    		leftHall.setReverseDirection(true);
+    	else
+    		leftHall.setReverseDirection(false);
+    	if (output - motorComp < 0)
+    		rightHall.setReverseDirection(true);
+    	else
+    		rightHall.setReverseDirection(false);
+    	leftMotor.set(output + motorComp);
+    	rightMotor.set(output - motorComp);
+    	
     }
     
     public void up(){
