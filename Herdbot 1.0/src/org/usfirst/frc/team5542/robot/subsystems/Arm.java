@@ -1,6 +1,7 @@
 package org.usfirst.frc.team5542.robot.subsystems;
 
 import org.usfirst.frc.team5542.robot.RobotMap;
+import org.usfirst.frc.team5542.robot.commands.UserArm;
 
 import edu.wpi.first.wpilibj.AnalogPotentiometer;
 import edu.wpi.first.wpilibj.CANTalon;
@@ -13,7 +14,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  *arm motor stuff and arm micro
  */
 public class Arm extends PIDSubsystem {
-	private static final double minHight = 0, maxHight = 36;//sets the base auto height and max auto height
+	private static final double minHight = 0, maxHight = 0;//sets the base auto height and max auto height
 
     private CANTalon leftMotor = new CANTalon(RobotMap.armMotor1);
     private CANTalon rightMotor = new CANTalon(RobotMap.armMotor2);
@@ -135,7 +136,6 @@ public class Arm extends PIDSubsystem {
     }
     
     public void initDefaultCommand() {
-        // Set the default command for a subsystem here.
-        //setDefaultCommand(new MySpecialCommand());
+        setDefaultCommand(new UserArm());
     }
 }
