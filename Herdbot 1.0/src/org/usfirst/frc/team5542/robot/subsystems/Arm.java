@@ -93,8 +93,8 @@ public class Arm extends PIDSubsystem {
     		rightHall.setReverseDirection(true);
     	else
     		rightHall.setReverseDirection(false);
-    	leftMotor.set(output + motorComp);
-    	rightMotor.set(output - motorComp);
+    	//leftMotor.set(output + motorComp);
+    	//rightMotor.set(output - motorComp);
     	
     }
     
