@@ -22,8 +22,8 @@ public class Arm extends PIDSubsystem {
 	//private DigitalInput armMicro1 = new DigitalInput(RobotMap.armMicro1);
 	//private DigitalInput armMicro2 = new DigitalInput(RobotMap.armMicro2);
 	private DigitalInput infrared = new DigitalInput(RobotMap.infrared);
-	private Counter leftHall = new Counter(RobotMap.leftHall);
-	private Counter rightHall = new Counter(RobotMap.rightHall);
+	//private Counter leftHall = new Counter(RobotMap.leftHall);
+	//private Counter rightHall = new Counter(RobotMap.rightHall);
 	//sets up motors and potentiometer
 	
 	private static final double toteHeight = 12.1;//sets the height for totes in inches
@@ -70,7 +70,8 @@ public class Arm extends PIDSubsystem {
     }
     
     public double compareHalls(){
-    	return leftHall.getDistance() - rightHall.getDistance();
+    	//return leftHall.getDistance() - rightHall.getDistance();
+    	return 0;
     }
     
     protected double returnPIDInput() {
