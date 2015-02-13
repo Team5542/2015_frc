@@ -37,8 +37,8 @@ public class Arm extends PIDSubsystem {
 	// Initialize your subsystem here
     public Arm() {
     	 super(kp, ki, kd);
-    	 leftHall.setDistancePerPulse(dpp);
-    	 rightHall.setDistancePerPulse(dpp);
+    	 //leftHall.setDistancePerPulse(dpp);
+    	 //rightHall.setDistancePerPulse(dpp);
     	// Use these to get going:
         // setSetpoint() -  Sets where the PID controller should move the system
         //                  to
