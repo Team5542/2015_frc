@@ -38,7 +38,7 @@ public class UserArm extends CommandBase {
 
     	
     	
-    	if (input > -.05 && input < .05)
+    	if (input > -.05 && input < .06)
     		input = 0.0;
 
     	arm.arcadeControls(input,0);
