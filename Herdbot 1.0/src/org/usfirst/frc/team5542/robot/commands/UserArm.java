@@ -31,7 +31,17 @@ public class UserArm extends CommandBase {
     		controller = Robot.oi.getJoystick();
     		input = - controller.getRawAxis(OI.stickY);
     	}
-		arm.setSetpointRelative(input / 5);
+    	if (input >= 0)
+    		input = Math.pow(input, OI.sensitivity);
+    	else
+    		input = -(Math.pow(-input, OI.sensitivity));
+
+    	
+    	
+    	if (input > -.05 && input < .05)
+    		input = 0.0;
+
+    	arm.arcadeControls(input,0);
     }
 
     // Make this return true when this Command no longer needs to run execute()
