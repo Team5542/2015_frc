@@ -20,7 +20,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  */
 public class Arm extends Subsystem {
 	//private static final double minHight = 0, maxHight = 0;//sets the base auto height and max auto height
-    private Talon leftMotor;
+    private CANTalon leftMotor;
     private CANTalon rightMotor;
     //private AnalogPotentiometer pot = new AnalogPotentiometer(RobotMap.potentiometer, maxHight - minHight, minHight);
 	//private DigitalInput armMicro1 = new DigitalInput(RobotMap.armMicro1);
@@ -54,7 +54,7 @@ public class Arm extends Subsystem {
 	
 	private Arm(){
 		rightMotor = new CANTalon(RobotMap.armMotorRight);
-		leftMotor = new Talon(RobotMap.armMotorLeft);
+		leftMotor = new CANTalon(RobotMap.armMotorLeft);
 		myDrive= new RobotDrive(leftMotor, rightMotor);
 		//infrared = new DigitalInput(RobotMap.infrared);
 	}
