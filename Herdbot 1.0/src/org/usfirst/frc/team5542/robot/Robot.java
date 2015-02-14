@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
 import org.usfirst.frc.team5542.robot.commands.CommandBase;
 import org.usfirst.frc.team5542.robot.commands.autonomous.AutoGamePlan;
+import org.usfirst.frc.team5542.robot.commands.autonomous.JustMove;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -29,7 +30,7 @@ public class Robot extends IterativeRobot {
     public void robotInit() {
     	CommandBase.init();
     	oi = new OI();
-    	//autonomousCommand = new AutoGamePlan();
+    	//autonomousCommand = new JustMove();
         //de-comment this when competing or testing auto
         
     }
