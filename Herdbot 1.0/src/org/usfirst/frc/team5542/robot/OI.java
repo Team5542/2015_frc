@@ -50,7 +50,7 @@ public class OI {
 	Button b12 = new JoystickButton(stick, 12);
 	
 	
-	//axis map
+	//Joystick axis map
 	public static final int stickX = 0;
 	public static final int stickY = 1;
 	public static final int stickZ = 2;
@@ -85,14 +85,14 @@ public class OI {
 		b12.whenPressed(new SwitchController());
 		{
 			bButton.whenPressed(new CenterCamera());
-			rBumper.whenPressed(new ArmUp());
-			lBumper.whenPressed(new ArmDown());
+			//rBumper.whenPressed(new ArmUp());
+			//lBumper.whenPressed(new ArmDown());
 			//aButton.whenPressed(new SwitchCan());
 		}
 		{
 			b4.whenPressed(new CenterCamera());
-			trigger.whenPressed(new ArmUp());
-			thumb.whenPressed(new ArmDown());
+			//trigger.whenPressed(new ArmUp());
+			//thumb.whenPressed(new ArmDown());
 			//b3.whenPressed(new SwitchCan());
 		}
 	}
