@@ -83,23 +83,23 @@ public class Arm extends PIDSubsystem {
     }
     
     private double motorComp;
-   /* protected void usePIDOutput(double output) {
-    	if (compareHalls() < 0)
-    		motorComp += .01;
-    	if (compareHalls() > 0);
-    		motorComp -= .01;
-    	if (output + motorComp < 0)
-    		leftHall.setReverseDirection(true);
-    	else
-    		leftHall.setReverseDirection(false);
-    	if (output - motorComp < 0)
-    		rightHall.setReverseDirection(true);
-    	else
-    		rightHall.setReverseDirection(false);
-    	//leftMotor.set(output + motorComp);
-    	//rightMotor.set(output - motorComp);
+    protected void usePIDOutput(double output) {
+//    	if (compareHalls() < 0)
+   		motorComp += .01;
+//    	if (compareHalls() > 0);
+//    		motorComp -= .01;
+//    	if (output + motorComp < 0)
+//    		leftHall.setReverseDirection(true);
+//    	else
+//    		leftHall.setReverseDirection(false);
+//    	if (output - motorComp < 0)
+//    		rightHall.setReverseDirection(true);
+//    	else
+//    		rightHall.setReverseDirection(false);
+    	leftMotor.set(output + motorComp);
+    	rightMotor.set(output - motorComp);
     	
-    }*/
+    }
     
     public void up(){
     	leftMotor.set(1);
