@@ -4,11 +4,13 @@ import org.usfirst.frc.team5542.robot.RobotMap;
 import org.usfirst.frc.team5542.robot.commands.UserArm;
 
 
+
 //import edu.wpi.first.wpilibj.AnalogPotentiometer;
 import edu.wpi.first.wpilibj.CANTalon;
 //import edu.wpi.first.wpilibj.Counter;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.RobotDrive;
+import edu.wpi.first.wpilibj.Talon;
 //import edu.wpi.first.wpilibj.command.PIDSubsystem;
 import edu.wpi.first.wpilibj.command.Subsystem;
 //import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -18,7 +20,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  */
 public class Arm extends Subsystem {
 	//private static final double minHight = 0, maxHight = 0;//sets the base auto height and max auto height
-    private CANTalon leftMotor;
+    private Talon leftMotor;
     private CANTalon rightMotor;
     //private AnalogPotentiometer pot = new AnalogPotentiometer(RobotMap.potentiometer, maxHight - minHight, minHight);
 	//private DigitalInput armMicro1 = new DigitalInput(RobotMap.armMicro1);
@@ -51,8 +53,8 @@ public class Arm extends Subsystem {
 //    }
 	
 	private Arm(){
-		rightMotor = new CANTalon(RobotMap.armMotor2);
-		leftMotor = new CANTalon(RobotMap.armMotor1);
+		rightMotor = new CANTalon(RobotMap.armMotorRight);
+		leftMotor = new Talon(RobotMap.armMotorLeft);
 		myDrive= new RobotDrive(leftMotor, rightMotor);
 		//infrared = new DigitalInput(RobotMap.infrared);
 	}
