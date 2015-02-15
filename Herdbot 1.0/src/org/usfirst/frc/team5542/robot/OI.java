@@ -92,6 +92,7 @@ public class OI {
 		}
 		{
 			b4.whenPressed(new CenterCamera());
+			b5.whileHeld(new OpenMotor());
 			//trigger.whenPressed(new ArmUp());
 			//thumb.whenPressed(new ArmDown());
 			//b3.whenPressed(new SwitchCan());
