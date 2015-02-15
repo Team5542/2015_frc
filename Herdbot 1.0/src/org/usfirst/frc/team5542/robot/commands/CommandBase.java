@@ -16,6 +16,7 @@ public abstract class CommandBase extends Command {
 	protected static Camera camera;
 	protected static PDP pdp;
 	protected static Sonar sonar;
+	protected static Grabber grabber;
 	
 	
 	
@@ -27,5 +28,6 @@ public abstract class CommandBase extends Command {
 		camera = Camera.getInstance();
 		pdp = PDP.getInstance();
 		sonar = Sonar.getInstance();
+		grabber = Grabber.getInstance();
 	}
 }
