@@ -23,7 +23,7 @@ public abstract class CommandBase extends Command {
 	
 	public static void init(){
 		drivetrain = Drivetrain.getInstance();
-		arm = Arm.getInstance(); //DO NOT initiate until potentiometer is set up and coded
+		//arm = Arm.getInstance(); //DO NOT initiate until potentiometer is set up and coded
 		gyro = Gyro.getInstance();
 		camera = Camera.getInstance();
 		pdp = PDP.getInstance();

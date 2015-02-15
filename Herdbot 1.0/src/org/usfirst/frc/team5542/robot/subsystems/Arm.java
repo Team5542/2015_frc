@@ -5,9 +5,9 @@ import org.usfirst.frc.team5542.robot.commands.UserArm;
 
 
 
+
+import edu.wpi.first.wpilibj.AnalogPotentiometer;
 import edu.wpi.first.wpilibj.CANTalon;
-import edu.wpi.first.wpilibj.Counter;
-import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
 //import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -20,18 +20,14 @@ public class Arm extends PIDSubsystem {
 	//private DigitalInput armMicro1 = new DigitalInput(RobotMap.armMicro1);
 	//private DigitalInput armMicro2 = new DigitalInput(RobotMap.armMicro2);
 	//private DigitalInput infrared;
-	private Counter leftHall = new Counter(RobotMap.leftHall);
-	private Counter rightHall = new Counter(RobotMap.rightHall);
+	private AnalogPotentiometer pot = new AnalogPotentiometer(RobotMap.potentiometer);
 	//sets up motors and potentiometer
 	
 	private static double base, lift, place;//constants for each possible
-	private static double dpp;
 	
 	private static final double kp = 1, ki = 0, kd = 0;
     public Arm() {
     	super(kp, ki, kd);
-    	leftHall.setDistancePerPulse(dpp);
-    	rightHall.setDistancePerPulse(dpp);
     	// Use these to get going:
     	// setSetpoint() -  Sets where the PID controller should move the system to
     	// enable() - Enables the PID controller.
@@ -58,50 +54,16 @@ public class Arm extends PIDSubsystem {
     	return false;
     }
     
-    public double compareHalls(){
-    	double dist = leftHall.getDistance() - rightHall.getDistance();
-    	if (dist < .25 && dist > -.25)
-    		return 0;
-    	else
-    		return dist;
-    }
-    
     protected double returnPIDInput() {
         // Return your input value for the PID loop
         // e.g. a sensor, like a potentiometer:
         // yourPot.getAverageVoltage() / kYourMaxVoltage;
-    	return (leftHall.getDistance() + rightHall.getDistance()) / 2;
+    	return 0;
     }
     
     protected void usePIDOutput(double output) {
-    	if (output > 0){
-    		if (compareHalls() > 0){
-    			leftMotor.set(0);
-    			rightMotor.set(output);
-    		}
-    		else if (compareHalls() < 0){
-    			leftMotor.set(output);
-    			rightMotor.set(0);
-    		}
-    		leftHall.setReverseDirection(false);
-    		rightHall.setReverseDirection(false);
-    	}
-    	else if (output < 0){
-    		if (compareHalls() > 0){
-    			leftMotor.set(output);
-    			rightMotor.set(0);
-    		}
-    		else if (compareHalls() < 0){
-    			leftMotor.set(0);
-    			rightMotor.set(output);
-    		}
-    		leftHall.setReverseDirection(true);
-    		rightHall.setReverseDirection(true);
-    	}
-    	else{
-			leftMotor.set(output);
-			rightMotor.set(output);
-		}
+    	leftMotor.set(output);
+    	rightMotor.set(output);
     }
 
     public void setBase(){
