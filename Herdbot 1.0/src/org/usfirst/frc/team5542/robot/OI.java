@@ -85,12 +85,14 @@ public class OI {
 		b12.whenPressed(new SwitchController());
 		{
 			bButton.whenPressed(new CenterCamera());
+			aButton.whileHeld(new OpenMotor());
 			//rBumper.whenPressed(new ArmUp());
 			//lBumper.whenPressed(new ArmDown());
 			//aButton.whenPressed(new SwitchCan());
 		}
 		{
 			b4.whenPressed(new CenterCamera());
+			b5.whileHeld(new OpenMotor());
 			//trigger.whenPressed(new ArmUp());
 			//thumb.whenPressed(new ArmDown());
 			//b3.whenPressed(new SwitchCan());

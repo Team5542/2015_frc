@@ -1,7 +1,11 @@
 package org.usfirst.frc.team5542.robot.subsystems;
 
 import edu.wpi.first.wpilibj.Victor;
+
+import org.usfirst.frc.team5542.robot.RobotMap;
 import org.usfirst.frc.team5542.robot.commands.PullMotor;
+import org.usfirst.frc.team5542.robot.commands.OpenMotor;
+
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
@@ -15,6 +19,9 @@ public class Grabber extends Subsystem {
 	
 	
 	private Grabber(){		
+		pullMotorL = new Victor(RobotMap.pullMotorL);
+		pullMotorR = new Victor(RobotMap.pullMotorR);
+		openMotor = new Victor(RobotMap.openMotor);
 	}
 	
 	public static Grabber instance;
@@ -45,13 +52,13 @@ public class Grabber extends Subsystem {
 		pullMotorR.set(.5);
 	}
 	
-	public void openMotor (boolean input){
-		if (input)
-			openMotor.set(.5);
-		if (! input)
-			openMotor.set(-.5);
-		else
-			openMotor.set(0);
+	public void stop(){
+		pullMotorL.set(0);
+		pullMotorR.set(0);
+	}
+	
+	public void openMotor (double speed){
+		openMotor.set(speed);
 	}
 
     public void initDefaultCommand() {
