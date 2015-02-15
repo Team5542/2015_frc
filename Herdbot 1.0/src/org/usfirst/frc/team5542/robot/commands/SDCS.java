@@ -10,6 +10,7 @@ public class SDCS extends Command {
 
     public SDCS() {
     }
+    
     double CS() {
     	return SmartDashboard.getNumber("Control Sceam");
     }
