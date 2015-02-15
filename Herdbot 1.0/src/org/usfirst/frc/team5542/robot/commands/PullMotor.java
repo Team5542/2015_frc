@@ -34,21 +34,20 @@ public class PullMotor extends CommandBase {
     		input = controller.getPOV(OI.pov);
     	}
     	if (input < 45 || input > 315){
-    		input =  0;
+    		grabber.spit();
     	}
     	if (input < 135 || input > 45){
-    		input = 90;
+    		grabber.right();
     	}
     	if (input < 225 || input > 135){
-    		input = 180;
+    		grabber.feed();
     	}
     	if (input < 315 || input > 225){
-    		input = 270;
+    		grabber.left();
     	}
     	else {
     		input = -1;
     	}
-    	
     }
 
     // Make this return true when this Command no longer needs to run execute()

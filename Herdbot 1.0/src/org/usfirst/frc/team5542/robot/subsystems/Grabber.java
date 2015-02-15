@@ -9,12 +9,12 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  */
 public class Grabber extends Subsystem {
     
-	private Victor pullMotor;
+	private Victor pullMotorL;
+	private Victor pullMotorR;
 	private Victor openMotor;
 	
 	
-	private Grabber(){
-		
+	private Grabber(){		
 	}
 	
 	public static Grabber instance;
@@ -25,12 +25,33 @@ public class Grabber extends Subsystem {
 		return instance;		
 	}
 	
-	public void pullMotor (double speed){
-		pullMotor.set(speed);
+	public void feed(){
+		pullMotorL.set(.5);
+		pullMotorR.set(-.5);
 	}
 	
-	public void openMotor (double speed){
-		openMotor.set(speed);
+	public void spit(){
+		pullMotorL.set(.5);
+		pullMotorR.set(-.5);
+	}
+	
+	public void left(){
+		pullMotorL.set(-.5);
+		pullMotorR.set(.5);
+	}
+	
+	public void right(){
+		pullMotorL.set(.5);
+		pullMotorR.set(.5);
+	}
+	
+	public void openMotor (boolean input){
+		if (input)
+			openMotor.set(.5);
+		if (! input)
+			openMotor.set(-.5);
+		else
+			openMotor.set(0);
 	}
 
     public void initDefaultCommand() {
