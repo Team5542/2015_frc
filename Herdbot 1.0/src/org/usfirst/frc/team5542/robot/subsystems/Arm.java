@@ -59,7 +59,11 @@ public class Arm extends PIDSubsystem {
     }
     
     public double compareHalls(){
-    	return leftHall.getDistance() - rightHall.getDistance();
+    	double dist = leftHall.getDistance() - rightHall.getDistance();
+    	if (dist < .25 && dist > -.25)
+    		return 0;
+    	else
+    		return dist;
     }
     
     protected double returnPIDInput() {
