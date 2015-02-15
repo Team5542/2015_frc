@@ -17,6 +17,7 @@ public abstract class CommandBase extends Command {
 	protected static PDP pdp;
 	protected static Sonar sonar;
 	protected static Grabber grabber;
+	protected static TheClaaaw claw;
 	
 	
 	
@@ -29,5 +30,6 @@ public abstract class CommandBase extends Command {
 		pdp = PDP.getInstance();
 		sonar = Sonar.getInstance();
 		grabber = Grabber.getInstance();
+		claw = TheClaaaw.getInstance();
 	}
 }
