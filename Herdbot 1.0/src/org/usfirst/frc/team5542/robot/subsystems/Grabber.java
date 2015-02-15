@@ -15,13 +15,10 @@ public class Grabber extends Subsystem {
     
 	private Victor pullMotorL;
 	private Victor pullMotorR;
-	private Victor openMotor;
-	
 	
 	private Grabber(){		
 		pullMotorL = new Victor(RobotMap.pullMotorL);
 		pullMotorR = new Victor(RobotMap.pullMotorR);
-		openMotor = new Victor(RobotMap.openMotor);
 	}
 	
 	public static Grabber instance;
@@ -55,10 +52,6 @@ public class Grabber extends Subsystem {
 	public void stop(){
 		pullMotorL.set(0);
 		pullMotorR.set(0);
-	}
-	
-	public void openMotor (double speed){
-		openMotor.set(speed);
 	}
 
     public void initDefaultCommand() {

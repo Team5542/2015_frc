@@ -76,6 +76,13 @@ public class Arm extends PIDSubsystem {
     	setSetpoint(place);
     }
     
+    public boolean isUp(){
+    	if (getSetpoint() == lift)
+    		return true;
+    	else
+    		return false;
+    }
+    
     
     public void initDefaultCommand() {
         setDefaultCommand(new UserArm());
