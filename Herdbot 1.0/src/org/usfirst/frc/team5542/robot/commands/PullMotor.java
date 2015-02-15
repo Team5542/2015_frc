@@ -2,9 +2,7 @@ package org.usfirst.frc.team5542.robot.commands;
 
 import org.usfirst.frc.team5542.robot.OI;
 import org.usfirst.frc.team5542.robot.Robot;
-
 import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
@@ -12,8 +10,6 @@ import edu.wpi.first.wpilibj.command.Command;
 public class PullMotor extends CommandBase {
 
     public PullMotor() {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
     	requires (grabber);
     }
 
@@ -33,16 +29,16 @@ public class PullMotor extends CommandBase {
     		controller = Robot.oi.getJoystick();
     		input = controller.getPOV(OI.pov);
     	}
-    	if (input < 45 || input > 315){
+    	if (input == 0){
     		grabber.spit();
     	}
-    	if (input < 135 || input > 45){
+    	if (input == 90){
     		grabber.right();
     	}
-    	if (input < 225 || input > 135){
+    	if (input == 180){
     		grabber.feed();
     	}
-    	if (input < 315 || input > 225){
+    	if (input == 270){
     		grabber.left();
     	}
     	else {
