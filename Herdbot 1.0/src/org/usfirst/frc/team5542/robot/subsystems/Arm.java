@@ -83,6 +83,8 @@ public class Arm extends PIDSubsystem {
     			leftMotor.set(output);
     			rightMotor.set(0);
     		}
+    		leftHall.setReverseDirection(false);
+    		rightHall.setReverseDirection(false);
     	}
     	else if (output < 0){
     		if (compareHalls() > 0){
@@ -93,6 +95,8 @@ public class Arm extends PIDSubsystem {
     			leftMotor.set(0);
     			rightMotor.set(output);
     		}
+    		leftHall.setReverseDirection(true);
+    		rightHall.setReverseDirection(true);
     	}
     	else{
 			leftMotor.set(output);
