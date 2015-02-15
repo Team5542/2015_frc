@@ -16,8 +16,6 @@ public class ArmTote extends Subsystem {
 	private Solenoid myHook;
 	private Victor pullMotor;//Temporary motor controller is temporary
 	private Victor openMotor;//again temporary
-	private Solenoid releaseSolenoid1;
-	private Solenoid releaseSolenoid2;
 	
 	private ArmTote() {
 		pullMotor = new Victor(RobotMap.pullMotor);
