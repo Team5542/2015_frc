@@ -11,8 +11,9 @@ public class SDCS extends Command {
     public SDCS() {
     }
     double CS() {
-    	return SmartDashboard.getNumber("Control Seam", 0);
+    	return SmartDashboard.getNumber("Control Seam");
     }
+    
 
     // Called just before this Command runs the first time
     protected void initialize() {
