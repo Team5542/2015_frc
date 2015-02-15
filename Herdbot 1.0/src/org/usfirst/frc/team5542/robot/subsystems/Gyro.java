@@ -9,7 +9,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  *
  */
 public class Gyro extends Subsystem {
-    private static final int address = 0b1101011;
+    private static final int address = 0b1101010;
 	private I2C gyro;
 	public Gyro(){
 		gyro = new I2C(I2C.Port.kOnboard, address);
