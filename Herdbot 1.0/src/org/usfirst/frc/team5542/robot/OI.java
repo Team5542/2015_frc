@@ -85,6 +85,7 @@ public class OI {
 		b12.whenPressed(new SwitchController());
 		{
 			bButton.whenPressed(new CenterCamera());
+			aButton.whileHeld(new OpenMotor());
 			//rBumper.whenPressed(new ArmUp());
 			//lBumper.whenPressed(new ArmDown());
 			//aButton.whenPressed(new SwitchCan());
