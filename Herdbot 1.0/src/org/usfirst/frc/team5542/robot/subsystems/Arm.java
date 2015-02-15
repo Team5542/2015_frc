@@ -59,8 +59,7 @@ public class Arm extends PIDSubsystem {
     }
     
     public double compareHalls(){
-    	//return leftHall.getDistance() - rightHall.getDistance();
-    	return 0;
+    	return leftHall.getDistance() - rightHall.getDistance();
     }
     
     protected double returnPIDInput() {
@@ -70,22 +69,31 @@ public class Arm extends PIDSubsystem {
     	return (leftHall.getDistance() + rightHall.getDistance()) / 2;
     }
     
-    private double motorComp;
     protected void usePIDOutput(double output) {
-    	if (compareHalls() < 0)
-    		motorComp += .01;
-    	if (compareHalls() > 0);
-    	motorComp -= .01;
-    	if (output + motorComp < 0)
-    		leftHall.setReverseDirection(true);
-    	else
-    		leftHall.setReverseDirection(false);
-    	if (output - motorComp < 0)
-    		rightHall.setReverseDirection(true);
-    	else
-    		rightHall.setReverseDirection(false);
-    	leftMotor.set(output + motorComp);
-    	rightMotor.set(output - motorComp);
+    	if (output > 0){
+    		if (compareHalls() > 0){
+    			leftMotor.set(0);
+    			rightMotor.set(output);
+    		}
+    		else if (compareHalls() < 0){
+    			leftMotor.set(output);
+    			rightMotor.set(0);
+    		}
+    	}
+    	else if (output < 0){
+    		if (compareHalls() > 0){
+    			leftMotor.set(output);
+    			rightMotor.set(0);
+    		}
+    		else if (compareHalls() < 0){
+    			leftMotor.set(0);
+    			rightMotor.set(output);
+    		}
+    	}
+    	else{
+			leftMotor.set(output);
+			rightMotor.set(output);
+		}
     }
 
     public void setBase(){
