@@ -15,13 +15,22 @@ public class UserArm extends CommandBase {
         requires(arm);
     }
 
-    // Called just before this Command runs the first time
+    private Joystick controller;
     protected void initialize() {
+    	controller = Robot.oi.getJoystick();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	
+    	double input = controller.getRawAxis(OI.stickY);
+    	if (input >= 0)
+    		input = Math.pow(input, OI.sensitivity);
+    	else
+    		input = -(Math.pow(-input, OI.sensitivity));
+    	if (input < .05 && input > -.05)
+    		input = 0;
+    	input = input / 10;
+    	arm.move(input);
     }
 
     // Make this return true when this Command no longer needs to run execute()

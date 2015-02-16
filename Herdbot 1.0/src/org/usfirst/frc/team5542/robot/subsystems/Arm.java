@@ -95,6 +95,15 @@ public class Arm extends PIDSubsystem {
     		return false;
     }
     
+    public void move(double input){
+    	if (input + getSetpoint() > lift)
+    		setSetpoint(lift);
+    	else if (input + getSetpoint() < base)
+    		setSetpoint(base);
+    	else
+    		setSetpointRelative(input);
+    }
+    
     
     public void initDefaultCommand() {
         setDefaultCommand(new UserArm());
