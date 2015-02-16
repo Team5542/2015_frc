@@ -7,8 +7,10 @@ import org.usfirst.frc.team5542.robot.commands.UserArm;
 
 
 
+
 import edu.wpi.first.wpilibj.AnalogPotentiometer;
 import edu.wpi.first.wpilibj.CANTalon;
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
 //import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -17,13 +19,11 @@ import edu.wpi.first.wpilibj.command.PIDSubsystem;
  *arm motor stuff and arm micro
  */
 public class Arm extends PIDSubsystem {
-    private CANTalon leftMotor;
+    private CANTalon leftMotor ;
     private CANTalon rightMotor;
-    private Solenoid solenoid1;
-    private Solenoid solenoid2;
-	//private DigitalInput armMicro1 = new DigitalInput(RobotMap.armMicro1);
-	//private DigitalInput armMicro2 = new DigitalInput(RobotMap.armMicro2);
-	//private DigitalInput infrared;
+    private Solenoid solenoid1 = new Solenoid (RobotMap.graspSolenoid1);
+    private Solenoid solenoid2 = new Solenoid (RobotMap.graspSolenoid2);
+	private DigitalInput infrared = new DigitalInput(RobotMap.infrared);
 	private AnalogPotentiometer potLow = new AnalogPotentiometer(RobotMap.potLow, 40);
 	private AnalogPotentiometer potHigh = new AnalogPotentiometer(RobotMap.potHigh, 40, 40);
 	//sets up motors and potentiometer
@@ -33,8 +33,6 @@ public class Arm extends PIDSubsystem {
 	private static final double kp = 1, ki = 0, kd = 0;
     public Arm() {
     	super(kp, ki, kd);
-    	solenoid1 = new Solenoid (RobotMap.graspSolenoid1);
-    	solenoid2 = new Solenoid (RobotMap.graspSolenoid2);
     	// Use these to get going:
     	// setSetpoint() -  Sets where the PID controller should move the system to
     	// enable() - Enables the PID controller.
