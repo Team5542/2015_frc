@@ -16,6 +16,7 @@ public class Stack2 extends CommandBase {
     protected void initialize() {
     	arm.setBase();
     	drivetrain.reset();
+    	arm.toggle();
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -35,6 +36,7 @@ public class Stack2 extends CommandBase {
     private boolean complete = false;
     protected void end() {
     	if (complete){
+    		arm.toggle();
     		arm.setLift();
     	}
     	claw.close();
