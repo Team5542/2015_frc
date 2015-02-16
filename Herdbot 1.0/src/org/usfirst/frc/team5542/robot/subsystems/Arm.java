@@ -19,7 +19,8 @@ import edu.wpi.first.wpilibj.command.PIDSubsystem;
 public class Arm extends PIDSubsystem {
     private CANTalon leftMotor;
     private CANTalon rightMotor;
-    private Solenoid solenoid;
+    private Solenoid solenoid1;
+    private Solenoid solenoid2;
 	//private DigitalInput armMicro1 = new DigitalInput(RobotMap.armMicro1);
 	//private DigitalInput armMicro2 = new DigitalInput(RobotMap.armMicro2);
 	//private DigitalInput infrared;
@@ -31,6 +32,8 @@ public class Arm extends PIDSubsystem {
 	private static final double kp = 1, ki = 0, kd = 0;
     public Arm() {
     	super(kp, ki, kd);
+    	solenoid1 = new Solenoid (RobotMap.graspSolenoid1);
+    	solenoid2 = new Solenoid (RobotMap.graspSolenoid2);
     	// Use these to get going:
     	// setSetpoint() -  Sets where the PID controller should move the system to
     	// enable() - Enables the PID controller.
@@ -70,7 +73,8 @@ public class Arm extends PIDSubsystem {
     }
     
     public void toggle(){
-    	solenoid.set( ! solenoid.get());
+    	solenoid1.set( ! solenoid1.get());
+    	solenoid2.set( ! solenoid2.get());
     }
 
     public void setBase(){
