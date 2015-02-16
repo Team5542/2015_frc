@@ -26,6 +26,8 @@ public class RobotMap {
     public static final int pullMotorR = 8;
     public static final int openSolenoid1 = 0;
     public static final int openSolenoid2 = 1;
+    public static final int graspSolenoid1 = 2;
+    public static final int graspSolenoid2 = 3;
     
     // If you are using multiple modules, make sure to define both the port
     // number and the module. For example you with a rangefinder:
