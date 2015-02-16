@@ -86,7 +86,6 @@ public class OI {
 		{
 			yButton.whenPressed(new CenterCamera());
 			aButton.whileHeld(new OpenMotor());
-			bButton.whenPressed(new ArmSwitch());
 			//rBumper.whenPressed(new ArmUp());
 			//lBumper.whenPressed(new ArmDown());
 			//aButton.whenPressed(new SwitchCan());
@@ -94,7 +93,6 @@ public class OI {
 		{
 			b4.whenPressed(new CenterCamera());
 			b5.whileHeld(new OpenMotor());
-			trigger.whenPressed(new ArmSwitch());
 			//trigger.whenPressed(new ArmUp());
 			//thumb.whenPressed(new ArmDown());
 			//b3.whenPressed(new SwitchCan());
