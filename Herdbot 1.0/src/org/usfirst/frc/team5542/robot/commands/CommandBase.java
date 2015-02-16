@@ -27,7 +27,7 @@ public abstract class CommandBase extends Command {
 		//arm = Arm.getInstance(); //DO NOT initiate until potentiometer is set up and coded
 		gyro = Gyro.getInstance();
 		camera = Camera.getInstance();
-		pdp = PDP.getInstance();
+		//pdp = PDP.getInstance();
 		//sonar = Sonar.getInstance();
 		grabber = Grabber.getInstance();
 		claw = TheClaaaw.getInstance();
