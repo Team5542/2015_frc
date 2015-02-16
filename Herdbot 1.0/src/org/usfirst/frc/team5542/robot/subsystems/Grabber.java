@@ -29,23 +29,23 @@ public class Grabber extends Subsystem {
 	}
 	
 	public void feed(){
-		pullMotorL.set(.5);
-		pullMotorR.set(-.5);
+		pullMotorL.set(.1);
+		pullMotorR.set(-.1);
 	}
 	
 	public void spit(){
-		pullMotorL.set(.5);
-		pullMotorR.set(-.5);
+		pullMotorL.set(.1);
+		pullMotorR.set(-.1);
 	}
 	
 	public void left(){
-		pullMotorL.set(-.5);
-		pullMotorR.set(-.5);
+		pullMotorL.set(-.1);
+		pullMotorR.set(-.1);
 	}
 	
 	public void right(){
-		pullMotorL.set(.5);
-		pullMotorR.set(.5);
+		pullMotorL.set(.1);
+		pullMotorR.set(.1);
 	}
 	
 	public void stop(){
