@@ -28,7 +28,7 @@ public class Arm extends PIDSubsystem {
 	private AnalogPotentiometer potHigh = new AnalogPotentiometer(RobotMap.potHigh, 40, 40);
 	//sets up motors and potentiometer
 	
-	private static double base, lift, place;//constants for each possible
+	private static double base = 0, lift = 30, place = 60;//constants for each possible
 	
 	private static final double kp = 1, ki = 0, kd = 0;
     public Arm() {
@@ -62,7 +62,10 @@ public class Arm extends PIDSubsystem {
     }
     
     protected double returnPIDInput() {
-    	return potLow.get() + potHigh.get();
+    	if (potLow.get() < 40)
+    		return potLow.get();
+    	else
+    		return potHigh.get();
     }
     
     protected void usePIDOutput(double output) {
