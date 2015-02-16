@@ -23,7 +23,8 @@ public class TheClaaaw extends Subsystem {
 		openMotor= new Victor(RobotMap.openMotor);
 	}
 
-	public void openMotor (double speed){
+	private static final double speed = .1;
+	public void open(){
 		openMotor.set(speed);
 	}
 
