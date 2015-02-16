@@ -2,6 +2,7 @@ package org.usfirst.frc.team5542.robot.subsystems;
 
 import org.usfirst.frc.team5542.robot.RobotMap;
 
+import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
@@ -10,7 +11,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  */
 public class TheClaaaw extends Subsystem {
 
-	private Victor openMotor;
+	private Solenoid openSolenoid;
 	public static TheClaaaw instance;
 	
 	public static TheClaaaw getInstance() {
@@ -22,12 +23,12 @@ public class TheClaaaw extends Subsystem {
 	// here. Call these from Commands.
 
 	private TheClaaaw(){
-		openMotor= new Victor(RobotMap.openMotor);
+		openSolenoid= new Solenoid(RobotMap.openSolenoid);
 	}
 
-	private static final double speed = .1;
 	public void open(){
-		openMotor.set(speed);
+		
+			openSolenoid.set(true);
 	}
 
 	public void initDefaultCommand() {
