@@ -16,11 +16,11 @@ public class Stack extends CommandBase {
     protected void initialize() {
     	arm.setPlace();
     	drivetrain.reset();
+    	claw.open();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	claw.open();
     	drivetrain.fprDrive(-.2, 0);
     }
 
@@ -38,6 +38,8 @@ public class Stack extends CommandBase {
     protected void end() {
     	if (complete)
     		(new Stack2()).start();
+    	else
+    		claw.close();
     }
 
     // Called when another command which requires one or more of the same

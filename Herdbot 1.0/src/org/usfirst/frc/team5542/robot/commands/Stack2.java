@@ -9,6 +9,7 @@ public class Stack2 extends CommandBase {
     public Stack2() {
         requires(arm);
         requires(drivetrain);
+        requires(claw);
     }
 
     // Called just before this Command runs the first time
@@ -19,7 +20,6 @@ public class Stack2 extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	claw.open();
     	drivetrain.fprDrive(.2, 0);
     }
 
@@ -37,6 +37,7 @@ public class Stack2 extends CommandBase {
     	if (complete){
     		arm.setLift();
     	}
+    	claw.close();
     }
 
     // Called when another command which requires one or more of the same
