@@ -11,10 +11,12 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class TheClaaaw extends Subsystem {
 
 	private Victor openMotor;
-
+	public static TheClaaaw instance;
+	
 	public static TheClaaaw getInstance() {
-		// TODO Auto-generated method stub
-		return null;
+		if (instance == null)
+			instance = new TheClaaaw();
+		return instance;			
 	}
 	// Put methods for controlling this subsystem
 	// here. Call these from Commands.
