@@ -4,21 +4,19 @@ package org.usfirst.frc.team5542.robot.commands;
 /**
  *
  */
-public class OpenMotor extends CommandBase {
+public class OpenClaw extends CommandBase {
 
-    public OpenMotor() {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
-    	requires (claw);
+    public OpenClaw() {
+        requires(claw);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	claw.open();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	claw.open();    	
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -28,11 +26,11 @@ public class OpenMotor extends CommandBase {
 
     // Called once after isFinished returns true
     protected void end() {
+    	claw.close();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	end();
     }
 }

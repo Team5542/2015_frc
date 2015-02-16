@@ -4,7 +4,6 @@ import edu.wpi.first.wpilibj.Victor;
 
 import org.usfirst.frc.team5542.robot.RobotMap;
 import org.usfirst.frc.team5542.robot.commands.PullMotor;
-import org.usfirst.frc.team5542.robot.commands.OpenMotor;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 
@@ -55,9 +54,7 @@ public class Grabber extends Subsystem {
 	}
 
     public void initDefaultCommand() {
-        // Set the default command for a subsystem here.
-        //setDefaultCommand(new MySpecialCommand());
-    	
+        setDefaultCommand(new PullMotor());
     }
 }
 

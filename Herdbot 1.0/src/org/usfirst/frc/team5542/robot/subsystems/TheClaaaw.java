@@ -31,6 +31,10 @@ public class TheClaaaw extends Subsystem {
 		openSolenoid1.set(true);
 		openSolenoid2.set(true);
 	}
+	public void close(){
+		openSolenoid1.set(false);
+		openSolenoid2.set(false);
+	}
 
 	public void initDefaultCommand() {
 		// Set the default command for a subsystem here.
