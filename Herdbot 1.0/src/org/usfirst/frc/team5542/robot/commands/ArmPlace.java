@@ -4,15 +4,15 @@ package org.usfirst.frc.team5542.robot.commands;
 /**
  *
  */
-public class ArmUp extends CommandBase {
+public class ArmPlace extends CommandBase {
 
-    public ArmUp() {
+    public ArmPlace() {
         requires(arm);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	arm.setLift();
+    	arm.setPlace();
     }
 
     // Called repeatedly when this Command is scheduled to run

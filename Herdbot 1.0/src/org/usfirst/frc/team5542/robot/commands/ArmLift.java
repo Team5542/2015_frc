@@ -4,15 +4,15 @@ package org.usfirst.frc.team5542.robot.commands;
 /**
  *
  */
-public class ArmDown extends CommandBase {
+public class ArmLift extends CommandBase {
 
-    public ArmDown() {
+    public ArmLift() {
         requires(arm);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	arm.setBase();
+    	arm.setLift();
     }
 
     // Called repeatedly when this Command is scheduled to run
