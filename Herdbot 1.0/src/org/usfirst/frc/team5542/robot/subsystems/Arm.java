@@ -56,10 +56,6 @@ public class Arm extends PIDSubsystem {
     	return infrared.get();
     }*/
     
-    public boolean isTouching(){
-    	//return (armMicro1.get() && armMicro2.get());
-    	return false;
-    }
     
     protected double returnPIDInput() {
     	if (potLow.get() < 40)
