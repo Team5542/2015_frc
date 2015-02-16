@@ -24,7 +24,8 @@ public class Arm extends PIDSubsystem {
 	//private DigitalInput armMicro1 = new DigitalInput(RobotMap.armMicro1);
 	//private DigitalInput armMicro2 = new DigitalInput(RobotMap.armMicro2);
 	//private DigitalInput infrared;
-	private AnalogPotentiometer pot = new AnalogPotentiometer(RobotMap.potentiometer);
+	private AnalogPotentiometer potLow = new AnalogPotentiometer(RobotMap.potLow, 40);
+	private AnalogPotentiometer potHigh = new AnalogPotentiometer(RobotMap.potHigh, 40, 40);
 	//sets up motors and potentiometer
 	
 	private static double base, lift, place;//constants for each possible
@@ -61,10 +62,7 @@ public class Arm extends PIDSubsystem {
     }
     
     protected double returnPIDInput() {
-        // Return your input value for the PID loop
-        // e.g. a sensor, like a potentiometer:
-        // yourPot.getAverageVoltage() / kYourMaxVoltage;
-    	return pot.get();
+    	return potLow.get() + potHigh.get();
     }
     
     protected void usePIDOutput(double output) {
