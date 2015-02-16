@@ -37,8 +37,8 @@ public class AutoZone extends CommandBase {
 
     // Called once after isFinished returns true
     protected void end() {
-    	arm.down();
-    	arm.down();
+    	//arm.down();
+    	//arm.down();
     	drivetrain.reset();
     }
 

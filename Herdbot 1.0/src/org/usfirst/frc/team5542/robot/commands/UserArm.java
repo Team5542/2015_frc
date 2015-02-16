@@ -36,12 +36,8 @@ public class UserArm extends CommandBase {
     	else
     		input = -(Math.pow(-input, OI.sensitivity));
 
-    	
-    	
     	if (input > -.05 && input < .06)
     		input = 0.0;
-
-    	arm.arcadeControls(input,0);
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -51,7 +47,7 @@ public class UserArm extends CommandBase {
 
     // Called once after isFinished returns true
     protected void end() {
-    	arm.arcadeControls(0, 0);
+    	
     }
 
     // Called when another command which requires one or more of the same
