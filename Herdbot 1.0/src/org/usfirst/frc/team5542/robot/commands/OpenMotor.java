@@ -1,10 +1,5 @@
 package org.usfirst.frc.team5542.robot.commands;
 
-import org.usfirst.frc.team5542.robot.OI;
-import org.usfirst.frc.team5542.robot.Robot;
-
-import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
@@ -33,12 +28,11 @@ public class OpenMotor extends CommandBase {
 
     // Called once after isFinished returns true
     protected void end() {
-    	claw.open();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	claw.open();
+    	end();
     }
 }
