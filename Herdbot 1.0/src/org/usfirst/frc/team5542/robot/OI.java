@@ -96,6 +96,7 @@ public class OI {
 			b8.whenPressed(new ArmLift());
 			b10.whenPressed(new ArmPlace());
 			b12.whenPressed(new ArmBase());
+			b3.whenPressed(new Grasp());
 		}
 	}
 }

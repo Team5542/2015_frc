@@ -6,8 +6,10 @@ import org.usfirst.frc.team5542.robot.commands.UserArm;
 
 
 
+
 import edu.wpi.first.wpilibj.AnalogPotentiometer;
 import edu.wpi.first.wpilibj.CANTalon;
+import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
 //import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -17,6 +19,7 @@ import edu.wpi.first.wpilibj.command.PIDSubsystem;
 public class Arm extends PIDSubsystem {
     private CANTalon leftMotor;
     private CANTalon rightMotor;
+    private Solenoid solenoid;
 	//private DigitalInput armMicro1 = new DigitalInput(RobotMap.armMicro1);
 	//private DigitalInput armMicro2 = new DigitalInput(RobotMap.armMicro2);
 	//private DigitalInput infrared;
@@ -64,6 +67,10 @@ public class Arm extends PIDSubsystem {
     protected void usePIDOutput(double output) {
     	leftMotor.set(output);
     	rightMotor.set(output);
+    }
+    
+    public void toggle(){
+    	solenoid.set( ! solenoid.get());
     }
 
     public void setBase(){
