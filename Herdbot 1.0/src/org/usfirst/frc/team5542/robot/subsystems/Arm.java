@@ -19,8 +19,8 @@ import edu.wpi.first.wpilibj.command.PIDSubsystem;
  *arm motor stuff and arm micro
  */
 public class Arm extends PIDSubsystem {
-    private CANTalon leftMotor ;
-    private CANTalon rightMotor;
+    private CANTalon leftMotor = new CANTalon(RobotMap.armMotorLeft);
+    private CANTalon rightMotor = new CANTalon(RobotMap.armMotorRight);
     private Solenoid solenoid1 = new Solenoid (RobotMap.graspSolenoid1);
     private Solenoid solenoid2 = new Solenoid (RobotMap.graspSolenoid2);
 	private DigitalInput infrared = new DigitalInput(RobotMap.infrared);
