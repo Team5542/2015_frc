@@ -76,8 +76,20 @@ public class Arm extends PIDSubsystem {
     	setSetpoint(place);
     }
     
-    public boolean isUp(){
+    public boolean isLift(){
     	if (getSetpoint() == lift)
+    		return true;
+    	else
+    		return false;
+    }
+    public boolean isBase(){
+    	if (getSetpoint() == base)
+    		return true;
+    	else
+    		return false;
+    }
+    public boolean isPlace(){
+    	if (getSetpoint() == place)
     		return true;
     	else
     		return false;
