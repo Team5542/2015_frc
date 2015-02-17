@@ -1,16 +1,18 @@
 package org.usfirst.frc.team5542.robot.commands;
 
+import edu.wpi.first.wpilibj.Sendable;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
- *Smartdashboard command sceam
+ *Smartdashboard command scheme
  */
 public class SDCS extends Command {
 	
 	SendableChooser sc = new SendableChooser();
-	
+	Sendable object1;
+	Sendable object2;
+	Sendable object3;
 	
     public SDCS() {
 
