@@ -67,9 +67,18 @@ public class Arm extends PIDSubsystem {
     	rightMotor.set(output);
     }
     
-    public void toggle(){
-    	solenoid1.set( ! solenoid1.get());
-    	solenoid2.set( ! solenoid2.get());
+    public void open(){
+    	solenoid1.set(true);
+    	solenoid2.set(true);
+    }
+    
+    public void close(){
+    	solenoid1.set(false);
+    	solenoid2.set(false);
+    }
+    
+    public boolean isOpen(){
+    	return solenoid1.get();
     }
 
     public void setBase(){
