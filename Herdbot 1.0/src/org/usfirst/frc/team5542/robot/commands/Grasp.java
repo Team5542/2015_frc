@@ -7,8 +7,6 @@ package org.usfirst.frc.team5542.robot.commands;
 public class Grasp extends CommandBase {
 
     public Grasp() {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
     	requires (arm);
     }
 
