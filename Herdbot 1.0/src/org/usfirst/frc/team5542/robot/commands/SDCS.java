@@ -1,18 +1,27 @@
 package org.usfirst.frc.team5542.robot.commands;
 
+import edu.wpi.first.wpilibj.Sendable;
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 
 /**
- *Smartdashboard command sceam
+ *Smartdashboard command scheme
  */
 public class SDCS extends Command {
-
+	
+	SendableChooser sc = new SendableChooser();
+	Sendable object1;
+	Sendable object2;
+	Sendable object3;
+	
     public SDCS() {
+
     }
     
-    double CS() {
-    	return SmartDashboard.getNumber("Control Sceam");
+    void CS() {
+    	sc.addObject("Joystick + X-Box Controller", object1);
+    	sc.addObject("Joystick", object2);
+    	sc.addObject("X-Box Controller", object3);
     }
     
 
