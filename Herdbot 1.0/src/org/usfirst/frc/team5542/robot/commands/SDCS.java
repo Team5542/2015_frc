@@ -10,18 +10,18 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 public class SDCS extends Command {
 	
 	SendableChooser sc = new SendableChooser();
-	Sendable object1;
-	Sendable object2;
-	Sendable object3;
+	Sendable twoController;
+	Sendable joystick;
+	Sendable xBox;
 	
     public SDCS() {
 
     }
     
     void CS() {
-    	sc.addObject("Joystick + X-Box Controller", object1);
-    	sc.addObject("Joystick", object2);
-    	sc.addObject("X-Box Controller", object3);
+    	sc.addObject("Joystick + X-Box Controller", twoController);
+    	sc.addObject("Joystick", joystick);
+    	sc.addObject("X-Box Controller", xBox);
     }
     
 
