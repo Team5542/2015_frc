@@ -21,7 +21,7 @@ public class AutoCanLift extends CommandBase {
     	arm.setBase();
     }
 
-    private static final double distance = 24;
+    private static final double distance = 12;
     protected void execute() {
     	drivetrain.fprDrive(.1, 0);
     }
