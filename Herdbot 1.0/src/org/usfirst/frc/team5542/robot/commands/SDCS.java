@@ -17,16 +17,12 @@ public class SDCS extends Command {
     public SDCS() {
 
     }
-    
-    void CS() {
-    	sc.addObject("Joystick + X-Box Controller", twoController);
-    	sc.addObject("Joystick", joystick);
-    	sc.addObject("X-Box Controller", xBox);
-    }
-    
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	sc.addObject("Joystick + X-Box Controller", twoController);
+    	sc.addObject("Joystick", joystick);
+    	sc.addObject("X-Box Controller", xBox);
     }
 
     // Called repeatedly when this Command is scheduled to run
