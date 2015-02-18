@@ -13,6 +13,7 @@ public class SDCS extends Command {
 	Sendable twoController;
 	Sendable joystick;
 	Sendable xBox;
+	Object controller;
 	
     public SDCS() {
 
@@ -23,6 +24,7 @@ public class SDCS extends Command {
     	sc.addDefault("Joystick + X-Box Controller", twoController);
     	sc.addObject("Joystick", joystick);
     	sc.addObject("X-Box Controller", xBox);
+    	controller = sc.getSelected();
     }
 
     // Called repeatedly when this Command is scheduled to run
