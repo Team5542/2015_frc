@@ -69,7 +69,7 @@ public class OI {
 		return stick;
 	}
 	
-	private static boolean xBox;
+	public static boolean xBox;
 	public static void switchController(){
 		xBox = !xBox;
 	}
