@@ -24,16 +24,16 @@ public class SDCS extends Command {
     	sc.addDefault("Joystick + X-Box Controller", twoController);
     	sc.addObject("Joystick", joystick);
     	sc.addObject("X-Box Controller", xBox);
-    	controller = sc.getSelected();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	controller = sc.getSelected();
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return true;
+        return false;
     }
 
     // Called once after isFinished returns true
