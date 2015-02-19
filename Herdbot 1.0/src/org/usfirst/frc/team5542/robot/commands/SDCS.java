@@ -1,7 +1,5 @@
 package org.usfirst.frc.team5542.robot.commands;
 
-import org.usfirst.frc.team5542.robot.OI;
-
 import edu.wpi.first.wpilibj.Sendable;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
@@ -27,12 +25,6 @@ public class SDCS extends Command {
     	sc.addObject("Joystick", joystick);
     	sc.addObject("X-Box Controller", xBox);
     	controller = sc.getSelected();
-    	if (controller == joystick) {
-    		OI.xBox = true;
-    	}
-    	else {
-    		OI.xBox = false;
-    	}
     }
 
     // Called repeatedly when this Command is scheduled to run
