@@ -54,7 +54,9 @@ public class Arm extends Subsystem {
 	private Arm(){
 		rightMotor = new CANTalon(RobotMap.armMotorRight);
 		leftMotor = new CANTalon(RobotMap.armMotorLeft);
-		myDrive= new RobotDrive(leftMotor, rightMotor); //does this flip a motor? make sure we won't repeat the same mistake.
+		CANTalon fakeMotor1= new CANTalon(7);
+		CANTalon fakeMotor2= new CANTalon(8);
+		myDrive= new RobotDrive(fakeMotor1, fakeMotor2, leftMotor, rightMotor); //does this flip a motor? make sure we won't repeat the same mistake.
 		//infrared = new DigitalInput(RobotMap.infrared);
 	}
    

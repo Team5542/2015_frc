@@ -81,8 +81,8 @@ public class OI {
 	public OI(){
 		xBox = true;
 		start.whenPressed(new ToggleDrive());
-		select.whenPressed(new SwitchController());
-		b12.whenPressed(new SwitchController());
+		//select.whenPressed(new SwitchController());
+		//b12.whenPressed(new SwitchController());
 		{
 			bButton.whenPressed(new CenterCamera());
 			//rBumper.whenPressed(new ArmUp());

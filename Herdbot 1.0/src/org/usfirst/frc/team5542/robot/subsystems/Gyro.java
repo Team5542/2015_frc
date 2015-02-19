@@ -38,7 +38,7 @@ public class Gyro extends Subsystem {
 	private byte[] data = new byte[6];
 	private double[] rates = new double[3];
 	public void getRates(){
-		gyro.read(0b0101000, 6, data);
+		gyro.read(0b1101011, 6, data);
 		int[] stuff = new int[3];
 		stuff[0] = twoComp(data[0] | (data[1] << 8));
 		stuff[1] = twoComp(data[2] | (data[3] << 8));
