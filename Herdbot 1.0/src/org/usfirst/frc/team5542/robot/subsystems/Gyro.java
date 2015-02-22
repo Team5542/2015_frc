@@ -61,7 +61,7 @@ public class Gyro extends Subsystem {
 		int difference = (int)(currentTime - lastTime);
 		lastTime = currentTime;
 		for(int i = 0; i < 3; i++){
-			angles[i] = rates[i] * difference;
+			angles[i] += rates[i] * difference;
 		}
 	}
 	
@@ -83,6 +83,8 @@ public class Gyro extends Subsystem {
 	public double getZrate(){
 		return rates[2];
 	}
+	
+	
 	
     public void initDefaultCommand() {
     	setDefaultCommand(new GyroUpdate());
