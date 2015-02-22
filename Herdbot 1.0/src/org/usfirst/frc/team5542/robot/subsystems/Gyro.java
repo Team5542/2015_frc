@@ -84,8 +84,6 @@ public class Gyro extends Subsystem {
 		return rates[2];
 	}
 	
-	
-	
     public void initDefaultCommand() {
     	setDefaultCommand(new GyroUpdate());
     }

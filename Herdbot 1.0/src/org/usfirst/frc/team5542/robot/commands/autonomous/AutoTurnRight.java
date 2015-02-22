@@ -5,38 +5,28 @@ import org.usfirst.frc.team5542.robot.commands.CommandBase;
 /**
  *
  */
-public class AutoZone extends CommandBase {
+public class AutoTurnRight extends CommandBase {
 
-    public AutoZone() {
+    public AutoTurnRight() {
         requires(drivetrain);
-        requires(arm);
     }
-    
-    private double heading;
+
     // Called just before this Command runs the first time
     protected void initialize() {
-    	heading = gyro.getXangle();
     }
 
-    private double turn = 0;
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	if (gyro.getZangle() > heading)
-    		turn = turn - .02;
-    	if (gyro.getZangle() < heading)
-    		turn = turn +.02;
-    	drivetrain.fprDrive(.2, turn);
+    	drivetrain.fprDrive(0, -1);
     }
-
-    private double distance = 84;
+    private double targetAngle = 45;
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return (drivetrain.getDistance() > distance);
+        return (gyro.getXangle() <= targetAngle);
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    	drivetrain.reset();
     }
 
     // Called when another command which requires one or more of the same

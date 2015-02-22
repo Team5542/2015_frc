@@ -7,7 +7,10 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
  */
 public class AutoGamePlan extends CommandGroup {
 	public  AutoGamePlan() {  
-		addSequential(new AutoToteGrab());
+		addSequential(new AutoCanLift());
+		addSequential(new AutoTurnRight());
+		addSequential(new AutoMoveUp());
+		addSequential(new AutoToteAlign());
 		addSequential(new AutoZone());
 	}
 // Add Commands here:
