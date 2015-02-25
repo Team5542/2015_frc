@@ -4,29 +4,25 @@ package org.usfirst.frc.team5542.robot.commands;
 /**
  *
  */
-public class Stack extends CommandBase {
+public class WaitForIt extends CommandBase {
 
-    public Stack() {
+    public WaitForIt() {
         requires(arm);
-        requires(drivetrain);
         requires(claw);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	arm.setPlace();
-    	drivetrain.reset();
-    	claw.open();
+    	arm.setSetpointRelative(-10);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	drivetrain.fprDrive(-.2, 0);
     }
 
-    private static final double distance = -12;
+    // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        if (drivetrain.getDistance() <= distance){
+        if (arm.onTarget()){
         	complete = true;
         	return true;
         }
@@ -37,7 +33,7 @@ public class Stack extends CommandBase {
     private boolean complete = false;
     protected void end() {
     	if (complete)
-    		(new WaitForIt()).start();
+    		(new Stack2()).start();
     	else
     		claw.close();
     }
@@ -45,6 +41,5 @@ public class Stack extends CommandBase {
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	end();
     }
 }

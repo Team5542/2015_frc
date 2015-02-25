@@ -28,11 +28,13 @@ public class Arm extends PIDSubsystem {
 	private AnalogPotentiometer potHigh = new AnalogPotentiometer(RobotMap.potHigh, 40, 40);
 	//sets up motors and potentiometer
 	
-	private static double base = 0, lift = 30, place = 60;//constants for each possible
+	private static double base = 0, lift = 60, place = 30;//constants for preset positions
 	
 	private static final double kp = 1, ki = 0, kd = 0;
     public Arm() {
     	super(kp, ki, kd);
+    	setInputRange(0, 80);
+    	setAbsoluteTolerance(5);
     	// Use these to get going:
     	// setSetpoint() -  Sets where the PID controller should move the system to
     	// enable() - Enables the PID controller.
