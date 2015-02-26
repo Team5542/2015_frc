@@ -32,7 +32,7 @@ public class Robot extends IterativeRobot {
     	CommandBase.init();
     	(new SDCS()).start();
     	oi = new OI();
-    	//autonomousCommand = new JustMove();
+    	//autonomousCommand = new AutoGamePlan();
         //de-comment this when competing or testing auto
         
     }
