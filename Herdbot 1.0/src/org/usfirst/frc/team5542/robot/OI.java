@@ -85,7 +85,6 @@ public class OI {
 				yButton.whenPressed(new CenterCamera());
 			}
 			{
-				trigger.whileHeld(new OpenClaw());
 				//thumb.whenPressed(new Stack());
 				//b8.whenPressed(new ArmLift());
 				//b10.whenPressed(new ArmPlace());
@@ -94,7 +93,7 @@ public class OI {
 			}
 		}
 		else{
-			lBumper.whileHeld(new OpenClaw());
+			xBox = true;
 			start.whenPressed(new CenterCamera());
 			//rBumper.whenPressed(new Stack());
 			//aButton.whenPressed(new ArmBase());
