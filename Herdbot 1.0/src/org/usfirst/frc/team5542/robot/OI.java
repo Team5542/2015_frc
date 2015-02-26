@@ -96,11 +96,11 @@ public class OI {
 		else{
 			lBumper.whileHeld(new OpenClaw());
 			start.whenPressed(new CenterCamera());
-			rBumper.whenPressed(new Stack());
-			aButton.whenPressed(new ArmBase());
-			bButton.whenPressed(new ArmPlace());
-			xButton.whenPressed(new ArmLift());
-			yButton.whenPressed(new Grasp());
+			//rBumper.whenPressed(new Stack());
+			//aButton.whenPressed(new ArmBase());
+			//bButton.whenPressed(new ArmPlace());
+			//xButton.whenPressed(new ArmLift());
+			//yButton.whenPressed(new Grasp());
 		}
 	}
 }
