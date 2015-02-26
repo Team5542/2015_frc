@@ -84,7 +84,7 @@ public class Gyro extends Subsystem {
 	}
 	
     public void initDefaultCommand() {
-    	setDefaultCommand(new GyroUpdate());
+    	//setDefaultCommand(new GyroUpdate());
     }
 }
 
