@@ -18,7 +18,7 @@ public class FprDrive extends CommandBase {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	heading = gyro.getXangle();
+    	//heading = gyro.getXangle();
     }
 
     private double heading;
