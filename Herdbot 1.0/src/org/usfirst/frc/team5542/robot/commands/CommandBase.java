@@ -31,5 +31,7 @@ public abstract class CommandBase extends Command {
 		//sonar = Sonar.getInstance();
 		grabber = Grabber.getInstance();
 		claw = TheClaaaw.getInstance();
+		arm.close();
+		claw.open();
 	}
 }

@@ -24,10 +24,10 @@ public class RobotMap {
     public static final int encoder2p2 = 4;//second encoder second port
     public static final int pullMotorL = 7;
     public static final int pullMotorR = 8;
-    public static final int openSolenoid1 = 2;
-    public static final int openSolenoid2 = 3;
-    public static final int graspSolenoid1 = 0;
-    public static final int graspSolenoid2 = 1;
+    public static final int closeClaw = 2;
+    public static final int openClaw = 3;
+    public static final int openArm = 0;
+    public static final int closeArm = 1;
     
     // If you are using multiple modules, make sure to define both the port
     // number and the module. For example you with a rangefinder:

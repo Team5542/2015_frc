@@ -10,11 +10,11 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  */
 public class TheClaaaw extends Subsystem {
 
-	private Solenoid openSolenoid1;
-	private Solenoid openSolenoid2;
+	private Solenoid openClaw;
+	private Solenoid closeClaw;
 	public static TheClaaaw instance;
 
-	public static TheClaaaw getInstance() {
+	public static TheClaaaw getInstance(){
 		if (instance == null)
 			instance = new TheClaaaw();
 		return instance;			
@@ -23,17 +23,17 @@ public class TheClaaaw extends Subsystem {
 	// here. Call these from Commands.
 
 	private TheClaaaw(){
-		openSolenoid1= new Solenoid(RobotMap.openSolenoid1);
-		openSolenoid2= new Solenoid(RobotMap.openSolenoid2);
+		openClaw= new Solenoid(RobotMap.openClaw);
+		closeClaw= new Solenoid(RobotMap.closeClaw);
 	}
 
 	public void open(){
-		openSolenoid1.set(false);
-		openSolenoid2.set(false);
+		closeClaw.set(false);
+		openClaw.set(true);
 	}
 	public void close(){
-		openSolenoid1.set(true);
-		openSolenoid2.set(true);
+		openClaw.set(false);
+		closeClaw.set(true);
 	}
 
 	public void initDefaultCommand() {

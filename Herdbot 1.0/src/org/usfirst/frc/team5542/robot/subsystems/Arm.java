@@ -23,8 +23,8 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class Arm extends PIDSubsystem {
     private CANTalon leftMotor = new CANTalon(RobotMap.armMotorLeft);
     private CANTalon rightMotor = new CANTalon(RobotMap.armMotorRight);
-    private Solenoid solenoid1 = new Solenoid (RobotMap.graspSolenoid1);
-    private Solenoid solenoid2 = new Solenoid (RobotMap.graspSolenoid2);
+    private Solenoid openArm = new Solenoid (RobotMap.openArm);
+    private Solenoid closeArm = new Solenoid (RobotMap.closeArm);
 	private DigitalInput infrared = new DigitalInput(RobotMap.infrared);
 	private AnalogPotentiometer potLow = new AnalogPotentiometer(RobotMap.potLow, 40);
 	private AnalogPotentiometer potHigh = new AnalogPotentiometer(RobotMap.potHigh, 40, 40);
@@ -76,17 +76,17 @@ public class Arm extends PIDSubsystem {
     }
     
     public void open(){
-    	solenoid1.set(true);
-    	solenoid2.set(true);
+    	closeArm.set(false);
+    	openArm.set(true);
     }
     
     public void close(){
-    	solenoid1.set(false);
-    	solenoid2.set(false);
+    	openArm.set(false);
+    	closeArm.set(true);
     }
     
     public boolean isOpen(){
-    	return solenoid1.get();
+    	return openArm.get();
     }
 
     public void setBase(){
