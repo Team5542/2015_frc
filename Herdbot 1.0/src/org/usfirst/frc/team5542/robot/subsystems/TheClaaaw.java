@@ -28,12 +28,12 @@ public class TheClaaaw extends Subsystem {
 	}
 
 	public void open(){
-		openSolenoid1.set(true);
-		openSolenoid2.set(true);
-	}
-	public void close(){
 		openSolenoid1.set(false);
 		openSolenoid2.set(false);
+	}
+	public void close(){
+		openSolenoid1.set(true);
+		openSolenoid2.set(true);
 	}
 
 	public void initDefaultCommand() {
