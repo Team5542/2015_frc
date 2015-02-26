@@ -86,17 +86,14 @@ public class OI {
 		{
 			yButton.whenPressed(new CenterCamera());
 			aButton.whileHeld(new OpenClaw());
-			//rBumper.whenPressed(new ArmUp());
-			//lBumper.whenPressed(new ArmDown());
-			//aButton.whenPressed(new SwitchCan());
 		}
 		{
 			trigger.whileHeld(new OpenClaw());
-			thumb.whenPressed(new Stack());
-			b8.whenPressed(new ArmLift());
-			b10.whenPressed(new ArmPlace());
-			b12.whenPressed(new ArmBase());
-			b3.whenPressed(new Grasp());
+			//thumb.whenPressed(new Stack());
+			//b8.whenPressed(new ArmLift());
+			//b10.whenPressed(new ArmPlace());
+			//b12.whenPressed(new ArmBase());
+			//b3.whenPressed(new Grasp());
 		}
 	}
 }
