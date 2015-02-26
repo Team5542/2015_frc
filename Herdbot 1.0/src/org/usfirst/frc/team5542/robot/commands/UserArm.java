@@ -31,6 +31,7 @@ public class UserArm extends CommandBase {
     		input = 0;
     	input = input / 10;
     	arm.move(input);
+    	arm.potSD();
     }
 
     // Make this return true when this Command no longer needs to run execute()
