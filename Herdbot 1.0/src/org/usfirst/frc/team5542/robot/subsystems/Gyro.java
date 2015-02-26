@@ -2,19 +2,22 @@ package org.usfirst.frc.team5542.robot.subsystems;
 
 import org.usfirst.frc.team5542.robot.commands.GyroUpdate;
 
-import edu.wpi.first.wpilibj.I2C;
+import edu.wpi.first.wpilibj.SPI;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
  *
  */
 public class Gyro extends Subsystem {
-    private static final int address = 0b1101011;
-	private I2C gyro;
+    private static final SPI.Port port = SPI.Port.kOnboardCS0;
+	private SPI gyro;
 	public Gyro(){
-		gyro = new I2C(I2C.Port.kMXP, address);
-		gyro.write(0b0100000, 0b00001111);
-		gyro.write(0b0100011, 0b00010000);
+		gyro = new SPI(port);
+		gyro.setClockActiveLow();
+		byte[] startup = {0b00100000, 0b00001111};
+		gyro.write(startup, 2);
+		byte[] resolution = {0b00100011, 0b00010000};
+		gyro.write(resolution, 2);
 	}
 	
 	private static Gyro instance;
@@ -38,7 +41,7 @@ public class Gyro extends Subsystem {
 	public byte[] gyroData = new byte[6];
 	private double[] rates = new double[3];
 	public void getRates(){
-		gyro.read(0b0101000, 6, gyroData);
+		gyro.read(true, gyroData, 6);
 		int[] stuff = new int[3];
 		stuff[0] = twoComp(gyroData[0] | (gyroData[1] << 8));
 		stuff[1] = twoComp(gyroData[2] | (gyroData[3] << 8));
