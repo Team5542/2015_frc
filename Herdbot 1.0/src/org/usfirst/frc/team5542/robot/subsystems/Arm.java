@@ -8,11 +8,13 @@ import org.usfirst.frc.team5542.robot.commands.UserArm;
 
 
 
+
 import edu.wpi.first.wpilibj.AnalogPotentiometer;
 import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 //import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
@@ -62,6 +64,10 @@ public class Arm extends PIDSubsystem {
     		return potLow.get();
     	else
     		return potHigh.get();
+    }
+    public void potSD() {
+    	SmartDashboard.putNumber("potLow value", potLow.get());
+    	SmartDashboard.putNumber("potHigh value", potHigh.get());
     }
     
     protected void usePIDOutput(double output) {
