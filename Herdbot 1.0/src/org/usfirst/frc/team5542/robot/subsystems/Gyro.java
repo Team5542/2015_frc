@@ -15,10 +15,7 @@ public class Gyro extends Subsystem {
 		gyro = new I2C(I2C.Port.kOnboard, address);
 		gyro.write(0b0100000, 0b00001111);
 		gyro.write(0b0100011, 0b00010000);
-		data = new byte[6];
-		for (int i = 0; i < 6; i++){
-			data[i] = 0;
-		}
+		gyroData = new byte[6];
 	}
 	
 	private static Gyro instance;
@@ -39,15 +36,15 @@ public class Gyro extends Subsystem {
 			return input;
 	}
 	
-	private byte[] data;
+	public byte[] gyroData;
 	private double[] rates = new double[3];
 	public void getRates(){
-		gyro.read(0b0101000, 6, data);
+		gyro.read(0b0101000, 6, gyroData);
 		int[] stuff = new int[3];
-		stuff[0] = twoComp(data[0] | (data[1] << 8));
-		stuff[1] = twoComp(data[2] | (data[3] << 8));
-		stuff[2] = twoComp(data[4] | (data[5] << 8));
-		data = null;
+		stuff[0] = twoComp(gyroData[0] | (gyroData[1] << 8));
+		stuff[1] = twoComp(gyroData[2] | (gyroData[3] << 8));
+		stuff[2] = twoComp(gyroData[4] | (gyroData[5] << 8));
+		gyroData = null;
 		for(int i = 0; i < 3; i++){
 			rates[i] = stuff[i] * sensitivity;
 		}
