@@ -48,7 +48,7 @@ public class FprDrive extends CommandBase {
     	if (turn > -.05 && turn < .05)
     		turn = 0.0;
     	
-    	if (turn != 0 || move == 0)
+    	/*if (turn != 0 || move == 0)
     		heading = gyro.getZangle();
     	else{
     		if (gyro.getZangle() < heading){
@@ -63,7 +63,7 @@ public class FprDrive extends CommandBase {
     				prevTurn = 1;
     			turn = prevTurn;
     		}
-    	}
+    	}*/
     	
     	drivetrain.fprDrive(move, turn);
     }
