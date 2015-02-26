@@ -21,7 +21,9 @@ import org.usfirst.frc.team5542.robot.commands.autonomous.JustMove;
 public class Robot extends IterativeRobot {
 
 	public static OI oi;
-
+	public void restartOI(boolean dual){
+		oi = new OI(dual);
+	}
     Command autonomousCommand;
 
     /**
@@ -31,7 +33,7 @@ public class Robot extends IterativeRobot {
     public void robotInit() {
     	CommandBase.init();
     	(new SDCS()).start();
-    	oi = new OI();
+    	oi = new OI(true);
     	//autonomousCommand = new AutoGamePlan();
         //de-comment this when competing or testing auto
         

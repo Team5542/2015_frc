@@ -29,16 +29,9 @@ public class FprDrive extends CommandBase {
     	Joystick controller;
     	double move;
     	double turn;
-    	if (OI.getxBox()){
-    		controller = Robot.oi.getController();
-    		move = -controller.getRawAxis(OI.lyAxis);
-    		turn = controller.getRawAxis(OI.rxAxis);
-    	}
-    	else{
-    		controller = Robot.oi.getJoystick();
-    		move = -controller.getRawAxis(OI.stickY);
-    		turn = controller.getRawAxis(OI.stickZ);
-    	}
+    	controller = Robot.oi.getController();
+    	move = -controller.getRawAxis(OI.lyAxis);
+    	turn = controller.getRawAxis(OI.rxAxis);
     	if (move >= 0)
     		move = Math.pow(move, OI.sensitivity);
     	else
