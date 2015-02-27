@@ -29,9 +29,10 @@ public class UserArm extends CommandBase {
     	else
     		input = -(Math.pow(-input, OI.sensitivity));
 
-    	
-    	
+
+
     	if (input > -.05 && input < .05){
+    		input = 0;
     		arm.move(.35);
     	}
     	else
@@ -40,7 +41,7 @@ public class UserArm extends CommandBase {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+    	return false;
     }
 
     // Called once after isFinished returns true

@@ -42,12 +42,25 @@ public class Arm extends Subsystem {
     	return openArm.get();
     }
 
-    public void move(double input){
-    	leftMotor.set(input);
-    	rightMotor.set(input);
+    private boolean hold = false;
+    public void switchHold(){
+    	hold = !hold;
     }
-    
-    
+
+    private double lastInput;
+    public void move(double input){
+    	if(hold){
+    		leftMotor.set(lastInput);
+    		rightMotor.set(lastInput);
+    	}
+    	else{
+    		leftMotor.set(input);
+    		rightMotor.set(input);
+    		lastInput = input;
+    	}
+    }
+
+
     public void initDefaultCommand() {
         setDefaultCommand(new UserArm());
     }
