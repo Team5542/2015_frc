@@ -76,30 +76,24 @@ public class OI {
 	public static boolean getxBox(){
 		return xBox;
 	}
-	
+
 	//constructor
-	public OI(boolean dual){
-		if (dual){
-			xBox = false;
-			{
-				yButton.whenPressed(new CenterCamera());
-			}
-			{
-				//thumb.whenPressed(new Stack());
-				//b8.whenPressed(new ArmLift());
-				//b10.whenPressed(new ArmPlace());
-				//b12.whenPressed(new ArmBase());
-				//b3.whenPressed(new Grasp());
-			}
+	public OI(){
+		{
+			yButton.whenPressed(new CenterCamera());
+			//thumb.whenPressed(new Stack());
+			//b8.whenPressed(new ArmLift());
+			//b10.whenPressed(new ArmPlace());
+			//b12.whenPressed(new ArmBase());
+			//b3.whenPressed(new Grasp());
 		}
-		else{
-			xBox = true;
+		/*{
 			start.whenPressed(new CenterCamera());
 			//rBumper.whenPressed(new Stack());
 			//aButton.whenPressed(new ArmBase());
 			//bButton.whenPressed(new ArmPlace());
 			//xButton.whenPressed(new ArmLift());
 			//yButton.whenPressed(new Grasp());
-		}
+		}*/
 	}
 }

@@ -22,7 +22,7 @@ public class Robot extends IterativeRobot {
 
 	public static OI oi;
 	public void restartOI(boolean dual){
-		oi = new OI(dual);
+		oi = new OI();
 	}
     Command autonomousCommand;
 
@@ -32,8 +32,7 @@ public class Robot extends IterativeRobot {
      */
     public void robotInit() {
     	CommandBase.init();
-    	(new SDCS()).start();
-    	oi = new OI(true);
+    	oi = new OI();
     	//autonomousCommand = new AutoGamePlan();
         //de-comment this when competing or testing auto
         
