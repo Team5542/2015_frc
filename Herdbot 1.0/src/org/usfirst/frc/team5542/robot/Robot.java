@@ -33,7 +33,7 @@ public class Robot extends IterativeRobot {
     public void robotInit() {
     	CommandBase.init();
     	oi = new OI();
-    	autonomousCommand = new AutoGamePlan();
+    	autonomousCommand = new JustMove();
         //de-comment this when competing or testing auto
         
     }
