@@ -1,34 +1,30 @@
-package org.usfirst.frc.team5542.robot.commands.autonomous;
+package org.usfirst.frc.team5542.robot.commands;
 
-import org.usfirst.frc.team5542.robot.commands.CommandBase;
 
 /**
  *
  */
-public class JustMove extends CommandBase {
+public class SwitchGear extends CommandBase {
 
-    public JustMove() {
-        requires(drivetrain);
+    public SwitchGear() {
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	drivetrain.reset();
+    	drivetrain.switchGear();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	drivetrain.fprDrive(.8, 0);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return (drivetrain.getDistance() > 80);
+        return true;
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    	drivetrain.fprDrive(0, 0);
     }
 
     // Called when another command which requires one or more of the same

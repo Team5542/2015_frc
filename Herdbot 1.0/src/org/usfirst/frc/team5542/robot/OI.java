@@ -82,5 +82,6 @@ public class OI {
 		start.whenPressed(new CenterCamera());
 		lBumper.whenPressed(new Grasp());
 		rBumper.whenPressed(new ClawControl());
+		aButton.whenPressed(new SwitchGear());
 	}
 }

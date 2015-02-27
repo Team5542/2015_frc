@@ -32,6 +32,10 @@ public class FprDrive extends CommandBase {
     	controller = Robot.oi.getController();
     	move = -controller.getRawAxis(OI.lyAxis);
     	turn = controller.getRawAxis(OI.rxAxis);
+    	if(drivetrain.isLow()){
+    		move = move / 2;
+    		turn = turn / 2;
+    	}
     	if (move >= 0)
     		move = Math.pow(move, OI.sensitivity);
     	else

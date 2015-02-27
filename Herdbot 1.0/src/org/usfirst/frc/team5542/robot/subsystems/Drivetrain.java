@@ -71,6 +71,13 @@ public class Drivetrain extends Subsystem {
     	prev2 = right;
     }
     
+    private boolean lowGear = false;
+    public boolean isLow(){
+    	return lowGear;
+    }
+    public void switchGear(){
+    	lowGear = !lowGear;
+    }
     public void fprDrive(double move, double turn){
     	if (prev1 - rate > move)
     		move = prev1 - rate;
