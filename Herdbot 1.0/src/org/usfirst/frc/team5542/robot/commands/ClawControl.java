@@ -20,7 +20,7 @@ public class ClawControl extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Joystick controller = Robot.oi.getController();
+    	Joystick controller = Robot.oi.getJoystick();
     	boolean open = controller.getRawButton(1);
     	if(open)
     		claw.open();
