@@ -32,7 +32,7 @@ public class Arm extends PIDSubsystem {
 	
 	private static double base = 0, lift = 60, place = 30;//constants for preset positions
 	
-	private static final double kp = 1, ki = 0, kd = 0;
+	private static final double kp = 5, ki = 0, kd = 0;
     public Arm() {
     	super(kp, ki, kd);
     	setInputRange(0, 80);
