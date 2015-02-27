@@ -19,6 +19,8 @@ public class Drivetrain extends Subsystem {
 	private static final double rate = .02;
 	private static final double dpp = 18.84;//distance per pulse (inches)
 	
+	public double circ = 69.115; // in (22*pi)
+	
 	private Drivetrain(){
 		flMotor = new Talon(RobotMap.flMotor);
 		blMotor = new Talon(RobotMap.blMotor);

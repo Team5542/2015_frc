@@ -22,7 +22,7 @@ public class JustMove extends CommandBase {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return (drivetrain.getDistance() > 72);
+        return (drivetrain.getDistance() > 84);
     }
 
     // Called once after isFinished returns true
