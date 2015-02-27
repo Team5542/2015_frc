@@ -3,6 +3,7 @@ package org.usfirst.frc.team5542.robot.commands;
 import edu.wpi.first.wpilibj.Sendable;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *Smartdashboard command scheme
@@ -22,6 +23,7 @@ public class SDCS extends Command {
     protected void initialize() {
     	sc.addDefault("Joystick + X-Box Controller", twoController);
     	sc.addObject("X-Box Controller", xBox);
+    	SmartDashboard.putData("Control Choser", sc);
     }
 
     // Called repeatedly when this Command is scheduled to run
