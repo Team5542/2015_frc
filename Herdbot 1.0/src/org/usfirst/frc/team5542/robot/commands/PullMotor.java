@@ -26,13 +26,13 @@ public class PullMotor extends CommandBase {
     	if (input == 0){
     		grabber.spit();
     	}
-    	if (input == 90){
+    	else if (input == 90){
     		grabber.right();
     	}
-    	if (input == 180){
+    	else if (input == 180){
     		grabber.feed();
     	}
-    	if (input == 270){
+    	else if (input == 270){
     		grabber.left();
     	}
     	else {
