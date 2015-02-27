@@ -21,14 +21,8 @@ public class PullMotor extends CommandBase {
     protected void execute() {
     	int input;
     	Joystick controller;
-    	if (OI.getxBox()){
-    		controller = Robot.oi.getController();
-    		input = controller.getPOV(OI.dPad);
-    	}
-    	else{
-    		controller = Robot.oi.getJoystick();
-    		input = controller.getPOV(OI.pov);
-    	}
+    	controller = Robot.oi.getJoystick();
+    	input = controller.getPOV(OI.pov);
     	if (input == 0){
     		grabber.spit();
     	}
