@@ -21,8 +21,8 @@ public class FprDrive extends CommandBase {
     	//heading = gyro.getXangle();
     }
 
-    private double heading;
-    private double prevTurn;
+    //private double heading;
+    //private double prevTurn;
     
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
