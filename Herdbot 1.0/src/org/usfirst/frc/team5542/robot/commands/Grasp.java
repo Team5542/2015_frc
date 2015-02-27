@@ -7,7 +7,7 @@ package org.usfirst.frc.team5542.robot.commands;
 public class Grasp extends CommandBase {
 
     public Grasp() {
-    	requires (arm);
+    	requires(arm);
     }
 
     // Called just before this Command runs the first time
