@@ -28,6 +28,9 @@ public class TheClaaaw extends Subsystem {
 		closeClaw= new Solenoid(RobotMap.closeClaw);
 	}
 
+	public boolean isOpen(){
+		return openClaw.get();
+	}
 	public void open(){
 		closeClaw.set(false);
 		openClaw.set(true);
