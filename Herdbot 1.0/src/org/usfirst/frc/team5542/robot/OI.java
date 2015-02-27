@@ -82,10 +82,10 @@ public class OI {
 		{
 			yButton.whenPressed(new CenterCamera());
 			//thumb.whenPressed(new Stack());
-			//b8.whenPressed(new ArmLift());
-			//b10.whenPressed(new ArmPlace());
-			//b12.whenPressed(new ArmBase());
-			//b3.whenPressed(new Grasp());
+			b8.whenPressed(new ArmLift());
+			b10.whenPressed(new ArmPlace());
+			b12.whenPressed(new ArmBase());
+			b3.whenPressed(new Grasp());
 		}
 		/*{
 			start.whenPressed(new CenterCamera());
