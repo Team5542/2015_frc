@@ -22,14 +22,8 @@ public class UserCamera extends CommandBase {
     protected void execute() {
     	Joystick controller;
     	int cam;
-    	if (OI.getxBox()){
-    		controller = Robot.oi.getController();
-    		cam = controller.getPOV(OI.dPad);
-    	}
-    	else{
-    		controller = Robot.oi.getJoystick();
-    		cam = controller.getPOV(OI.pov);
-    	}
+    	controller = Robot.oi.getController();
+    	cam = controller.getPOV(OI.dPad);
     	if (cam == 0 || cam == 45 || cam == 315)
     		camera.tilt(true);
     	if (cam == 135 || cam == 180 || cam == 225)
@@ -42,7 +36,7 @@ public class UserCamera extends CommandBase {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+    	return false;
     }
 
     // Called once after isFinished returns true
