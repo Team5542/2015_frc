@@ -38,8 +38,8 @@ public class UserArm extends CommandBase {
 
     	
     	
-    	if (input > -.05 && input < .06){
-    		arm.move(.1);
+    	if (input > -.05 && input < .05){
+    		arm.move(.2);
     	}
     	else
     		arm.move(input);
