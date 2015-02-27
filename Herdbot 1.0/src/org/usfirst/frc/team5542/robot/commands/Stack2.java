@@ -14,7 +14,7 @@ public class Stack2 extends CommandBase {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	arm.setBase();
+    	//arm.setBase();
     	drivetrain.reset();
     	arm.open();
     }
@@ -37,7 +37,7 @@ public class Stack2 extends CommandBase {
     protected void end() {
     	if (complete){
     		arm.close();
-    		arm.setLift();
+    		//arm.setLift();
     	}
     	claw.close();
     }

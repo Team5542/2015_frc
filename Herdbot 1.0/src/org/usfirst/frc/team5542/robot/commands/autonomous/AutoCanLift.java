@@ -18,7 +18,7 @@ public class AutoCanLift extends CommandBase {
     protected void initialize() {
     	claw.open();
     	arm.open();
-    	arm.setBase();
+    	//arm.setBase();
     }
 
     private static final double distance = 12;
@@ -33,7 +33,7 @@ public class AutoCanLift extends CommandBase {
 
     // Called once after isFinished returns true
     protected void end() {
-    	arm.setLift();
+    	//arm.setLift();
     }
 
     // Called when another command which requires one or more of the same

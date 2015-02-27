@@ -13,7 +13,7 @@ public class WaitForIt extends CommandBase {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	arm.setSetpointRelative(-10);
+    	//arm.setSetpointRelative(-10);
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -22,12 +22,13 @@ public class WaitForIt extends CommandBase {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        if (arm.onTarget()){
+        /*if (arm.onTarget()){
         	complete = true;
         	return true;
         }
         else
-        	return false;
+        	return false;*/
+    	return true;
     }
 
     private boolean complete = false;
