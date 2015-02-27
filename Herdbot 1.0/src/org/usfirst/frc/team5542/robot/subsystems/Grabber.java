@@ -34,8 +34,8 @@ public class Grabber extends Subsystem {
 	}
 	
 	public void spit(){
-		pullMotorL.set(.25);
-		pullMotorR.set(-.25);
+		pullMotorL.set(-.25);
+		pullMotorR.set(.25);
 	}
 	
 	public void left(){
