@@ -9,20 +9,23 @@ public class AutoTurnLeft extends CommandBase {
 
     public AutoTurnLeft() {
         requires(drivetrain);
+        requires(grabber);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	drivetrain.reset();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	drivetrain.fprDrive(0, .2);
+    	grabber.feed();
     }
-    private double targetAngle = 180;
+    private double targetDist = 60;
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return (gyro.getXangle() >= targetAngle);
+        return (drivetrain.rightDistance() >= targetDist);
     }
 
     // Called once after isFinished returns true

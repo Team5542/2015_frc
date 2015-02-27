@@ -13,16 +13,17 @@ public class AutoToteAlign extends CommandBase {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	drivetrain.reset();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	drivetrain.fprDrive(0, .2);
+    	drivetrain.fprDrive(0, .1);
     }
-    private double targetAngle = 90;
+    private double targetDist = 10;
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return (gyro.getXangle() >= targetAngle);
+        return (drivetrain.rightDistance() >= targetDist);
     }
 
     // Called once after isFinished returns true
