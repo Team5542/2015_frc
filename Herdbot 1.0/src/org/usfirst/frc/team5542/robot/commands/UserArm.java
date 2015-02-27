@@ -32,7 +32,7 @@ public class UserArm extends CommandBase {
     	
     	
     	if (input > -.05 && input < .05){
-    		arm.move(.25);
+    		arm.move(.35);
     	}
     	else
     		arm.move(input);
