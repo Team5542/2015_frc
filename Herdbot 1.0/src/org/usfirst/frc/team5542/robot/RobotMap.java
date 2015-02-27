@@ -23,7 +23,7 @@ public class RobotMap {
     public static final int encoder2p1 = 3;//second encoder first port
     public static final int encoder2p2 = 4;//second encoder second port
     public static final int pullMotorL = 7;
-    public static final int pullMotorR = 8;
+    public static final int pullMotorR = 9;
     public static final int closeClaw = 2;
     public static final int openClaw = 3;
     public static final int openArm = 0;
