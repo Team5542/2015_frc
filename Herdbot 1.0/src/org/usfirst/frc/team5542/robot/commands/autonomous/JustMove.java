@@ -17,12 +17,12 @@ public class JustMove extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	drivetrain.fprDrive(.5, 0);
+    	drivetrain.fprDrive(.8, 0);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return (drivetrain.getDistance() > 84);
+        return (drivetrain.getDistance() > 80);
     }
 
     // Called once after isFinished returns true
