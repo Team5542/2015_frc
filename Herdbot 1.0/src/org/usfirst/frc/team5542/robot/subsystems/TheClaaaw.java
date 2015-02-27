@@ -39,9 +39,7 @@ public class TheClaaaw extends Subsystem {
 		openClaw.set(false);
 		closeClaw.set(true);
 	}
-
 	public void initDefaultCommand() {
-		setDefaultCommand(new ClawControl());
 	}
 
 
