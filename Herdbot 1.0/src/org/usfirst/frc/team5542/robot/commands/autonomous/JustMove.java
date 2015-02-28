@@ -9,8 +9,8 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 public class JustMove extends CommandBase {
 	
-	//long startTime;
-	//int time = 4;
+	long startTime;
+	int time = 1500;
 
     public JustMove() {
         requires(drivetrain);
@@ -19,21 +19,17 @@ public class JustMove extends CommandBase {
     // Called just before this Command runs the first time
     protected void initialize() {
     	drivetrain.reset();
-    	//startTime = System.currentTimeMillis();
-    	SmartDashboard.putNumber("Starting Value", drivetrain.getDistance());
+    	startTime = System.currentTimeMillis();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	drivetrain.fprDrive(.5, 0);
-    	SmartDashboard.putNumber("left", drivetrain.leftDistance());
-    	SmartDashboard.putNumber("right", drivetrain.rightDistance());
-    	SmartDashboard.putNumber("distance", drivetrain.getDistance());
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return (drivetrain.getDistance() > 72);
+        return ((System.currentTimeMillis() - startTime) >= time);
     }
 
     // Called once after isFinished returns true

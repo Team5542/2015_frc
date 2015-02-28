@@ -83,5 +83,6 @@ public class OI {
 		lBumper.whenPressed(new Grasp());
 		rBumper.whenPressed(new ClawControl());
 		aButton.whenPressed(new SwitchGear());
+		lStick.whenPressed(new Hold());
 	}
 }
