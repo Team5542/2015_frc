@@ -79,10 +79,10 @@ public class OI {
 
 	//constructor
 	public OI(){
-		start.whenPressed(new CenterCamera());
-		lBumper.whenPressed(new Grasp());
-		rBumper.whenPressed(new ClawControl());
-		aButton.whenPressed(new SwitchGear());
-		lStick.whenPressed(new Hold());
+		b12.whenPressed(new CenterCamera());
+		thumb.whenPressed(new Grasp());
+		trigger.whenPressed(new ClawControl());
+		b4.whenPressed(new SwitchGear());
+		b3.whenPressed(new Hold());
 	}
 }

@@ -22,8 +22,8 @@ public class UserCamera extends CommandBase {
     protected void execute() {
     	Joystick controller;
     	int cam;
-    	controller = Robot.oi.getController();
-    	cam = controller.getPOV(OI.dPad);
+    	controller = Robot.oi.getJoystick();
+    	cam = controller.getPOV(OI.pov);
     	if (cam == 0 || cam == 45 || cam == 315)
     		camera.tilt(true);
     	if (cam == 135 || cam == 180 || cam == 225)

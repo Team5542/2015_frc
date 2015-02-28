@@ -22,8 +22,8 @@ public class UserArm extends CommandBase {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	double input;
-    	Joystick controller = Robot.oi.getController();
-    	input = controller.getRawAxis(OI.ryAxis);
+    	Joystick controller = Robot.oi.getJoystick();
+    	input = controller.getRawAxis(OI.slider);
     	if (input >= 0)
     		input = Math.pow(input, OI.sensitivity);
     	else
