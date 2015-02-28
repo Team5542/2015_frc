@@ -22,24 +22,18 @@ public class UserArm extends CommandBase {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	double input;
-    	Joystick controller;
-    	if (OI.getxBox()){
-    		controller = Robot.oi.getController();
-    		input = - controller.getRawAxis(OI.ryAxis);
-    	}
-    	else{
-    		controller = Robot.oi.getJoystick();
-    		input = - controller.getRawAxis(OI.stickY);
-    	}
+    	Joystick controller = Robot.oi.getController();
+    	input = controller.getRawAxis(OI.ryAxis);
     	if (input >= 0)
     		input = Math.pow(input, OI.sensitivity);
     	else
     		input = -(Math.pow(-input, OI.sensitivity));
 
-    	
-    	
+
+
     	if (input > -.05 && input < .05){
-    		arm.move(.25);
+    		input = 0;
+    		arm.move(.35);
     	}
     	else
     		arm.move(input);
@@ -47,7 +41,7 @@ public class UserArm extends CommandBase {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+    	return false;
     }
 
     // Called once after isFinished returns true

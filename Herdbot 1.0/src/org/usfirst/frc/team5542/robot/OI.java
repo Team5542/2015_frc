@@ -79,21 +79,9 @@ public class OI {
 
 	//constructor
 	public OI(){
-		{
-			yButton.whenPressed(new CenterCamera());
-			//thumb.whenPressed(new Stack());
-			//b8.whenPressed(new ArmLift());
-			//b10.whenPressed(new ArmPlace());
-			//b12.whenPressed(new ArmBase());
-			b3.whenPressed(new Grasp());
-		}
-		/*{
-			start.whenPressed(new CenterCamera());
-			//rBumper.whenPressed(new Stack());
-			//aButton.whenPressed(new ArmBase());
-			//bButton.whenPressed(new ArmPlace());
-			//xButton.whenPressed(new ArmLift());
-			//yButton.whenPressed(new Grasp());
-		}*/
+		start.whenPressed(new CenterCamera());
+		aButton.whenPressed(new Grasp());
+		bButton.whenPressed(new ClawControl());
+		rBumper.whenPressed(new SwitchGear());
 	}
 }

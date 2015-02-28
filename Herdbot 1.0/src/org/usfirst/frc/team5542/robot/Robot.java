@@ -7,7 +7,6 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
 import org.usfirst.frc.team5542.robot.commands.CommandBase;
-import org.usfirst.frc.team5542.robot.commands.SDCS;
 import org.usfirst.frc.team5542.robot.commands.autonomous.AutoGamePlan;
 import org.usfirst.frc.team5542.robot.commands.autonomous.JustMove;
 
@@ -21,9 +20,6 @@ import org.usfirst.frc.team5542.robot.commands.autonomous.JustMove;
 public class Robot extends IterativeRobot {
 
 	public static OI oi;
-	public void restartOI(boolean dual){
-		oi = new OI();
-	}
     Command autonomousCommand;
 
     /**
@@ -33,7 +29,7 @@ public class Robot extends IterativeRobot {
     public void robotInit() {
     	CommandBase.init();
     	oi = new OI();
-    	//autonomousCommand = new AutoGamePlan();
+    	autonomousCommand = new JustMove();
         //de-comment this when competing or testing auto
         
     }

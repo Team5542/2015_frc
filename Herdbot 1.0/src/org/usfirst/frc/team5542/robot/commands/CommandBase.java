@@ -29,7 +29,7 @@ public abstract class CommandBase extends Command {
 		camera = Camera.getInstance();
 		//pdp = PDP.getInstance();
 		//sonar = Sonar.getInstance();
-		grabber = Grabber.getInstance();
+		//grabber = Grabber.getInstance();
 		claw = TheClaaaw.getInstance();
 		//arm.close();
 		claw.open();

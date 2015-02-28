@@ -32,22 +32,27 @@ public class FprDrive extends CommandBase {
     	controller = Robot.oi.getController();
     	move = -controller.getRawAxis(OI.lyAxis);
     	turn = controller.getRawAxis(OI.rxAxis);
-    	if (move >= 0)
-    		move = Math.pow(move, OI.sensitivity);
-    	else
-    		move = -(Math.pow(-move, OI.sensitivity));
+    	if(drivetrain.isLow()){
+    		move = move / 2;
+    		turn = turn / 2;
+    	}
+    	else{
+    		if (move >= 0)
+    			move = Math.pow(move, OI.sensitivity);
+    		else
+    			move = -(Math.pow(-move, OI.sensitivity));
 
-    	if (turn >= 0)
-    		turn = Math.pow(turn, OI.sensitivity);
-    	else
-    		turn = -(Math.pow(-turn, OI.sensitivity));
-    	
+    		if (turn >= 0)
+    			turn = Math.pow(turn, OI.sensitivity);
+    		else
+    			turn = -(Math.pow(-turn, OI.sensitivity));
+    	}
     	if (move > -.05 && move < .05)
     		move = 0.0;
 
     	if (turn > -.05 && turn < .05)
     		turn = 0.0;
-    	
+
     	/*if (turn != 0 || move == 0)
     		heading = gyro.getZangle();
     	else{
