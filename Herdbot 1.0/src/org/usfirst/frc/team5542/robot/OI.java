@@ -80,7 +80,7 @@ public class OI {
 	//constructor
 	public OI(){
 		start.whenPressed(new CenterCamera());
-		lStick.whenPressed(new Grasp());
+		lBumper.whenPressed(new Grasp());
 		rBumper.whenPressed(new ClawControl());
 		aButton.whenPressed(new SwitchGear());
 	}
