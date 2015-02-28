@@ -16,7 +16,7 @@ public class Drivetrain extends Subsystem {
     
 	private RobotDrive myDrive;
 	private Talon flMotor, frMotor, blMotor, brMotor;
-	private Victor cMotor1, cMotor2;
+	private Victor cMotor1;
 	private Encoder lEncoder, rEncoder;
 	private static final double rate = .02;
 	private static final double dpp = 18.84;//distance per pulse (inches)
@@ -29,7 +29,6 @@ public class Drivetrain extends Subsystem {
 		frMotor = new Talon(RobotMap.frMotor);
 		brMotor = new Talon(RobotMap.brMotor);
 		cMotor1 = new Victor(RobotMap.cMotor1);
-		cMotor2 = new Victor(RobotMap.cMotor2);
 		myDrive = new RobotDrive(flMotor, blMotor, frMotor, brMotor);
 		lEncoder = new Encoder(RobotMap.encoder1p1, RobotMap.encoder1p2);
 		rEncoder = new Encoder(RobotMap.encoder2p1, RobotMap.encoder2p2);
@@ -82,7 +81,6 @@ public class Drivetrain extends Subsystem {
     		turn = prevTurn + rate;
     	myDrive.arcadeDrive(move, turn);
     	cMotor1.set(strafe);
-    	cMotor2.set(strafe);
     	prevMove = move;
     	prevStrafe = strafe;
     	prevStrafe = turn;
