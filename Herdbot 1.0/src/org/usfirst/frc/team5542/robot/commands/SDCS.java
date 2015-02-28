@@ -20,7 +20,7 @@ public class SDCS extends Command {
     }
 
     // Called just before this Command runs the first time
-    protected void initialize() {
+    public void initialize() {
     	sc.addDefault("Joystick + X-Box Controller", twoController);
     	sc.addObject("X-Box Controller", xBox);
     	SmartDashboard.putData("Control Choser", sc);
