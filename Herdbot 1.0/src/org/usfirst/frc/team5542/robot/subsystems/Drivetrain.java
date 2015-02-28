@@ -5,6 +5,7 @@ import org.usfirst.frc.team5542.robot.commands.FprDrive;
 
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.Talon;
+import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.Encoder;
 
@@ -15,6 +16,7 @@ public class Drivetrain extends Subsystem {
     
 	private RobotDrive myDrive;
 	private Talon flMotor, frMotor, blMotor, brMotor;
+	private Victor cMotor1, cMotor2;
 	private Encoder lEncoder, rEncoder;
 	private static final double rate = .02;
 	private static final double dpp = 18.84;//distance per pulse (inches)
@@ -26,6 +28,8 @@ public class Drivetrain extends Subsystem {
 		blMotor = new Talon(RobotMap.blMotor);
 		frMotor = new Talon(RobotMap.frMotor);
 		brMotor = new Talon(RobotMap.brMotor);
+		cMotor1 = new Victor(RobotMap.cMotor1);
+		cMotor2 = new Victor(RobotMap.cMotor2);
 		myDrive = new RobotDrive(flMotor, blMotor, frMotor, brMotor);
 		lEncoder = new Encoder(RobotMap.encoder1p1, RobotMap.encoder1p2);
 		rEncoder = new Encoder(RobotMap.encoder2p1, RobotMap.encoder2p2);
@@ -54,22 +58,7 @@ public class Drivetrain extends Subsystem {
 		rEncoder.reset();
 	}
 	
-	private static double prev1;
-	private static double prev2;
-	
-    public void tankDrive(double left, double right){
-    	if (prev1 - rate > left)
-    		left = prev1 - rate;
-    	if (prev1 + rate < left)
-    		left = prev1 + rate;
-    	if (prev2 - rate > right)
-    		right = prev2 - rate;
-    	if (prev2 + rate < right)
-    		right = prev2 + rate;
-    	myDrive.tankDrive(left, right);
-    	prev1 = left;
-    	prev2 = right;
-    }
+	private static double prevMove, prevStrafe, prevTurn;
     
     private boolean lowGear = false;
     public boolean isLow(){
@@ -78,18 +67,22 @@ public class Drivetrain extends Subsystem {
     public void switchGear(){
     	lowGear = !lowGear;
     }
-    public void fprDrive(double move, double turn){
-    	if (prev1 - rate > move)
-    		move = prev1 - rate;
-    	if (prev1 + rate < move)
-    		move = prev1 + rate;
-    	if (prev2 - rate > turn)
-    		turn = prev2 - rate;
-    	if (prev2 + rate < turn)
-    		turn = prev2 + rate;
+    public void fprDrive(double move, double strafe, double turn){
+    	if (prevMove - rate > move)
+    		move = prevMove - rate;
+    	if (prevMove + rate < move)
+    		move = prevMove + rate;
+    	if (prevStrafe - rate > turn)
+    		turn = prevStrafe - rate;
+    	if (prevStrafe + rate < turn)
+    		turn = prevStrafe + rate;
+    	if (prevTurn - rate > turn)
+    		turn = prevTurn - rate;
+    	if (prevTurn + rate < turn)
+    		turn = prevTurn + rate;
     	myDrive.arcadeDrive(move, turn);
-    	prev1 = move;
-    	prev2 = turn;
+    	prevMove = move;
+    	prevStrafe = turn;
     }
 
 

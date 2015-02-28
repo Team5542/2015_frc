@@ -24,7 +24,7 @@ public class JustMove extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	drivetrain.fprDrive(.5, 0);
+    	drivetrain.fprDrive(.5, 0, 0);
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -34,7 +34,7 @@ public class JustMove extends CommandBase {
 
     // Called once after isFinished returns true
     protected void end() {
-    	drivetrain.fprDrive(0, 0);
+    	drivetrain.fprDrive(0, 0, 0);
     	SmartDashboard.putNumber("end left", drivetrain.leftDistance());
     	SmartDashboard.putNumber("end right", drivetrain.rightDistance());
     	SmartDashboard.putNumber("end distance", drivetrain.getDistance());

@@ -10,6 +10,8 @@ public class RobotMap {
     public static final int blMotor = 2;//etc.
     public static final int frMotor = 1;//
     public static final int brMotor = 0;//
+    public static final int cMotor1 = 7;
+    public static final int cMotor2 = 8;
     public static final int armMotorLeft = 1;//CAN id for arm motor
     public static final int armMotorRight = 2;
     public static final int potLow = 1;//analog for pot

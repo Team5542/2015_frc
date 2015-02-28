@@ -19,7 +19,7 @@ public class AutoTurnLeft extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	drivetrain.fprDrive(0, .2);
+    	drivetrain.fprDrive(0, 0, .2);
     	grabber.feed();
     }
     private double targetDist = 60;

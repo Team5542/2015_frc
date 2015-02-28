@@ -23,7 +23,7 @@ public class AutoCanLift extends CommandBase {
 
     private static final double distance = 12;
     protected void execute() {
-    	drivetrain.fprDrive(.1, 0);
+    	drivetrain.fprDrive(.1, 0, 0);
     }
 
     // Make this return true when this Command no longer needs to run execute()

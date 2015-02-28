@@ -18,7 +18,7 @@ public class AutoMoveUp extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	drivetrain.fprDrive(.2, 0);
+    	drivetrain.fprDrive(.2, 0, 0);
     }
     private double dist = 15;
     // Make this return true when this Command no longer needs to run execute()

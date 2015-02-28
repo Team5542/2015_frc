@@ -25,7 +25,7 @@ public class AutoZone extends CommandBase {
     		turn = turn - .02;
     	if (gyro.getZangle() < heading)
     		turn = turn +.02;
-    	drivetrain.fprDrive(.2, turn);
+    	drivetrain.fprDrive(.2, 0, turn);
     }
 
     private double distance = 84;

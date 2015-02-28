@@ -27,11 +27,11 @@ public class FprDrive extends CommandBase {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	Joystick controller;
-    	double move;
-    	double turn;
-    	controller = Robot.oi.getController();
-    	move = -controller.getRawAxis(OI.lyAxis);
-    	turn = controller.getRawAxis(OI.rxAxis);
+    	double move, strafe, turn;
+    	controller = Robot.oi.getJoystick();
+    	move = -controller.getRawAxis(OI.stickY);
+    	strafe = controller.getRawAxis(OI.stickX);
+    	turn = -controller.getRawAxis(OI.stickZ);
     	if(drivetrain.isLow()){
     		move = move / 2;
     		turn = turn / 2;
@@ -70,7 +70,7 @@ public class FprDrive extends CommandBase {
     		}
     	}*/
     	
-    	drivetrain.fprDrive(move, turn);
+    	drivetrain.fprDrive(move, strafe, turn);
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -80,7 +80,7 @@ public class FprDrive extends CommandBase {
 
     // Called once after isFinished returns true
     protected void end() {
-    	drivetrain.fprDrive(0, 0);
+    	drivetrain.fprDrive(0, 0, 0);
     }
 
     // Called when another command which requires one or more of the same

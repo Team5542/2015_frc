@@ -21,7 +21,7 @@ public class Stack2 extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	drivetrain.fprDrive(.2, 0);
+    	drivetrain.fprDrive(.2, 0, 0);
     }
 
     private static final double distance = 12;
