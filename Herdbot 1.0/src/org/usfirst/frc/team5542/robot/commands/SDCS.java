@@ -13,7 +13,7 @@ public class SDCS extends Command {
 	SendableChooser sc = new SendableChooser();
 	Sendable twoController;
 	Sendable xBox;
-	Object controller;
+	double controller;
 	
     public SDCS() {
 
@@ -22,13 +22,14 @@ public class SDCS extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
     	sc.addDefault("Joystick + X-Box Controller", twoController);
+    	SmartDashboard.putNumber("Nunber Of Drivers", 2);
     	sc.addObject("X-Box Controller", xBox);
     	SmartDashboard.putData("Control Choser", sc);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	if (controller != sc.getSelected());{
+    	if (controller != SmartDashboard.getNumber("Number Of Drivers"));{
     		
     	}
     }
