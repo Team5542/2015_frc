@@ -81,7 +81,10 @@ public class Drivetrain extends Subsystem {
     	if (prevTurn + rate < turn)
     		turn = prevTurn + rate;
     	myDrive.arcadeDrive(move, turn);
+    	cMotor1.set(strafe);
+    	cMotor2.set(strafe);
     	prevMove = move;
+    	prevStrafe = strafe;
     	prevStrafe = turn;
     }
 
