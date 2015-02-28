@@ -14,7 +14,7 @@ public class Stack extends CommandBase {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	//arm.setPlace();
+    	if(!arm.isInRange()) end();
     	drivetrain.reset();
     	claw.open();
     }
@@ -24,9 +24,8 @@ public class Stack extends CommandBase {
     	drivetrain.fprDrive(-.2, 0);
     }
 
-    private static final double distance = -12;
     protected boolean isFinished() {
-        if (drivetrain.getDistance() <= distance){
+        if (!arm.isInRange()){
         	complete = true;
         	return true;
         }

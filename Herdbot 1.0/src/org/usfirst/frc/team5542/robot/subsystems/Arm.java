@@ -4,6 +4,7 @@ import org.usfirst.frc.team5542.robot.RobotMap;
 import org.usfirst.frc.team5542.robot.commands.UserArm;
 
 import edu.wpi.first.wpilibj.CANTalon;
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
 //import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -16,6 +17,7 @@ public class Arm extends Subsystem {
     private CANTalon rightMotor = new CANTalon(RobotMap.armMotorRight);
     private Solenoid openArm = new Solenoid (RobotMap.openArm);
     private Solenoid closeArm = new Solenoid (RobotMap.closeArm);
+    private DigitalInput infrared = new DigitalInput(RobotMap.infrared);
    
 	private Arm(){
 		
@@ -45,6 +47,10 @@ public class Arm extends Subsystem {
     private boolean hold = false;
     public void switchHold(){
     	hold = !hold;
+    }
+    
+    public boolean isInRange(){
+    	return infrared.get();
     }
 
     private double lastInput;
